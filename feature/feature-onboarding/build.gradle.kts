@@ -1,21 +1,18 @@
 plugins {
-    id(Plugins.Android.ANDROID_APPLICATION)
+    id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
     id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
 android {
 
-    namespace = AppConfigs.NameSpaces.APP
+    namespace = AppConfigs.NameSpaces.Features.ON_BOARDING
 
     compileSdk = AppConfigs.DefaultConfigs.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = AppConfigs.DefaultConfigs.APPLICATION_ID
         minSdk = AppConfigs.DefaultConfigs.MINIMUM_SDK_VERSION
         targetSdk = AppConfigs.DefaultConfigs.TARGET_SDK_VERSION
-        versionCode = AppConfigs.DefaultConfigs.VERSION_CODE
-        versionName = AppConfigs.DefaultConfigs.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,7 +44,6 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(project(":data"))
-    implementation(project(":feature:feature-onboarding"))
 
     implementation(Dependencies.Android.CORE_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
