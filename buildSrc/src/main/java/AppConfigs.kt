@@ -4,12 +4,12 @@ object AppConfigs {
         const val DATA = "app.junsu.data"
         const val APP = "app.junsu.app"
         object Features {
-            const val MAIN = "app.junsu.main"
+            
         }
     }
 
     object DefaultConfigs {
-        const val APPLICATION_ID = "app.junsu.cleanarchitecturetemplate"
+        const val APPLICATION_ID = "app.junsu.wwwe"
         const val VERSION_CODE = 1
         const val VERSION_NAME = "1.0"
         const val COMPILE_SDK_VERSION = 33
