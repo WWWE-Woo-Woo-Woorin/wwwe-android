@@ -1,11 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":feature:feature-onboarding")
-
-
-include(":data")
-
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -25,4 +19,6 @@ dependencyResolutionManagement {
 rootProject.name = "WWWE"
 
 include(":domain")
+include(":data")
 include(":app")
+include(":feature:feature-onboarding")

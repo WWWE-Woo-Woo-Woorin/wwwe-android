@@ -4,7 +4,7 @@ object AppConfigs {
         const val DATA = "app.junsu.data"
         const val APP = "app.junsu.app"
         object Features {
-
+            const val ON_BOARDING = "app.junsu.feature_onboarding"
         }
     }
 
