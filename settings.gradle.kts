@@ -18,4 +18,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "WWWE"
 
+include(":domain")
 include(":app")
