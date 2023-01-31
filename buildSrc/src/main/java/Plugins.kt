@@ -5,10 +5,14 @@ object Plugins {
     }
 
     object Kotlin {
-        const val KOTLIN = "org.jetbrains.kotlin.android"
+        const val KOTLIN_JVM = "org.jetbrains.kotlin.jvm"
         const val KOTLIN_ANDROID = "kotlin-android"
         const val KOTLIN_KAPT = "kotlin-kapt"
         const val KTLINT = "org.jlleitschuh.gradle.ktlint"
+    }
+
+    object Java {
+        const val JAVA_LIBRARY = "java-library"
     }
 
     object DI {
