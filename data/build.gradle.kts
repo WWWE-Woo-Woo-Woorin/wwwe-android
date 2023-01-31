@@ -46,6 +46,7 @@ dependencies {
     implementation(Dependencies.Android.MATERIAL)
 
     implementation(Dependencies.Firebase.FIREBASE_STORAGE)
+    implementation(Dependencies.Firebase.FIREBASE_AUTH)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)

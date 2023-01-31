@@ -2,6 +2,7 @@ plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
     id(Plugins.Kotlin.KOTLIN_KAPT)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -50,6 +51,7 @@ dependencies {
     implementation(Dependencies.Android.MATERIAL)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
     testImplementation(Dependencies.Test.JUNIT)

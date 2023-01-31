@@ -16,6 +16,7 @@ object Dependencies {
 
     object Firebase {
         const val FIREBASE_STORAGE = "com.google.firebase:firebase-storage-ktx:${Versions.Firebase.FIREBASE_VERSION}"
+        const val FIREBASE_AUTH = "com.google.firebase:firebase-auth-ktx:${Versions.Firebase.FIREBASE_AUTH_VERSION}"
     }
 
     object Hilt {

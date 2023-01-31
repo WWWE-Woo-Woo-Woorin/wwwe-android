@@ -18,6 +18,7 @@ object Versions {
 
     object Firebase {
         const val FIREBASE_VERSION = "20.1.0"
+        const val FIREBASE_AUTH_VERSION = "21.1.0"
     }
 
     object Gradle {
