@@ -2,7 +2,6 @@ plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
     id(Plugins.Kotlin.KOTLIN_KAPT)
-    id(Plugins.Google.GOOGLE_SERVICES)
 }
 
 android {
@@ -45,12 +44,6 @@ dependencies {
     implementation(Dependencies.Android.CORE_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
-
-    implementation(Dependencies.Network.RETROFIT)
-    implementation(Dependencies.Network.OKHTTP)
-
-    implementation(Dependencies.Firebase.FIREBASE_STORAGE)
-    implementation(Dependencies.Firebase.FIREBASE_AUTH)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
