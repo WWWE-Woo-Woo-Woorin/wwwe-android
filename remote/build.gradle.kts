@@ -40,5 +40,7 @@ dependencies {
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
 
+    implementation(Dependencies.Java.INJECT)
+
     testImplementation(Dependencies.Test.JUNIT)
 }
