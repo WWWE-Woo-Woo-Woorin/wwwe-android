@@ -1,6 +1,8 @@
 plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
+    id(Plugins.Google.GOOGLE_SERVICES)
+    id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
 android {
@@ -40,7 +42,13 @@ dependencies {
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
 
+    implementation(Dependencies.Network.OKHTTP)
+    implementation(Dependencies.Network.RETROFIT)
+
     implementation(Dependencies.Java.INJECT)
+
+    implementation(Dependencies.Hilt.HILT_ANDROID)
+    kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
     testImplementation(Dependencies.Test.JUNIT)
 }
