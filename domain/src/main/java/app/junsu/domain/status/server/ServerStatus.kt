@@ -6,17 +6,17 @@ sealed class ServerStatus(
     message: String? = null,
 ) : Throwable(message = message), BaseStatus {
 
-    object BadGateway : ServerStatus("Bad Gateway") {
+    class BadGateway : ServerStatus("Bad Gateway") {
         override val statusCode: Int
             get() = 502
     }
 
-    object ServiceUnavailable : ServerStatus("Service Unavailable") {
+    class ServiceUnavailable : ServerStatus("Service Unavailable") {
         override val statusCode: Int
             get() = 504
     }
 
-    object GatewayTimeout : ServerStatus("Gateway Timeout") {
+    class GatewayTimeout : ServerStatus("Gateway Timeout") {
         override val statusCode: Int
             get() = 504
     }

@@ -8,47 +8,47 @@ sealed class ClientStatus(
     message = message,
 ), BaseStatus {
 
-    object NoInternet : ClientStatus("No Internet") {
+    class NoInternet : ClientStatus("No Internet") {
         override val statusCode: Int
             get() = -1
     }
 
-    object BadRequest : ClientStatus("Bad Request") {
+    class BadRequest : ClientStatus("Bad Request") {
         override val statusCode: Int
             get() = 400
     }
 
-    object Unauthorized : ClientStatus("Unauthorized") {
+    class Unauthorized : ClientStatus("Unauthorized") {
         override val statusCode: Int
             get() = 401
     }
 
-    object Forbidden : ClientStatus("Forbidden") {
+    class Forbidden : ClientStatus("Forbidden") {
         override val statusCode: Int
             get() = 403
     }
 
-    object NotFound : ClientStatus("Not Found") {
+    class NotFound : ClientStatus("Not Found") {
         override val statusCode: Int
             get() = 404
     }
 
-    object MethodNotAllowed : ClientStatus("Method Not Allowed") {
+    class MethodNotAllowed : ClientStatus("Method Not Allowed") {
         override val statusCode: Int
             get() = 405
     }
 
-    object Conflict : ClientStatus("Conflicted") {
+    class Conflict : ClientStatus("Conflicted") {
         override val statusCode: Int
             get() = 409
     }
 
-    object TooManyRequests : ClientStatus("Too Many Requests") {
+    class TooManyRequests : ClientStatus("Too Many Requests") {
         override val statusCode: Int
             get() = 429
     }
 
-    object Unknown : ClientStatus("Unknown") {
+    class Unknown : ClientStatus("Unknown") {
         override val statusCode: Int
             get() = -1
     }
