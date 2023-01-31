@@ -8,6 +8,11 @@ sealed class ClientStatus(
     message = message,
 ), BaseStatus {
 
+    object NoInternet : ClientStatus("No Internet") {
+        override val statusCode: Int
+            get() = -1
+    }
+
     object BadRequest : ClientStatus("Bad Request") {
         override val statusCode: Int
             get() = 400
