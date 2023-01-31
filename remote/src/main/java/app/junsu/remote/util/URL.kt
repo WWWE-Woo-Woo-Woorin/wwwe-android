@@ -5,7 +5,7 @@ object URL {
     object Auth {
 
         // POST
-        internal const val SIGN_IN = "/user"
+        internal const val SIGN_IN = "/user/signin"
 
         // POST
         internal const val REGENERATE_TOKEN = "/user/token"
