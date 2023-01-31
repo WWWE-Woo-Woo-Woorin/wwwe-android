@@ -51,7 +51,6 @@ dependencies {
     implementation(Dependencies.Android.MATERIAL)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
-    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
     testImplementation(Dependencies.Test.JUNIT)
