@@ -20,7 +20,7 @@ object Plugins {
     }
 
     object Google {
-        const val GOOGLE_SERVICES = "com.google.gms:google-services:${Versions.Google.GOOGLE_SERVICES_VERSION}"
+        const val GOOGLE_SERVICES = "com.google.gms.google-services"
     }
 
     object Gradle {
@@ -30,5 +30,7 @@ object Plugins {
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Gradle.GRADLE_KOTLIN_VERSION}"
         const val GRADLE_HILT_ANDROID =
             "com.google.dagger:hilt-android-gradle-plugin:${Versions.Gradle.GRADLE_HILT_ANDROID_VERSION}"
+        const val GOOGLE_SERVICES =
+            "com.google.gms:google-services:${Versions.Google.GOOGLE_SERVICES_VERSION}"
     }
 }

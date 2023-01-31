@@ -2,7 +2,7 @@ plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
     id(Plugins.Kotlin.KOTLIN_KAPT)
-    id("com.google.gms.google-services") // todo
+    id(Plugins.Google.GOOGLE_SERVICES)
 }
 
 android {
