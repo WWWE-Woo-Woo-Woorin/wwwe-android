@@ -14,6 +14,10 @@ object Dependencies {
         const val JUNIT = "junit:junit:${Versions.Test.JUNIT_VERSION}"
     }
 
+    object Firebase {
+        const val FIREBASE_STORAGE = "com.google.firebase:firebase-storage-ktx:${Versions.Firebase.FIREBASE_VERSION}"
+    }
+
     object Hilt {
         const val HILT_ANDROID =
             "com.google.dagger:hilt-android:${Versions.Hilt.HILT_ANDROID_VERSION}"

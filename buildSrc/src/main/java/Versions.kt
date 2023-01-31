@@ -16,10 +16,18 @@ object Versions {
         const val JAVA_INJECT_VERSION = "1"
     }
 
+    object Firebase {
+        const val FIREBASE_VERSION = "20.1.0"
+    }
+
     object Gradle {
         const val GRADLE_ANDROID_VERSION = "7.3.0"
         const val GRADLE_KOTLIN_VERSION = "1.6.10"
         const val GRADLE_HILT_ANDROID_VERSION = Hilt.HILT_ANDROID_VERSION
+    }
+
+    object Google {
+        const val GOOGLE_SERVICES_VERSION = "4.3.15"
     }
 
     object Hilt {

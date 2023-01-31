@@ -15,6 +15,10 @@ object Plugins {
         const val HILT_ANDROID = "dagger.hilt.android.plugin"
     }
 
+    object Google {
+        const val GOOGLE_SERVICES = "com.google.gms:google-services:${Versions.Google.GOOGLE_SERVICES_VERSION}"
+    }
+
     object Gradle {
         const val GRADLE_ANDROID =
             "com.android.tools.build:gradle:${Versions.Gradle.GRADLE_ANDROID_VERSION}"
