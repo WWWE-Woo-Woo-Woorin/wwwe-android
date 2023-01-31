@@ -42,4 +42,9 @@ sealed class ClientStatus(
         override val statusCode: Int
             get() = 429
     }
+
+    object Unknown : ClientStatus("Unknown") {
+        override val statusCode: Int
+            get() = -1
+    }
 }
