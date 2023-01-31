@@ -46,6 +46,9 @@ dependencies {
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
 
+    implementation(Dependencies.Network.RETROFIT)
+    implementation(Dependencies.Network.OKHTTP)
+
     implementation(Dependencies.Firebase.FIREBASE_STORAGE)
     implementation(Dependencies.Firebase.FIREBASE_AUTH)
 

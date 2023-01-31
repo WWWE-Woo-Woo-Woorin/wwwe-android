@@ -15,8 +15,10 @@ object Dependencies {
     }
 
     object Firebase {
-        const val FIREBASE_STORAGE = "com.google.firebase:firebase-storage-ktx:${Versions.Firebase.FIREBASE_VERSION}"
-        const val FIREBASE_AUTH = "com.google.firebase:firebase-auth-ktx:${Versions.Firebase.FIREBASE_AUTH_VERSION}"
+        const val FIREBASE_STORAGE =
+            "com.google.firebase:firebase-storage-ktx:${Versions.Firebase.FIREBASE_VERSION}"
+        const val FIREBASE_AUTH =
+            "com.google.firebase:firebase-auth-ktx:${Versions.Firebase.FIREBASE_AUTH_VERSION}"
     }
 
     object Hilt {
@@ -24,5 +26,12 @@ object Dependencies {
             "com.google.dagger:hilt-android:${Versions.Hilt.HILT_ANDROID_VERSION}"
         const val HILT_ANDROID_COMPILER =
             "com.google.dagger:hilt-android-compiler:${Versions.Hilt.HILT_ANDROID_VERSION}"
+    }
+
+    object Network {
+        const val RETROFIT =
+            "com.squareup.retrofit2:retrofit:${Versions.Network.RETROFIT_VERSION}"
+        const val OKHTTP =
+            "com.squareup.okhttp3:okhttp:${Versions.Network.OKHTTP_VERSION}"
     }
 }

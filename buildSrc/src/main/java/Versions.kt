@@ -34,4 +34,9 @@ object Versions {
     object Hilt {
         const val HILT_ANDROID_VERSION = "2.44"
     }
+
+    object Network {
+        const val RETROFIT_VERSION = "2.9.0"
+        const val OKHTTP_VERSION = "4.10.0"
+    }
 }
