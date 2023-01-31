@@ -33,5 +33,7 @@ object Dependencies {
             "com.squareup.retrofit2:retrofit:${Versions.Network.RETROFIT_VERSION}"
         const val OKHTTP =
             "com.squareup.okhttp3:okhttp:${Versions.Network.OKHTTP_VERSION}"
+        const val GSON_CONVERTER =
+            "com.squareup.retrofit2:converter-gson:${Versions.Network.OKHTTP_VERSION}"
     }
 }

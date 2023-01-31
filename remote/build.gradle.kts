@@ -44,6 +44,7 @@ dependencies {
 
     implementation(Dependencies.Network.OKHTTP)
     implementation(Dependencies.Network.RETROFIT)
+    implementation(Dependencies.Network.GSON_CONVERTER)
 
     implementation(Dependencies.Java.INJECT)
 
