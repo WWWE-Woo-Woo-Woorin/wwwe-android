@@ -9,7 +9,7 @@ interface RemoteAuthDataSource {
         email: String,
     ): Token
 
-    suspend fun regenerateToken(
+   /* suspend fun regenerateToken(
         accessToken: String,
-    ): User
+    ): User*/
 }
