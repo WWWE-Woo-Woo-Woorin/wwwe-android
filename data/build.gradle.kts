@@ -39,6 +39,7 @@ android {
 
 dependencies {
 
+    implementation(project(":model"))
     implementation(project(":domain"))
 
     implementation(Dependencies.Android.CORE_KTX)
