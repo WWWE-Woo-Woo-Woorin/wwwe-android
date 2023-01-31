@@ -3,6 +3,7 @@ object AppConfigs {
         const val DOMAIN = "app.junsu.domain"
         const val DATA = "app.junsu.data"
         const val APP = "app.junsu.app"
+        const val DI = "app.junsu.di"
         object Features {
             const val ON_BOARDING = "app.junsu.feature_onboarding"
         }
