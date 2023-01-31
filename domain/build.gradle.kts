@@ -36,5 +36,8 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":model"))
+
     implementation(Dependencies.Java.INJECT)
 }
