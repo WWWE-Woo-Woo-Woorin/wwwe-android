@@ -18,6 +18,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "WWWE"
 
+include(":model")
 include(":domain")
 include(":data")
 include(":app")
