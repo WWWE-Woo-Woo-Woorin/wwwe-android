@@ -40,6 +40,6 @@ sealed class ClientStatus(
 
     object TooManyRequests : ClientStatus("Too Many Requests") {
         override val statusCode: Int
-            get() = 409
+            get() = 429
     }
 }
