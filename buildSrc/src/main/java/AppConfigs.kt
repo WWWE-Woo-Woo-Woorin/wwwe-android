@@ -4,6 +4,8 @@ object AppConfigs {
         const val DATA = "app.junsu.data"
         const val APP = "app.junsu.app"
         const val DI = "app.junsu.di"
+        const val REMOTE = "app.junsu.remote"
+
         object Features {
             const val ON_BOARDING = "app.junsu.feature_onboarding"
         }
