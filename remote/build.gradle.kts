@@ -33,6 +33,9 @@ android {
 
 dependencies {
 
+    implementation(project(":model"))
+    implementation(project(":domain"))
+
     implementation(Dependencies.Android.CORE_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
