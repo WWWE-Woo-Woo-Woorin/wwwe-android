@@ -48,6 +48,7 @@ dependencies {
 
     implementation(Dependencies.Network.OKHTTP)
     implementation(Dependencies.Network.RETROFIT)
+    implementation(Dependencies.Network.GSON_CONVERTER)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
