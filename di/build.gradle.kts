@@ -46,6 +46,9 @@ dependencies {
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
 
+    implementation(Dependencies.Network.OKHTTP)
+    implementation(Dependencies.Network.RETROFIT)
+
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
