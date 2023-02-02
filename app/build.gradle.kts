@@ -45,6 +45,9 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
+    }
 }
 
 dependencies {
@@ -61,9 +64,15 @@ dependencies {
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
-    implementation(Dependencies.Test.JUNIT_KTX)
+    implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
+    implementation(Dependencies.Compose.COMPOSE_MATERIAL)
+    implementation(Dependencies.Compose.COMPOSE_ANIMATION)
+    implementation(Dependencies.Compose.COMPOSE_UI)
+    androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)
 
+    implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
+    implementation(Dependencies.Compose.COMPOSE_VIEWMODEL)
 }
 
 kapt {
