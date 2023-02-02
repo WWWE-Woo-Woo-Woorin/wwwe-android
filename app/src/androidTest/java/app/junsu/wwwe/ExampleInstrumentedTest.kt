@@ -21,4 +21,6 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("app.junsu.wwwe", appContext.packageName)
     }
+
+
 }
