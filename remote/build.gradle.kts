@@ -1,8 +1,14 @@
+import java.util.*
+
 plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
     id(Plugins.Google.GOOGLE_SERVICES)
     id(Plugins.Kotlin.KOTLIN_KAPT)
+}
+
+val properties = Properties().apply {
+    load(project.rootProject.file("local.properties").inputStream())
 }
 
 android {
@@ -15,6 +21,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        buildConfigField("String", "BASE_URL", properties["BASE_URL"].toString())
     }
 
     buildTypes {
@@ -50,6 +57,7 @@ dependencies {
     implementation(Dependencies.Java.INJECT)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
     testImplementation(Dependencies.Test.JUNIT)
