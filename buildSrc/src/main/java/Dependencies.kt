@@ -12,6 +12,7 @@ object Dependencies {
 
     object Test {
         const val JUNIT = "junit:junit:${Versions.Test.JUNIT_VERSION}"
+        const val JUNIT_KTX = "androidx.test.ext:junit-ktx:${Versions.Test.JUNIT_KTX_VERSION}"
     }
 
     object Firebase {

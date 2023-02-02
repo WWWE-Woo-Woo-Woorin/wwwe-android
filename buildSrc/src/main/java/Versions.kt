@@ -9,6 +9,7 @@ object Versions {
 
     object Test {
         const val JUNIT_VERSION = "4.13.2"
+        const val JUNIT_KTX_VERSION = "1.1.5"
     }
 
     object Java {
