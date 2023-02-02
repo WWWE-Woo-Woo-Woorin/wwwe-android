@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.ANDROID_APPLICATION)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
+    id(Plugins.DI.HILT_ANDROID)
     id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
@@ -58,4 +59,8 @@ dependencies {
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
     testImplementation(Dependencies.Test.JUNIT)
+}
+
+kapt {
+    correctErrorTypes = true
 }
