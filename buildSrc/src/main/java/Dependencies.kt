@@ -29,10 +29,12 @@ object Dependencies {
     }
 
     object Network {
-        const val RETROFIT =
-            "com.squareup.retrofit2:retrofit:${Versions.Network.RETROFIT_VERSION}"
         const val OKHTTP =
             "com.squareup.okhttp3:okhttp:${Versions.Network.OKHTTP_VERSION}"
+        const val OKHTTP_LOGGING_INTERCEPTOR =
+            "com.squareup.okhttp3:logging-interceptor:${Versions.Network.OKHTTP_VERSION}"
+        const val RETROFIT =
+            "com.squareup.retrofit2:retrofit:${Versions.Network.RETROFIT_VERSION}"
         const val GSON_CONVERTER =
             "com.squareup.retrofit2:converter-gson:${Versions.Network.RETROFIT_VERSION}"
     }

@@ -47,6 +47,7 @@ dependencies {
     implementation(Dependencies.Android.MATERIAL)
 
     implementation(Dependencies.Network.OKHTTP)
+    implementation(Dependencies.Network.OKHTTP_LOGGING_INTERCEPTOR)
     implementation(Dependencies.Network.RETROFIT)
     implementation(Dependencies.Network.GSON_CONVERTER)
 
