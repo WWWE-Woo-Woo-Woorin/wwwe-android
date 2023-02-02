@@ -1,10 +1,13 @@
 package app.junsu.di.network
 
+import android.content.Context
 import android.util.Log
 import app.junsu.di.BuildConfig
+import app.junsu.remote.interceptor.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,6 +18,17 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+    @Provides
+    @Singleton
+    fun provideAuthInterceptor(
+        @ApplicationContext context: Context,
+        // TODO inject LocalDataSource
+    ): AuthInterceptor {
+        return AuthInterceptor(
+            context = context,
+        )
+    }
 
     @Provides
     @Singleton
