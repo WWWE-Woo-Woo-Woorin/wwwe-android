@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":remote"))
+    implementation(project(":di"))
     implementation(project(":feature:feature-onboarding"))
 
     implementation(Dependencies.Android.CORE_KTX)
@@ -62,7 +63,7 @@ dependencies {
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
     runtimeOnly(Dependencies.Android.LIFECYCLE_VIEWMODEL)
-    
+
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
