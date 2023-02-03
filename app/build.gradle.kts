@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.ANDROID_APPLICATION)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
+    id(Plugins.DI.HILT_ANDROID)
     id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
@@ -41,6 +42,12 @@ android {
     kotlinOptions {
         jvmTarget = AppConfigs.KotlinOptions.JVM_TARGET
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.0"
+    }
 }
 
 dependencies {
@@ -48,14 +55,31 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":remote"))
+    implementation(project(":di"))
     implementation(project(":feature:feature-onboarding"))
 
     implementation(Dependencies.Android.CORE_KTX)
+    implementation(Dependencies.Android.ACTIVITY_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
+    runtimeOnly(Dependencies.Android.LIFECYCLE_VIEWMODEL)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
+    implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
+    implementation(Dependencies.Compose.COMPOSE_NAVIGATION)
+    implementation(Dependencies.Compose.COMPOSE_MATERIAL)
+    implementation(Dependencies.Compose.COMPOSE_MATERIAL_WINDOW_SIZE_CLASS)
+    implementation(Dependencies.Compose.COMPOSE_ANIMATION)
+    implementation(Dependencies.Compose.COMPOSE_UI)
+    androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)
+
+    implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
+    implementation(Dependencies.Compose.COMPOSE_VIEWMODEL)
+}
+
+kapt {
+    correctErrorTypes = true
 }

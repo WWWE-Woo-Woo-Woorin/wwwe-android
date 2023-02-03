@@ -42,6 +42,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+    implementation(project(":data"))
     implementation(project(":remote"))
 
     implementation(Dependencies.Android.CORE_KTX)
