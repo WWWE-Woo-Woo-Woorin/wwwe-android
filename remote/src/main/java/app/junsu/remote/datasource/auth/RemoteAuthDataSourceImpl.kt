@@ -34,6 +34,14 @@ class RemoteAuthDataSourceImpl @Inject constructor(
         }
     }
 
+    override suspend fun signUpEmail(email: String) {
+        return HTTPHandler {
+            authApi.signUpEmail(
+                email = email,
+            )
+        }
+    }
+
 /*    override suspend fun regenerateToken(accessToken: String): User {
         // TODO
     }*/

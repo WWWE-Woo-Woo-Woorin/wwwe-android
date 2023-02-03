@@ -14,6 +14,10 @@ interface RemoteAuthDataSource {
         profileUrl: String?,
     )
 
+    suspend fun signUpEmail(
+        email: String,
+    )
+
     /* suspend fun regenerateToken(
          accessToken: String,
      ): User*/
