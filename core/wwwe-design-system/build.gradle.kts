@@ -35,6 +35,10 @@ android {
 
 dependencies {
 
+    implementation(Dependencies.Android.CORE_KTX)
+    implementation(Dependencies.Android.APPCOMPAT)
+    implementation(Dependencies.Android.MATERIAL)
+
     implementation(Dependencies.Compose.COMPOSE_UI)
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
