@@ -1,7 +1,9 @@
 object Dependencies {
     object Android {
-        const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.LIFECYCLE_VIEWMODEL_VERSION}"
-        const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.Android.ACTIVITY_KTX_VERSION}"
+        const val LIFECYCLE_VIEWMODEL =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.LIFECYCLE_VIEWMODEL_VERSION}"
+        const val ACTIVITY_KTX =
+            "androidx.activity:activity-ktx:${Versions.Android.ACTIVITY_KTX_VERSION}"
         const val CORE_KTX = "androidx.core:core-ktx:${Versions.Android.CORE_KTX_VERSION}"
         const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.Android.APPCOMPAT_VERSION}"
         const val MATERIAL =
@@ -54,6 +56,8 @@ object Dependencies {
         const val COMPOSE_ANIMATION =
             "androidx.compose.animation:animation:${Versions.Compose.COMPOSE_ANIMATION_VERSION}"
         const val COMPOSE_UI =
+            "androidx.compose.ui:ui:${Versions.Compose.COMPOSE_UI_VERSION}"
+        const val COMPOSE_UI_TOOLING =
             "androidx.compose.ui:ui-tooling:${Versions.Compose.COMPOSE_UI_VERSION}"
         const val COMPOSE_VIEWMODEL =
             "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.COMPOSE_VIEWMODEL_VERSION}"

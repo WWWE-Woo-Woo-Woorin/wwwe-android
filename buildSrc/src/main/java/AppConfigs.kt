@@ -6,6 +6,10 @@ object AppConfigs {
         const val DI = "app.junsu.di"
         const val REMOTE = "app.junsu.remote"
 
+        object Common {
+            const val COMPOSE = "app.junsu.common_compose"
+        }
+
         object Feature {
             const val ON_BOARDING = "app.junsu.feature_onboarding"
         }
