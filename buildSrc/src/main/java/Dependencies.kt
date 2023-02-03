@@ -57,5 +57,7 @@ object Dependencies {
             "androidx.compose.ui:ui-tooling:${Versions.Compose.COMPOSE_UI_VERSION}"
         const val COMPOSE_VIEWMODEL =
             "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.COMPOSE_VIEWMODEL_VERSION}"
+        const val COMPOSE_NAVIGATION =
+            "androidx.navigation:navigation-compose:${Versions.Compose.COMPOSE_NAVIGATION_VERSION}"
     }
 }

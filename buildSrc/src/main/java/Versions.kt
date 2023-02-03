@@ -50,5 +50,6 @@ object Versions {
         const val COMPOSE_ANIMATION_VERSION = "1.3.3"
         const val COMPOSE_UI_VERSION = "1.3.3"
         const val COMPOSE_VIEWMODEL_VERSION = "2.5.1"
+        const val COMPOSE_NAVIGATION_VERSION = "2.5.3"
     }
 }
