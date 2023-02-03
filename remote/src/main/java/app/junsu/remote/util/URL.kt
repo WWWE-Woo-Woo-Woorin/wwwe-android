@@ -15,7 +15,7 @@ object URL {
         }
 
         object SignUp {
-            internal const val ENTER_EMAIL = "/user/signup/email"
+            internal const val SIGNUP_EMAIL = "/user/signup/email"
             internal const val ENTER_USERNAME = "/user/signup/username"
             internal const val ENTER_PROFILE_URL = "/user/signup/profile"
         }
