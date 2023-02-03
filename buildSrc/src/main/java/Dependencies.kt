@@ -1,5 +1,6 @@
 object Dependencies {
     object Android {
+        const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.Android.ACTIVITY_KTX_VERSION}"
         const val CORE_KTX = "androidx.core:core-ktx:${Versions.Android.CORE_KTX_VERSION}"
         const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.Android.APPCOMPAT_VERSION}"
         const val MATERIAL =
@@ -13,7 +14,8 @@ object Dependencies {
     object Test {
         const val JUNIT = "junit:junit:${Versions.Test.JUNIT_VERSION}"
         const val JUNIT_KTX = "androidx.test.ext:junit-ktx:${Versions.Test.JUNIT_KTX_VERSION}"
-        const val COMPOSE_UI_JUNIT = "androidx.compose.ui:ui-test-junit4:${Versions.Test.COMPOSE_UI_JUNIT_VERSION}"
+        const val COMPOSE_UI_JUNIT =
+            "androidx.compose.ui:ui-test-junit4:${Versions.Test.COMPOSE_UI_JUNIT_VERSION}"
     }
 
     object Firebase {
@@ -45,7 +47,9 @@ object Dependencies {
         const val ACTIVITY_COMPOSE =
             "androidx.activity:activity-compose:${Versions.Compose.ACTIVITY_COMPOSE_VERSION}"
         const val COMPOSE_MATERIAL =
-            "androidx.compose.material:material:${Versions.Compose.COMPOSE_MATERIAL_VERSION}"
+            "androidx.compose.material3:material3:${Versions.Compose.COMPOSE_MATERIAL_VERSION}"
+        const val COMPOSE_MATERIAL_WINDOW_SIZE_CLASS =
+            "androidx.compose.material3:material3-window-size-class:${Versions.Compose.COMPOSE_MATERIAL_VERSION}"
         const val COMPOSE_ANIMATION =
             "androidx.compose.animation:animation:${Versions.Compose.COMPOSE_ANIMATION_VERSION}"
         const val COMPOSE_UI =

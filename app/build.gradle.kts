@@ -58,6 +58,7 @@ dependencies {
     implementation(project(":feature:feature-onboarding"))
 
     implementation(Dependencies.Android.CORE_KTX)
+    implementation(Dependencies.Android.ACTIVITY_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
 
@@ -66,6 +67,7 @@ dependencies {
 
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
+    implementation(Dependencies.Compose.COMPOSE_MATERIAL_WINDOW_SIZE_CLASS)
     implementation(Dependencies.Compose.COMPOSE_ANIMATION)
     implementation(Dependencies.Compose.COMPOSE_UI)
     androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)

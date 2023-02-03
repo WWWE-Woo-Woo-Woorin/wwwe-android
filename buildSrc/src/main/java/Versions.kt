@@ -2,6 +2,7 @@ import org.gradle.api.JavaVersion
 
 object Versions {
     object Android {
+        const val ACTIVITY_KTX_VERSION = "1.6.1"
         const val CORE_KTX_VERSION = "1.9.0"
         const val APPCOMPAT_VERSION = "1.6.0"
         const val MATERIAL_VERSION = "1.7.0"
@@ -44,7 +45,7 @@ object Versions {
 
     object Compose {
         const val ACTIVITY_COMPOSE_VERSION = "1.6.1"
-        const val COMPOSE_MATERIAL_VERSION = "1.3.1"
+        const val COMPOSE_MATERIAL_VERSION = "1.0.1"
         const val COMPOSE_ANIMATION_VERSION = "1.3.3"
         const val COMPOSE_UI_VERSION = "1.3.3"
         const val COMPOSE_VIEWMODEL_VERSION = "2.5.1"
