@@ -12,6 +12,10 @@ interface AuthRepository {
         profileUrl: String?,
     )
 
+    suspend fun signUpEmail(
+        email: String,
+    )
+
     suspend fun fetchToken(
         accessToken: String,
     )

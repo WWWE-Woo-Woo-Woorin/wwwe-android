@@ -20,6 +20,12 @@ class AuthRepositoryImpl @Inject constructor(
         )
     }
 
+    override suspend fun signUpEmail(email: String) {
+        remoteAuthDataSource.signUpEmail(
+            email = email,
+        )
+    }
+
     override suspend fun fetchToken(accessToken: String) {
         //todo
     }
