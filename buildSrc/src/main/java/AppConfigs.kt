@@ -13,6 +13,10 @@ object AppConfigs {
         object Feature {
             const val ON_BOARDING = "app.junsu.feature_onboarding"
         }
+
+        object Core {
+            const val WWWE_DESIGN_SYSTEM = "app.junsu.wwwe_design_system"
+        }
     }
 
     object DefaultConfigs {
