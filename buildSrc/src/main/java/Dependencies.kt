@@ -1,5 +1,6 @@
 object Dependencies {
     object Android {
+        const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.LIFECYCLE_VIEWMODEL_VERSION}"
         const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.Android.ACTIVITY_KTX_VERSION}"
         const val CORE_KTX = "androidx.core:core-ktx:${Versions.Android.CORE_KTX_VERSION}"
         const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.Android.APPCOMPAT_VERSION}"

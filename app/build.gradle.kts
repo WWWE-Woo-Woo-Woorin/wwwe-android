@@ -61,7 +61,8 @@ dependencies {
     implementation(Dependencies.Android.ACTIVITY_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
-
+    runtimeOnly(Dependencies.Android.LIFECYCLE_VIEWMODEL)
+    
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 

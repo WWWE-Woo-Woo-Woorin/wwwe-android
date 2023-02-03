@@ -2,6 +2,7 @@ import org.gradle.api.JavaVersion
 
 object Versions {
     object Android {
+        const val LIFECYCLE_VIEWMODEL_VERSION = "2.5.1"
         const val ACTIVITY_KTX_VERSION = "1.6.1"
         const val CORE_KTX_VERSION = "1.9.0"
         const val APPCOMPAT_VERSION = "1.6.0"
