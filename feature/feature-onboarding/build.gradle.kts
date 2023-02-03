@@ -6,7 +6,7 @@ plugins {
 
 android {
 
-    namespace = AppConfigs.NameSpaces.Features.ON_BOARDING
+    namespace = AppConfigs.NameSpaces.Feature.ON_BOARDING
 
     compileSdk = AppConfigs.DefaultConfigs.COMPILE_SDK_VERSION
 
