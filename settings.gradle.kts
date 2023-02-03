@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":core:wwwe-design-system")
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
