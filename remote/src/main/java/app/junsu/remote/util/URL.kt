@@ -4,13 +4,13 @@ object URL {
 
     object Auth {
 
-        internal const val SIGN_IN = "/user/signin"
+        internal const val SIGN_IN = "/user/signin/{email}"
         internal const val SIGN_UP = "/user/signup"
 
         internal const val REGENERATE_TOKEN = "/user/token"
 
         object Check {
-            internal const val EMAIL_ENTERED = "/user/check/email"
+            internal const val EMAIL_ENTERED = "/user/check/email/{email}"
             internal const val USERNAME_ENTERED = "/user/check/username"
         }
 

@@ -1,6 +1,5 @@
 package app.junsu.remote.api.auth
 
-import app.junsu.remote.model.auth.signin.SignInRequest
 import app.junsu.remote.model.auth.signin.SignInResponse
 import app.junsu.remote.model.auth.signup.SignUpRequest
 import app.junsu.remote.util.PathVariables
@@ -13,7 +12,7 @@ interface AuthAPI {
 
     @POST(URL.Auth.SIGN_IN)
     suspend fun signIn(
-        @Body request: SignInRequest,
+        @Path("email") email: String,
     ): SignInResponse
 
     @POST(URL.Auth.SIGN_UP)

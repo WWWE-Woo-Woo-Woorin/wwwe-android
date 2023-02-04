@@ -15,9 +15,7 @@ class RemoteAuthDataSourceImpl @Inject constructor(
     override suspend fun signIn(email: String): Token {
         return HTTPHandler {
             authApi.signIn(
-                request = SignInRequest(
-                    email = email,
-                )
+                email = email,
             )
         }.toToken()
     }
