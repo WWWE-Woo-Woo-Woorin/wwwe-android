@@ -36,12 +36,10 @@ object Dependencies {
     }
 
     object Network {
-        const val OKHTTP =
-            "com.squareup.okhttp3:okhttp:${Versions.Network.OKHTTP_VERSION}"
+        const val OKHTTP = "com.squareup.okhttp3:okhttp:${Versions.Network.OKHTTP_VERSION}"
         const val OKHTTP_LOGGING_INTERCEPTOR =
             "com.squareup.okhttp3:logging-interceptor:${Versions.Network.OKHTTP_VERSION}"
-        const val RETROFIT =
-            "com.squareup.retrofit2:retrofit:${Versions.Network.RETROFIT_VERSION}"
+        const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Network.RETROFIT_VERSION}"
         const val GSON_CONVERTER =
             "com.squareup.retrofit2:converter-gson:${Versions.Network.RETROFIT_VERSION}"
     }
@@ -55,10 +53,11 @@ object Dependencies {
             "androidx.compose.material3:material3-window-size-class:${Versions.Compose.COMPOSE_MATERIAL_VERSION}"
         const val COMPOSE_ANIMATION =
             "androidx.compose.animation:animation:${Versions.Compose.COMPOSE_ANIMATION_VERSION}"
-        const val COMPOSE_UI =
-            "androidx.compose.ui:ui:${Versions.Compose.COMPOSE_UI_VERSION}"
+        const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.Compose.COMPOSE_UI_VERSION}"
         const val COMPOSE_UI_TOOLING =
             "androidx.compose.ui:ui-tooling:${Versions.Compose.COMPOSE_UI_VERSION}"
+        const val COMPOSE_UI_TOOLING_PREVIEW =
+            "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.COMPOSE_UI_VERSION}"
         const val COMPOSE_VIEWMODEL =
             "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.COMPOSE_VIEWMODEL_VERSION}"
         const val COMPOSE_NAVIGATION =

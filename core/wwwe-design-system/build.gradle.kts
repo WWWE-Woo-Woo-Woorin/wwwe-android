@@ -41,6 +41,7 @@ dependencies {
 
     implementation(Dependencies.Compose.COMPOSE_UI)
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
+    implementation(Dependencies.Compose.COMPOSE_UI_TOOLING_PREVIEW)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
 }
