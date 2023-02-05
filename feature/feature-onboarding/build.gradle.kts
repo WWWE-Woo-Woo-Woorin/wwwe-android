@@ -61,6 +61,8 @@ dependencies {
     implementation(Dependencies.Compose.COMPOSE_MATERIAL_WINDOW_SIZE_CLASS)
     implementation(Dependencies.Compose.COMPOSE_ANIMATION)
     implementation(Dependencies.Compose.COMPOSE_UI)
+    implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
+    implementation(Dependencies.Compose.COMPOSE_UI_TOOLING_PREVIEW)
     androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)
 
     implementation(Dependencies.UI.Pager.PAGER)
