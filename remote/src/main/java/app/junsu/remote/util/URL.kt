@@ -4,20 +4,20 @@ object URL {
 
     object Auth {
 
-        internal const val SIGN_IN = "/user/signin/{email}"
-        internal const val SIGN_UP = "/user/signup"
+        internal const val SIGN_IN = "/v1/users/signin/{email}"
+        internal const val SIGN_UP = "/v1/users/signup"
 
-        internal const val REGENERATE_TOKEN = "/user/token"
+        internal const val REGENERATE_TOKEN = "/v1/users/token"
 
         object Check {
-            internal const val EMAIL_ENTERED = "/user/check/email/{email}"
-            internal const val USERNAME_ENTERED = "/user/check/username"
+            internal const val EMAIL_ENTERED = "/v1/users/check/email/{email}"
+            internal const val USERNAME_ENTERED = "/v1/users/check/username"
         }
 
         object SignUp {
-            internal const val SIGNUP_EMAIL = "/user/signup/email"
-            internal const val ENTER_USERNAME = "/user/signup/username"
-            internal const val ENTER_PROFILE_URL = "/user/signup/profile"
+            internal const val SIGNUP_EMAIL = "/v1/users/signup/email"
+            internal const val ENTER_USERNAME = "/v1/users/signup/username"
+            internal const val ENTER_PROFILE_URL = "/v1/users/signup/profile"
         }
     }
 }
