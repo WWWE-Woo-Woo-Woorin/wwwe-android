@@ -1,4 +1,4 @@
-package app.junsu.compose
+package app.junsu.common_compose
 
 import org.junit.Test
 
