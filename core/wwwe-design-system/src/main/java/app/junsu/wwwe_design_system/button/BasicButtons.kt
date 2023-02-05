@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun PrimaryButton(
+fun DefaultButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -24,8 +24,8 @@ fun PrimaryButton(
 
 @Preview
 @Composable
-fun ButtonPreview() {
-    PrimaryButton(
+private fun DefaultButtonPreview() {
+    DefaultButton(
         text = "다음으로",
         onClick = {
 
