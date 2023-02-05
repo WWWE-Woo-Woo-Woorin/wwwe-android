@@ -52,4 +52,10 @@ object Versions {
         const val COMPOSE_VIEWMODEL_VERSION = "2.5.1"
         const val COMPOSE_NAVIGATION_VERSION = "2.5.3"
     }
+
+    object UI {
+        object Pager {
+            const val PAGER_VERSION = "0.28.0"
+        }
+    }
 }

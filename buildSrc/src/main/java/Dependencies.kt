@@ -63,4 +63,13 @@ object Dependencies {
         const val COMPOSE_NAVIGATION =
             "androidx.navigation:navigation-compose:${Versions.Compose.COMPOSE_NAVIGATION_VERSION}"
     }
+
+    object UI {
+        object Pager {
+            const val PAGER =
+                "com.google.accompanist:accompanist-pager:${Versions.UI.Pager.PAGER_VERSION}"
+            const val PAGER_INDICATOR =
+                "com.google.accompanist:accompanist-pager-indicators:${Versions.UI.Pager.PAGER_VERSION}"
+        }
+    }
 }

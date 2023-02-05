@@ -62,6 +62,9 @@ dependencies {
     implementation(Dependencies.Compose.COMPOSE_UI)
     androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)
 
+    implementation(Dependencies.UI.Pager.PAGER)
+    implementation(Dependencies.UI.Pager.PAGER_INDICATOR)
+
     implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
     implementation(Dependencies.Compose.COMPOSE_VIEWMODEL)
