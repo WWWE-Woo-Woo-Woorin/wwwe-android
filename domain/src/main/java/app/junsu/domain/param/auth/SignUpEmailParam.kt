@@ -1,5 +1,5 @@
 package app.junsu.domain.param.auth
 
 data class SignUpEmailParam(
-    val email: String,
+    internal val email: String,
 )

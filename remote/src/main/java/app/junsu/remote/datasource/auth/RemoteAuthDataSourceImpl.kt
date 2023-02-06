@@ -12,10 +12,16 @@ class RemoteAuthDataSourceImpl @Inject constructor(
     private val authApi: AuthAPI,
 ) : RemoteAuthDataSource {
 
-    override suspend fun signIn(email: String): Token {
+    override suspend fun signIn(
+        email: String,
+        deviceToken: String?,
+    ): Token {
         return HTTPHandler {
             authApi.signIn(
-                email = email,
+                SignInRequest(
+                    email = email,
+                    deviceToken = deviceToken,
+                )
             )
         }.toToken()
     }

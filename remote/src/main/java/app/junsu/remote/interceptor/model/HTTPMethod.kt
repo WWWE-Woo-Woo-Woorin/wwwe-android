@@ -1,6 +1,6 @@
 package app.junsu.remote.interceptor.model
 
-enum class HttpMethod {
+internal enum class HTTPMethod {
     POST, GET, PUT, DELETE, PATCH, UNKNOWN,
     ;
 }

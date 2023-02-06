@@ -42,7 +42,7 @@ internal class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(
+private fun MainScreen(
     onTestButtonClick: () -> Unit,
 ) {
     Column(

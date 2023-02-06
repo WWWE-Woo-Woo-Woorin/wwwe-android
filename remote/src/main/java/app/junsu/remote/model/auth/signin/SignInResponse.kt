@@ -9,7 +9,7 @@ data class SignInResponse(
     @SerializedName("refresh_token") val refreshToken: String,
     @SerializedName("refresh_token_exp") val accessTokenExpiresAt: LocalDateTime,
 ) {
-    fun toToken(): Token {
+    internal fun toToken(): Token {
         return Token(
             accessToken = accessToken,
             refreshToken = refreshToken,

@@ -196,7 +196,7 @@ internal fun OnBoardingScreen(
 
 @Preview
 @Composable
-fun OnBoardingScreenPreview() {
+private fun OnBoardingScreenPreview() {
 
     val navController = rememberNavController()
 
