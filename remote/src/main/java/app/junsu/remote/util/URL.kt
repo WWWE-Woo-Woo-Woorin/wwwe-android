@@ -1,6 +1,6 @@
 package app.junsu.remote.util
 
-object URL {
+internal object URL {
 
     object Auth {
 
