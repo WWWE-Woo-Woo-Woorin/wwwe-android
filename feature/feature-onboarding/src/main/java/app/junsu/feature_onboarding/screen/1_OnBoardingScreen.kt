@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
@@ -15,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import app.junsu.common_compose.util.VerticalSpacer
@@ -56,7 +58,7 @@ private val indicatorIncreaseValue: Float = 1 / previewPagerImages.size.toFloat(
 private val indicatorDefaultValue: Float
     get() = indicatorIncreaseValue
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 @Composable
 internal fun OnBoardingScreen(
     navController: NavController,
@@ -95,12 +97,24 @@ internal fun OnBoardingScreen(
         }
     }
 
-    Box(
+    ConstraintLayout(
         modifier = Modifier.fillMaxSize(),
     ) {
 
+        val (
+            pager,
+            indicator,
+            textFields,
+            nextButton,
+        ) = createRefs()
+
         HorizontalPager(
-            modifier = Modifier.align(Alignment.Center),
+            modifier = Modifier.constrainAs(pager) {
+                top.linkTo(parent.top)
+                bottom.linkTo(parent.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            },
             count = previewPagerImages.size,
             state = previewPagerState,
             userScrollEnabled = false,
@@ -120,23 +134,23 @@ internal fun OnBoardingScreen(
             LinearProgressIndicator(
                 progress = previewIndicatorState,
                 modifier = Modifier
-                    .align(Alignment.BottomCenter)
+                    .constrainAs(indicator) {
+                        bottom.linkTo(parent.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                    }
                     .fillMaxWidth(),
             )
         }
 
-        VerticalSpacer(
-            height = 32.dp,
-        )
-
         Column(
             modifier = Modifier
-                .padding(
-                    vertical = 16.dp,
-                    horizontal = 16.dp,
-                )
-                .fillMaxWidth()
-                .align(Alignment.BottomCenter),
+                .constrainAs(textFields) {
+                    top.linkTo(pager.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
+                .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
@@ -161,15 +175,22 @@ internal fun OnBoardingScreen(
                 ),
                 style = MaterialTheme.typography.body1,
             )
-
-            DefaultButton(
-                modifier = Modifier.align(Alignment.End),
-                text = "다음", // todo
-                onClick = {
-                    onNextButtonClick()
-                },
-            )
         }
+        DefaultButton(
+            modifier = Modifier
+                .constrainAs(nextButton) {
+                    end.linkTo(parent.end)
+                    bottom.linkTo(parent.bottom)
+                }
+                .padding(
+                    end = 16.dp,
+                    bottom = 16.dp,
+                ),
+            text = "다음", // todo
+            onClick = {
+                onNextButtonClick()
+            },
+        )
     }
 }
 
