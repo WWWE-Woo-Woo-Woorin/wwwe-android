@@ -2,8 +2,8 @@ package app.junsu.remote.interceptor
 
 import android.content.Context
 import android.util.Log
-import app.junsu.remote.interceptor.model.HttpMethod
-import app.junsu.remote.interceptor.model.HttpMethod.*
+import app.junsu.remote.interceptor.model.HTTPMethod
+import app.junsu.remote.interceptor.model.HTTPMethod.*
 import app.junsu.remote.interceptor.model.ignoreRequests
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.runBlocking
@@ -38,14 +38,14 @@ class AuthInterceptor @Inject constructor(
     }
 }
 
-private fun String.toEnum(): HttpMethod {
+private fun String.toEnum(): HTTPMethod {
     return when (this) {
         "POST" -> POST
         "GET" -> GET
         "PUT" -> PUT
         "DELETE" -> DELETE
         "PATCH" -> PATCH
-        else -> HttpMethod.UNKNOWN.also {
+        else -> HTTPMethod.UNKNOWN.also {
             Log.e("HttpMethodParsing", "toEnum: $it")
         }
     }

@@ -1,11 +1,11 @@
 package app.junsu.remote.interceptor.model
 
-import app.junsu.remote.interceptor.model.HttpMethod.POST
-import app.junsu.remote.interceptor.model.HttpMethod.PUT
+import app.junsu.remote.interceptor.model.HTTPMethod.POST
+import app.junsu.remote.interceptor.model.HTTPMethod.PUT
 import app.junsu.remote.util.URL
 
 internal data class IgnoreRequest(
-    val method: HttpMethod,
+    val method: HTTPMethod,
     val path: String,
 )
 
