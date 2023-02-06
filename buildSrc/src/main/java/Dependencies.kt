@@ -49,6 +49,8 @@ object Dependencies {
             "androidx.activity:activity-compose:${Versions.Compose.ACTIVITY_COMPOSE_VERSION}"
         const val COMPOSE_MATERIAL =
             "androidx.compose.material3:material3:${Versions.Compose.COMPOSE_MATERIAL_VERSION}"
+        const val COMPOSE_CONSTRAINT_LAYOUT =
+            "androidx.constraintlayout:constraintlayout-compose:${Versions.Compose.COMPOSE_CONSTRAINT_LAYOUT_VERSION}"
         const val COMPOSE_MATERIAL_WINDOW_SIZE_CLASS =
             "androidx.compose.material3:material3-window-size-class:${Versions.Compose.COMPOSE_MATERIAL_VERSION}"
         const val COMPOSE_ANIMATION =

@@ -65,6 +65,7 @@ dependencies {
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.COMPOSE_NAVIGATION)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
+    implementation(Dependencies.Compose.COMPOSE_CONSTRAINT_LAYOUT)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL_WINDOW_SIZE_CLASS)
     implementation(Dependencies.Compose.COMPOSE_ANIMATION)
     implementation(Dependencies.Compose.COMPOSE_UI)
