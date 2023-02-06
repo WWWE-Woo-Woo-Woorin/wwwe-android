@@ -6,7 +6,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.net.UnknownHostException
 
-object HTTPHandler {
+internal object HTTPHandler {
     suspend inline operator fun <T> invoke(
         crossinline block: suspend () -> T,
     ): T {
@@ -21,8 +21,7 @@ object HTTPHandler {
         }
     }
 
-    @PublishedApi
-    internal fun HttpException.handleHttpException(): Nothing {
+    private fun HttpException.handleHttpException(): Nothing {
         throw when (code()) {
             400 -> BadRequest()
             401 -> Unauthorized()
