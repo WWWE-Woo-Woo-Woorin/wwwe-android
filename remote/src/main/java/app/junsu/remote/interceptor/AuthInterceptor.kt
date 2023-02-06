@@ -45,7 +45,7 @@ private fun String.toEnum(): HTTPMethod {
         "PUT" -> PUT
         "DELETE" -> DELETE
         "PATCH" -> PATCH
-        else -> HTTPMethod.UNKNOWN.also {
+        else -> UNKNOWN.also {
             Log.e("HttpMethodParsing", "toEnum: $it")
         }
     }
