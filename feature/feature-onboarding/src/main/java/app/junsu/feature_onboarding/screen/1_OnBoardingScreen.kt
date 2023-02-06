@@ -31,6 +31,18 @@ private val previewPagerImages = listOf(
     R.drawable.img_onboarding_preview_4,
 )
 
+private val previewTitleAndDescriptions = listOf(
+    Pair("First Title", "First Description"),
+    Pair("Second Title", "Second Description"),
+    Pair("Third Title", "Third Description"),
+    Pair("Fourth Title", "Fourth Description"),
+)
+
+private val indicatorIncreaseValue: Float = 1 / previewPagerImages.size.toFloat()
+
+private val indicatorDefaultValue: Float
+    get() = indicatorIncreaseValue
+
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 internal fun OnBoardingScreen(
@@ -46,11 +58,25 @@ internal fun OnBoardingScreen(
     val scope = rememberCoroutineScope()
 
     var previewIndicatorState by remember {
-        mutableStateOf(0f)
+        mutableStateOf(indicatorDefaultValue)
+    }
+
+    var titleAndDescriptionsState by remember {
+        mutableStateOf(previewTitleAndDescriptions[0])
     }
 
     val onNextButtonClick = {
-        previewIndicatorState = (previewPagerState.currentPage / previewPagerImages.size).toFloat()
+
+        if (previewIndicatorState < 1) {
+
+            previewIndicatorState += indicatorIncreaseValue
+
+            titleAndDescriptionsState =
+                previewTitleAndDescriptions[previewPagerState.currentPage + 1]
+        } else {
+            // TODO else
+        }
+
         scope.launch {
             previewPagerState.scrollToPage(previewPagerState.currentPage + 1)
         }
@@ -103,7 +129,7 @@ internal fun OnBoardingScreen(
             )
 
             Text(
-                text = "Title",
+                text = titleAndDescriptionsState.first,
                 style = MaterialTheme.typography.subtitle1,
             )
 
@@ -112,13 +138,13 @@ internal fun OnBoardingScreen(
             )
 
             Text(
-                text = "Description",
+                text = titleAndDescriptionsState.second,
                 style = MaterialTheme.typography.body1,
             )
 
             DefaultButton(
                 modifier = Modifier.align(Alignment.End),
-                text = "다음",
+                text = "다음", // todo
                 onClick = {
                     onNextButtonClick()
                 },
