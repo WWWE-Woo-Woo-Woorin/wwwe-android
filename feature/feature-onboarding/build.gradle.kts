@@ -51,6 +51,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":common:common-compose"))
+    implementation(project(":core:wwwe-design-system"))
 
     implementation(Dependencies.Android.CORE_KTX)
     implementation(Dependencies.Android.ACTIVITY_KTX)
