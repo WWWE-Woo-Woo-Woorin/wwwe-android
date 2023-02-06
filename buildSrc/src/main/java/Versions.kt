@@ -47,9 +47,16 @@ object Versions {
     object Compose {
         const val ACTIVITY_COMPOSE_VERSION = "1.6.1"
         const val COMPOSE_MATERIAL_VERSION = "1.0.1"
+        const val COMPOSE_CONSTRAINT_LAYOUT_VERSION = "1.0.1"
         const val COMPOSE_ANIMATION_VERSION = "1.3.3"
         const val COMPOSE_UI_VERSION = "1.3.3"
         const val COMPOSE_VIEWMODEL_VERSION = "2.5.1"
         const val COMPOSE_NAVIGATION_VERSION = "2.5.3"
+    }
+
+    object UI {
+        object Pager {
+            const val PAGER_VERSION = "0.28.0"
+        }
     }
 }

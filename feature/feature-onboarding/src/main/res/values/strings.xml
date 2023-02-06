@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- OnBoardingScreen 1 -->
+    <string name="on_boarding_1_title_first">First Title</string>
+    <string name="on_boarding_1_desc_first">First Description</string>
+    <string name="on_boarding_1_title_second">Second Title</string>
+    <string name="on_boarding_1_desc_second">Second Description</string>
+    <string name="on_boarding_1_title_third">Third Title</string>
+    <string name="on_boarding_1_desc_third">Third Description</string>
+    <string name="on_boarding_1_title_fourth">Fourth Title</string>
+    <string name="on_boarding_1_desc_fourth">Fourth Description</string>
+</resources>

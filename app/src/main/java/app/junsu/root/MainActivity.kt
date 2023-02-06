@@ -29,9 +29,9 @@ internal class MainActivity : ComponentActivity() {
                     onTestButtonClick = {
                         viewModel.signUp(
                             signUpRequest = SignUpRequest(
-                                "jun@naver.com",
-                                "박준",
-                                "www.naver.com",
+                                "Leesin@gmail.com",
+                                "이용진짱",
+                                "www.google.com",
                             ),
                         )
                     },

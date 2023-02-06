@@ -45,4 +45,8 @@ object AppConfigs {
     object KotlinOptions {
         const val JVM_TARGET = "1.8"
     }
+
+    object ComposeOptions {
+        const val KOTLIN_COMPILER_EXTENSION_VERSION = "1.4.0"
+    }
 }

@@ -38,19 +38,45 @@ android {
     kotlinOptions {
         jvmTarget = AppConfigs.KotlinOptions.JVM_TARGET
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = AppConfigs.ComposeOptions.KOTLIN_COMPILER_EXTENSION_VERSION
+    }
 }
 
 dependencies {
 
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":common:common-compose"))
+    implementation(project(":core:wwwe-design-system"))
 
     implementation(Dependencies.Android.CORE_KTX)
+    implementation(Dependencies.Android.ACTIVITY_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
+    runtimeOnly(Dependencies.Android.LIFECYCLE_VIEWMODEL)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
+    implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
+    implementation(Dependencies.Compose.COMPOSE_NAVIGATION)
+    implementation(Dependencies.Compose.COMPOSE_MATERIAL)
+    implementation(Dependencies.Compose.COMPOSE_CONSTRAINT_LAYOUT)
+    implementation(Dependencies.Compose.COMPOSE_MATERIAL_WINDOW_SIZE_CLASS)
+    implementation(Dependencies.Compose.COMPOSE_ANIMATION)
+    implementation(Dependencies.Compose.COMPOSE_UI)
+    implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
+    implementation(Dependencies.Compose.COMPOSE_UI_TOOLING_PREVIEW)
+    androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)
+
+    implementation(Dependencies.UI.Pager.PAGER)
+    implementation(Dependencies.UI.Pager.PAGER_INDICATOR)
+
+    implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
+    implementation(Dependencies.Compose.COMPOSE_VIEWMODEL)
 }
