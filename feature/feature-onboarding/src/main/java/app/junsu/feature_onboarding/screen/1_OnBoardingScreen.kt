@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -32,10 +33,22 @@ private val previewPagerImages = listOf(
 )
 
 private val previewTitleAndDescriptions = listOf(
-    Pair("First Title", "First Description"),
-    Pair("Second Title", "Second Description"),
-    Pair("Third Title", "Third Description"),
-    Pair("Fourth Title", "Fourth Description"),
+    Pair(
+        first = R.string.on_boarding_1_title_first,
+        second = R.string.on_boarding_1_desc_first,
+    ),
+    Pair(
+        R.string.on_boarding_1_title_second,
+        R.string.on_boarding_1_desc_second,
+    ),
+    Pair(
+        R.string.on_boarding_1_title_third,
+        R.string.on_boarding_1_desc_third,
+    ),
+    Pair(
+        R.string.on_boarding_1_title_fourth,
+        R.string.on_boarding_1_desc_fourth,
+    ),
 )
 
 private val indicatorIncreaseValue: Float = 1 / previewPagerImages.size.toFloat()
@@ -103,6 +116,13 @@ internal fun OnBoardingScreen(
                     screenWidth.dp,
                 ),
             )
+
+            LinearProgressIndicator(
+                progress = previewIndicatorState,
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth(),
+            )
         }
 
         VerticalSpacer(
@@ -120,16 +140,14 @@ internal fun OnBoardingScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            LinearProgressIndicator(
-                progress = previewIndicatorState,
-            )
-
             VerticalSpacer(
                 height = 32.dp,
             )
 
             Text(
-                text = titleAndDescriptionsState.first,
+                text = stringResource(
+                    id = titleAndDescriptionsState.first,
+                ),
                 style = MaterialTheme.typography.subtitle1,
             )
 
@@ -138,7 +156,9 @@ internal fun OnBoardingScreen(
             )
 
             Text(
-                text = titleAndDescriptionsState.second,
+                text = stringResource(
+                    id = titleAndDescriptionsState.second,
+                ),
                 style = MaterialTheme.typography.body1,
             )
 
