@@ -10,12 +10,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+internal class MainViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase,
 ) : ViewModel() {
 
     // todo make private
-    fun signUp(
+    internal fun signUp(
         signUpRequest: SignUpRequest,
     ) {
         viewModelScope.launch {
