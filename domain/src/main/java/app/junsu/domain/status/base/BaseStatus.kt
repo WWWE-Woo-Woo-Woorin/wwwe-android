@@ -1,5 +1,5 @@
 package app.junsu.domain.status.base
 
-interface BaseStatus {
+internal interface BaseStatus {
     val statusCode: Int
 }
