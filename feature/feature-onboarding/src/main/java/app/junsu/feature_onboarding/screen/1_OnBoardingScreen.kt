@@ -64,6 +64,7 @@ internal fun OnBoardingScreen(
             modifier = Modifier.align(Alignment.Center),
             count = previewPagerImages.size,
             state = previewPagerState,
+            userScrollEnabled = false,
         ) { page ->
 
             Image(
