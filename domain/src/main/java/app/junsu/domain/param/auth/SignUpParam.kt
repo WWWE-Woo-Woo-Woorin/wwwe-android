@@ -1,7 +1,7 @@
 package app.junsu.domain.param.auth
 
 data class SignUpParam(
-    val email: String,
-    val username: String,
-    val profileUrl: String? = null,
+    private val email: String,
+    private val username: String,
+    private val profileUrl: String? = null,
 )
