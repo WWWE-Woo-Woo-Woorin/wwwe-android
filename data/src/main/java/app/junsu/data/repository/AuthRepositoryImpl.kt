@@ -1,4 +1,4 @@
-package app.junsu.remote.repository
+package app.junsu.data.repository
 
 import app.junsu.data.datasource.auth.RemoteAuthDataSource
 import app.junsu.domain.repository.auth.AuthRepository

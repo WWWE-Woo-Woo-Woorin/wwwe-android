@@ -1,7 +1,7 @@
 package app.junsu.di.repository
 
+import app.junsu.data.repository.AuthRepositoryImpl
 import app.junsu.domain.repository.auth.AuthRepository
-import app.junsu.remote.repository.AuthRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
