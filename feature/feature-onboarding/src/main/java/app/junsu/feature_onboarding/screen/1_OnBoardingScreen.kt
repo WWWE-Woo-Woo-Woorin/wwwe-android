@@ -1,14 +1,12 @@
 package app.junsu.feature_onboarding.screen
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -20,9 +18,11 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import app.junsu.common_compose.util.VerticalSpacer
 import app.junsu.feature_onboarding.R
+import app.junsu.wwwe_design_system.button.DefaultButton
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.launch
 
 private val previewPagerImages = listOf(
     R.drawable.img_onboarding_preview_1,
@@ -39,23 +39,36 @@ internal fun OnBoardingScreen(
 
     val screenWidth = LocalConfiguration.current.screenWidthDp
 
-    val previewPagerState = rememberPagerState()
+    val previewPagerState = rememberPagerState(
+        initialPage = 0,
+    )
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
+    val scope = rememberCoroutineScope()
+
+    var previewIndicatorState by remember {
+        mutableStateOf(0f)
+    }
+
+    val onNextButtonClick = {
+        previewIndicatorState = (previewPagerState.currentPage / previewPagerImages.size).toFloat()
+        scope.launch {
+            previewPagerState.scrollToPage(previewPagerState.currentPage + 1)
+        }
+    }
+
+    Box(
+        modifier = Modifier.fillMaxSize(),
     ) {
 
-        Spacer(
-            modifier = Modifier.weight(1f),
-        )
-
         HorizontalPager(
+            modifier = Modifier.align(Alignment.Center),
             count = previewPagerImages.size,
             state = previewPagerState,
-        ) { pageIndex ->
+        ) { page ->
+
             Image(
                 painter = painterResource(
-                    previewPagerImages[pageIndex],
+                    previewPagerImages[page],
                 ),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
@@ -70,12 +83,18 @@ internal fun OnBoardingScreen(
         )
 
         Column(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier
+                .padding(
+                    vertical = 16.dp,
+                    horizontal = 16.dp,
+                )
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
             LinearProgressIndicator(
-                progress = 0.5f,
+                progress = previewIndicatorState,
             )
 
             VerticalSpacer(
@@ -94,6 +113,14 @@ internal fun OnBoardingScreen(
             Text(
                 text = "Description",
                 style = MaterialTheme.typography.body1,
+            )
+
+            DefaultButton(
+                modifier = Modifier.align(Alignment.End),
+                text = "다음",
+                onClick = {
+                    onNextButtonClick()
+                },
             )
         }
     }
