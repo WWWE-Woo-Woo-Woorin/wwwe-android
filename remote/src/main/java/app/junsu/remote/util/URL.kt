@@ -10,7 +10,7 @@ internal object URL {
         internal const val REGENERATE_TOKEN = "/v1/users/token"
 
         object Check {
-            internal const val EMAIL_ENTERED = "/v1/users/check/email/{email}"
+            internal const val EMAIL_SIGNED_IN = "/v1/users/check/email/{email}"
             internal const val USERNAME_ENTERED = "/v1/users/check/username"
         }
 
