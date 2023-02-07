@@ -1,4 +1,4 @@
-package app.junsu.feature_onboarding.screen.googlesignin
+package app.junsu.feature_google_sign_in.googlesignin
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import app.junsu.feature_onboarding.R
+import app.junsu.feature_sign_in_google.R
 import app.junsu.wwwe_design_system.button.DefaultButton
 
 @Composable
