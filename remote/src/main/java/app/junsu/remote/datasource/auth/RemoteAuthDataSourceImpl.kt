@@ -7,13 +7,11 @@ import app.junsu.remote.api.auth.AuthAPI
 import app.junsu.remote.model.auth.signin.SignInRequest
 import app.junsu.remote.model.auth.signup.SignUpRequest
 import app.junsu.remote.util.HTTPHandler
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class RemoteAuthDataSourceImpl @Inject constructor(
     private val authApi: AuthAPI,
-    private val googleSignInClient: GoogleSignInClient,
     @ApplicationContext private val context: Context,
 ) : RemoteAuthDataSource {
 
@@ -46,6 +44,14 @@ class RemoteAuthDataSourceImpl @Inject constructor(
     override suspend fun signUpEmail(email: String) {
         return HTTPHandler {
             authApi.signUpEmail(
+                email = email,
+            )
+        }
+    }
+
+    override suspend fun checkEmailSignedIn(email: String): Boolean {
+        return HTTPHandler{
+            authApi.checkEmailSignedIn(
                 email = email,
             )
         }
