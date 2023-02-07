@@ -74,4 +74,9 @@ object Dependencies {
                 "com.google.accompanist:accompanist-pager-indicators:${Versions.UI.Pager.PAGER_VERSION}"
         }
     }
+
+    object Google {
+        const val PLAY_SERVICE_AUTH =
+            "com.google.android.gms:play-services-auth:${Versions.Google.PLAY_SERVICES_VERSION}"
+    }
 }

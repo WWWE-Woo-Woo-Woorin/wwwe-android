@@ -33,6 +33,7 @@ object Versions {
 
     object Google {
         const val GOOGLE_SERVICES_VERSION = "4.3.15"
+        const val PLAY_SERVICES_VERSION = "20.4.0"
     }
 
     object Hilt {

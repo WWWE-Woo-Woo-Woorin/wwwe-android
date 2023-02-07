@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
+    id(Plugins.Google.GOOGLE_SERVICES)
     id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
@@ -62,6 +63,8 @@ dependencies {
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
+    implementation(Dependencies.Firebase.FIREBASE_AUTH)
+
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.COMPOSE_NAVIGATION)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
@@ -72,6 +75,8 @@ dependencies {
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING_PREVIEW)
     androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)
+
+    implementation(Dependencies.Google.PLAY_SERVICE_AUTH)
 
     implementation(Dependencies.UI.Pager.PAGER)
     implementation(Dependencies.UI.Pager.PAGER_INDICATOR)
