@@ -57,7 +57,7 @@ dependencies {
     implementation(project(":remote"))
     implementation(project(":di"))
     implementation(project(":feature:feature-onboarding"))
-    implementation(project(":feature:feature-sign-in-google"))
+    implementation(project(":feature:feature-google-sign-in"))
 
     implementation(Dependencies.Android.CORE_KTX)
     implementation(Dependencies.Android.ACTIVITY_KTX)
