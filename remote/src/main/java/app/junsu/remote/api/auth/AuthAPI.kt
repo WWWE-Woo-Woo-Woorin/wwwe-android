@@ -6,6 +6,7 @@ import app.junsu.remote.model.auth.signup.SignUpRequest
 import app.junsu.remote.util.PathVariables
 import app.junsu.remote.util.URL
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -25,4 +26,9 @@ interface AuthAPI {
     suspend fun signUpEmail(
         @Path(PathVariables.EMAIL) email: String,
     )
+
+    @GET(URL.Auth.Check.EMAIL_SIGNED_IN)
+    suspend fun checkEmailSignedIn(
+        @Path(PathVariables.EMAIL) email: String,
+    ): Boolean
 }
