@@ -1,16 +1,26 @@
-package app.junsu.remote.util
+package app.junsu.di.google
 
 import android.content.Context
 import app.junsu.remote.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
-class GoogleSignInClientProvider(
-    private val context: Context,
-) {
-    operator fun invoke(): GoogleSignInClient {
+@Module
+@InstallIn(SingletonComponent::class)
+private object GoogleModule {
 
+    @Provides
+    @Singleton
+    fun provideGoogleSignInClient(
+        @ApplicationContext context: Context,
+    ): GoogleSignInClient {
         val googleSignInOptions = GoogleSignInOptions.Builder(
             GoogleSignInOptions.DEFAULT_SIGN_IN,
         ).requestIdToken(

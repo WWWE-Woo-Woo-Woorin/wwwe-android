@@ -3,6 +3,7 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
+    id(Plugins.Google.GOOGLE_SERVICES)
     id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
@@ -54,6 +55,8 @@ dependencies {
     implementation(Dependencies.Network.OKHTTP_LOGGING_INTERCEPTOR)
     implementation(Dependencies.Network.RETROFIT)
     implementation(Dependencies.Network.GSON_CONVERTER)
+
+    implementation(Dependencies.Google.PLAY_SERVICE_AUTH)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
