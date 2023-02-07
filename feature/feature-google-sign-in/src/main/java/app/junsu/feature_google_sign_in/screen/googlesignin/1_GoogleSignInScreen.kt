@@ -33,6 +33,9 @@ fun GoogleSignInScreen(
     val googleSignInActivityResultLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
         onResult = {
+
+            Log.e("GOOGLE LOGIN", "GoogleSignInScreen: $it", )
+
             if (it.resultCode == RESULT_OK) {
 
                 val task = GoogleSignIn.getSignedInAccountFromIntent(
@@ -42,6 +45,7 @@ fun GoogleSignInScreen(
                 task.result.run {
                     Log.e("google task account", "GoogleSignInScreen: ${this.email}") // todo
                 }
+            } else {
             }
         },
     )
