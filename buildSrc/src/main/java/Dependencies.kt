@@ -45,6 +45,8 @@ object Dependencies {
     }
 
     object Compose {
+        const val COMPOSE_HILT_NAVIGATION =
+            "androidx.hilt:hilt-navigation-compose:${Versions.Compose.COMPOSE_HILT_NAVIGATION_VERSION}"
         const val ACTIVITY_COMPOSE =
             "androidx.activity:activity-compose:${Versions.Compose.ACTIVITY_COMPOSE_VERSION}"
         const val COMPOSE_MATERIAL =
