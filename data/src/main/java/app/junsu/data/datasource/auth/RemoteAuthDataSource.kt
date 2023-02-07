@@ -19,6 +19,8 @@ interface RemoteAuthDataSource {
         email: String,
     )
 
+    suspend fun signInWithGoogle()
+
     /* suspend fun regenerateToken(
          accessToken: String,
      ): User*/
