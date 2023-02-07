@@ -19,6 +19,10 @@ interface RemoteAuthDataSource {
         email: String,
     )
 
+    suspend fun checkEmailSignedIn(
+        email: String,
+    ): Boolean
+
     /* suspend fun regenerateToken(
          accessToken: String,
      ): User*/
