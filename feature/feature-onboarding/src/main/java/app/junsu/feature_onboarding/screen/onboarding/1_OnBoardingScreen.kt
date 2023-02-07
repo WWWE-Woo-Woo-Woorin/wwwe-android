@@ -60,7 +60,7 @@ private val indicatorDefaultValue: Float
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 @Composable
-internal fun OnBoardingScreen(
+fun OnBoardingScreen(
     navController: NavController,
 ) {
 
