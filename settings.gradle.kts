@@ -1,8 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":core:wwwe-design-system")
-
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -26,6 +23,8 @@ include(":domain")
 include(":data")
 include(":remote")
 include(":common:common-compose")
+include(":core:wwwe-design-system")
 include(":app")
 include(":feature:feature-onboarding")
+include(":feature:feature-google-sign-in")
 include(":di")
