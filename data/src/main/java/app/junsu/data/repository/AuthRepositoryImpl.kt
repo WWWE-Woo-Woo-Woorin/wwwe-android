@@ -12,10 +12,6 @@ class AuthRepositoryImpl @Inject constructor(
         //todo
     }
 
-    override suspend fun signInWithGoogle() {
-        remoteAuthDataSource.signInWithGoogle()
-    }
-
     override suspend fun signUp(email: String, username: String, profileUrl: String?) {
         remoteAuthDataSource.signUp(
             email = email,
@@ -36,5 +32,11 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun saveToken(accessToken: String) {
         //todo
+    }
+
+    override suspend fun checkEmailSignedIn(email: String): Boolean {
+        return remoteAuthDataSource.checkEmailSignedIn(
+            email = email,
+        )
     }
 }
