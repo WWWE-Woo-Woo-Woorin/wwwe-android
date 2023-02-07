@@ -6,8 +6,6 @@ interface AuthRepository {
         email: String,
     )
 
-    suspend fun signInWithGoogle()
-
     suspend fun signUp(
         email: String,
         username: String,
@@ -25,4 +23,8 @@ interface AuthRepository {
     suspend fun saveToken(
         accessToken: String,
     )
+
+    suspend fun checkEmailSignedIn(
+        email: String,
+    ): Boolean
 }
