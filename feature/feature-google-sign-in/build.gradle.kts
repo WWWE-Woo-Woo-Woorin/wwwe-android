@@ -1,7 +1,6 @@
 plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
-    id(Plugins.Google.GOOGLE_SERVICES)
     id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
