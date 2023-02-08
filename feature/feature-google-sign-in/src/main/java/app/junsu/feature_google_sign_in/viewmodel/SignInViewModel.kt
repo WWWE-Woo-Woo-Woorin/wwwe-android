@@ -1,6 +1,5 @@
 package app.junsu.feature_google_sign_in.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,12 +23,7 @@ class SignInViewModel @Inject constructor(
     internal val email: LiveData<String>
         get() = _email
 
-    internal var account: GoogleSignInAccount? = null
-        set(value) {
-            field = value.also {
-                Log.e("ViewModel", ": $it")
-            }
-        }
+    internal lateinit var account: GoogleSignInAccount
 
     internal fun checkEmailSignedIn(
         email: String,
