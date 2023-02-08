@@ -8,9 +8,11 @@ class CheckEmailSignedInUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(
         email: String,
-    ): Boolean {
-        return authRepository.checkEmailSignedIn(
-            email = email,
-        )
+    ): Result<Boolean> {
+        return kotlin.runCatching {
+            authRepository.checkEmailSignedIn(
+                email = email,
+            )
+        }
     }
 }
