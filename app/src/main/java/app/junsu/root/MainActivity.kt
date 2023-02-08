@@ -1,5 +1,6 @@
 package app.junsu.root
 
+import GoogleSignInScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import app.junsu.feature_google_sign_in.screen.googlesignin.GoogleSignInScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
