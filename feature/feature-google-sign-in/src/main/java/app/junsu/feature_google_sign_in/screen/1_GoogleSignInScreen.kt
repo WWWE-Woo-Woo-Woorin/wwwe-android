@@ -1,7 +1,4 @@
-package app.junsu.feature_google_sign_in.screen.googlesignin
-
 import android.app.Activity.RESULT_OK
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -19,40 +16,39 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import app.junsu.feature_google_sign_in.viewmodel.googlesignin.GoogleSignInViewModel
-import app.junsu.feature_sign_in_google.R
+import app.junsu.feature_google_sign_in.R
+import app.junsu.feature_google_sign_in.viewmodel.SignInViewModel
 import app.junsu.wwwe_design_system.button.DefaultButton
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 
 @Composable
 fun GoogleSignInScreen(
     navController: NavController,
-    googleSignInViewModel: GoogleSignInViewModel = hiltViewModel(),
+    signInViewModel: SignInViewModel = hiltViewModel(),
 ) {
 
     val googleSignInActivityResultLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
         onResult = {
-
-            Log.e("GOOGLE LOGIN", "GoogleSignInScreen: $it", )
-
             if (it.resultCode == RESULT_OK) {
 
-                val task = GoogleSignIn.getSignedInAccountFromIntent(
+                val account = GoogleSignIn.getSignedInAccountFromIntent(
                     it.data,
-                )
+                ).result
 
-                task.result.run {
-                    Log.e("google task account", "GoogleSignInScreen: ${this.email}") // todo
-                }
+                signInViewModel.account = account
             } else {
+
+                //todo error screen
             }
         },
     )
 
     val onStartWithGoogleAccountButtonClick = {
 
-        googleSignInActivityResultLauncher.launch(googleSignInViewModel.googleSignInIntent)
+        googleSignInActivityResultLauncher.launch(
+            signInViewModel.googleSignInIntent,
+        )
     }
 
     Box(
