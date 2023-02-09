@@ -1,7 +1,5 @@
 package app.junsu.feature_google_sign_in.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.domain.usecase.auth.CheckEmailSignedInUseCase
@@ -19,23 +17,21 @@ class SignInViewModel @Inject constructor(
 
     internal val googleSignInIntent = googleSignInClient.signInIntent
 
-    private val _email = MutableLiveData<String>()
-    internal val email: LiveData<String>
-        get() = _email
-
     internal lateinit var account: GoogleSignInAccount
 
-    internal fun checkEmailSignedIn(
-        email: String,
-    ) {
-        /*if (!this::account.isInitialized) {
-            // todo email not initialized
-        }*/
+    internal fun checkEmailSignedIn() {
+        if (!this::account.isInitialized) {
+            // todo throw account not initialized exception
+        }
         viewModelScope.launch {
             checkEmailSignedInUseCase(
-                email = email,
+                email = account.email!!,
             ).onSuccess {
-
+                if (!it) {
+                    // todo if email not exists
+                } else {
+                    // todo if email exists
+                }
             }
         }
     }
