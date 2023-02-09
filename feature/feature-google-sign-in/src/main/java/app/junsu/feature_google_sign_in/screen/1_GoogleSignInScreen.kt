@@ -31,12 +31,16 @@ fun GoogleSignInScreen(
         contract = ActivityResultContracts.StartActivityForResult(),
         onResult = {
             if (it.resultCode == RESULT_OK) {
+                if (it.data != null) {
 
-                val account = GoogleSignIn.getSignedInAccountFromIntent(
-                    it.data,
-                ).result
+                    val account = GoogleSignIn.getSignedInAccountFromIntent(
+                        it.data,
+                    ).result
 
-                signInViewModel.account = account
+                    signInViewModel.account = account
+
+                    signInViewModel.checkEmailSignedIn()
+                }
             } else {
 
                 //todo error screen
