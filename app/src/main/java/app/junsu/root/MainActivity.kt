@@ -1,5 +1,6 @@
 package app.junsu.root
 
+import GoogleSignInScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,7 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.junsu.remote.model.auth.signup.SignUpRequest
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +26,10 @@ internal class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                MainScreen(
+
+                val navController = rememberNavController()
+
+                /*MainScreen(
                     onTestButtonClick = {
                         viewModel.signUp(
                             signUpRequest = SignUpRequest(
@@ -35,6 +39,9 @@ internal class MainActivity : ComponentActivity() {
                             ),
                         )
                     },
+                )*/
+                GoogleSignInScreen(
+                    navController = navController,
                 )
             }
         }

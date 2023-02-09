@@ -33,4 +33,10 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun saveToken(accessToken: String) {
         //todo
     }
+
+    override suspend fun checkEmailSignedIn(email: String): Boolean {
+        return remoteAuthDataSource.checkEmailSignedIn(
+            email = email,
+        )
+    }
 }

@@ -12,7 +12,7 @@ object AppConfigs {
 
         object Feature {
             const val ON_BOARDING = "app.junsu.feature_onboarding"
-            const val SIGN_IN_GOOGLE = "app.junsu.feature_sign_in_google"
+            const val SIGN_IN_GOOGLE = "app.junsu.feature_google_sign_in"
         }
 
         object Core {

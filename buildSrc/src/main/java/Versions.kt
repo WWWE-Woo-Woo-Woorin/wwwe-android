@@ -33,6 +33,7 @@ object Versions {
 
     object Google {
         const val GOOGLE_SERVICES_VERSION = "4.3.15"
+        const val PLAY_SERVICES_VERSION = "20.4.0"
     }
 
     object Hilt {
@@ -45,6 +46,7 @@ object Versions {
     }
 
     object Compose {
+        const val COMPOSE_HILT_NAVIGATION_VERSION = "1.0.0"
         const val ACTIVITY_COMPOSE_VERSION = "1.6.1"
         const val COMPOSE_MATERIAL_VERSION = "1.0.1"
         const val COMPOSE_CONSTRAINT_LAYOUT_VERSION = "1.0.1"

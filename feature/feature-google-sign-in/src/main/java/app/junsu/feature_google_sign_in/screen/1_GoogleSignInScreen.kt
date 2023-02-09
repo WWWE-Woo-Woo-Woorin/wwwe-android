@@ -1,5 +1,6 @@
-package app.junsu.feature_google_sign_in.googlesignin
-
+import android.app.Activity.RESULT_OK
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,18 +13,42 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import app.junsu.feature_sign_in_google.R
+import app.junsu.feature_google_sign_in.R
+import app.junsu.feature_google_sign_in.viewmodel.SignInViewModel
 import app.junsu.wwwe_design_system.button.DefaultButton
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 
 @Composable
 fun GoogleSignInScreen(
     navController: NavController,
+    signInViewModel: SignInViewModel = hiltViewModel(),
 ) {
+
+    val googleSignInActivityResultLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult(),
+        onResult = {
+            if (it.resultCode == RESULT_OK) {
+
+                val account = GoogleSignIn.getSignedInAccountFromIntent(
+                    it.data,
+                ).result
+
+                signInViewModel.account = account
+            } else {
+
+                //todo error screen
+            }
+        },
+    )
 
     val onStartWithGoogleAccountButtonClick = {
 
+        googleSignInActivityResultLauncher.launch(
+            signInViewModel.googleSignInIntent,
+        )
     }
 
     Box(
@@ -51,6 +76,10 @@ fun GoogleSignInScreen(
                 ),
         )
     }
+}
+
+private fun signInWithGoogle() {
+
 }
 
 @Preview(showBackground = true)

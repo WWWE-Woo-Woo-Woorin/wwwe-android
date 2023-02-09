@@ -49,6 +49,8 @@ dependencies {
 
     implementation(Dependencies.Firebase.FIREBASE_AUTH)
 
+    implementation(Dependencies.Google.PLAY_SERVICE_AUTH)
+
     implementation(Dependencies.Java.INJECT)
 
     implementation(Dependencies.Hilt.HILT_ANDROID)

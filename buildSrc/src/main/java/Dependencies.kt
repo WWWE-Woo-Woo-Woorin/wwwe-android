@@ -45,6 +45,8 @@ object Dependencies {
     }
 
     object Compose {
+        const val COMPOSE_HILT_NAVIGATION =
+            "androidx.hilt:hilt-navigation-compose:${Versions.Compose.COMPOSE_HILT_NAVIGATION_VERSION}"
         const val ACTIVITY_COMPOSE =
             "androidx.activity:activity-compose:${Versions.Compose.ACTIVITY_COMPOSE_VERSION}"
         const val COMPOSE_MATERIAL =
@@ -73,5 +75,10 @@ object Dependencies {
             const val PAGER_INDICATOR =
                 "com.google.accompanist:accompanist-pager-indicators:${Versions.UI.Pager.PAGER_VERSION}"
         }
+    }
+
+    object Google {
+        const val PLAY_SERVICE_AUTH =
+            "com.google.android.gms:play-services-auth:${Versions.Google.PLAY_SERVICES_VERSION}"
     }
 }
