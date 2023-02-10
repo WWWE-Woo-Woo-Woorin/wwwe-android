@@ -43,10 +43,13 @@ class SignInViewModel @Inject constructor(
         email: String,
     ) {
         viewModelScope.launch {
+
+            _signInState.emit(SignInState.Loading)
+
             signUpEmailUseCase(
                 email = email,
             ).onSuccess {
-
+                _signInState.emit(SignInState.Success)
             }
         }
     }
