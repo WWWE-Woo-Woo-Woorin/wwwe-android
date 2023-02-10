@@ -82,10 +82,6 @@ fun GoogleSignInScreen(
     }
 }
 
-private fun signInWithGoogle() {
-
-}
-
 @Preview(showBackground = true)
 @Composable
 private fun GoogleSignInScreenPreview() {
