@@ -29,7 +29,7 @@ class SignInViewModel @Inject constructor(
                 email = email,
             ).onSuccess {
                 if (it) {
-                    // todo if email exists, sign in
+                    _signInState.emit(SignInState.SignedIn)
                 } else {
                     signUpEmail(
                         email = email,
@@ -49,7 +49,7 @@ class SignInViewModel @Inject constructor(
             signUpEmailUseCase(
                 email = email,
             ).onSuccess {
-                _signInState.emit(SignInState.Success)
+                _signInState.emit(SignInState.AccountCreated)
             }
         }
     }
@@ -57,6 +57,6 @@ class SignInViewModel @Inject constructor(
 
 internal sealed interface SignInState {
     object Loading : SignInState
-    object Success : SignInState
-    object Failure : SignInState
+    object AccountCreated : SignInState
+    object SignedIn : SignInState
 }
