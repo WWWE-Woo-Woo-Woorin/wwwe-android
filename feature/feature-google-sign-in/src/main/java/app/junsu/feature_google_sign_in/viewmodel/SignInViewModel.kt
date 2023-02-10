@@ -3,6 +3,7 @@ package app.junsu.feature_google_sign_in.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.domain.usecase.auth.CheckEmailSignedInUseCase
+import app.junsu.domain.usecase.auth.SignUpEmailUseCase
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,10 +14,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SignInViewModel @Inject constructor(
     private val checkEmailSignedInUseCase: CheckEmailSignedInUseCase,
-    private val googleSignInClient: GoogleSignInClient, // 이게 여기가 맞나..?
+    private val signUpEmailUseCase: SignUpEmailUseCase,
+    internal val googleSignInClient: GoogleSignInClient, // 이게 여기가 맞나..?
 ) : ViewModel() {
-
-    internal val googleSignInIntent = googleSignInClient.signInIntent
 
     private val _signInState = MutableStateFlow("")
     internal val signInState = _signInState.asStateFlow()
@@ -31,7 +31,7 @@ class SignInViewModel @Inject constructor(
                 if (it) {
                     // todo if email exists, sign in
                 } else {
-                    signInEmail(
+                    signUpEmail(
                         email = email,
                     )
                 }
@@ -39,10 +39,12 @@ class SignInViewModel @Inject constructor(
         }
     }
 
-    private fun signInEmail(
+    private fun signUpEmail(
         email: String,
     ) {
+        viewModelScope.launch {
 
+        }
     }
 }
 

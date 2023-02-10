@@ -51,7 +51,7 @@ fun GoogleSignInScreen(
     val onStartWithGoogleAccountButtonClick = {
 
         googleSignInActivityResultLauncher.launch(
-            signInViewModel.googleSignInIntent,
+            signInViewModel.googleSignInClient.signInIntent,
         )
     }
 
