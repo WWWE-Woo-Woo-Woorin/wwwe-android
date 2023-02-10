@@ -1,3 +1,5 @@
+package app.junsu.feature_google_sign_in.screen
+
 import android.app.Activity.RESULT_OK
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts

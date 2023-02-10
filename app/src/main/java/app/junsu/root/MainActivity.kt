@@ -1,6 +1,6 @@
 package app.junsu.root
 
-import GoogleSignInScreen
+import app.junsu.feature_google_sign_in.screen.GoogleSignInScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
