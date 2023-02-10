@@ -33,13 +33,13 @@ fun GoogleSignInScreen(
             if (it.resultCode == RESULT_OK) {
                 if (it.data != null) {
 
-                    val account = GoogleSignIn.getSignedInAccountFromIntent(
+                    val email = GoogleSignIn.getSignedInAccountFromIntent(
                         it.data,
-                    ).result
+                    ).result.email!!
 
-                    signInViewModel.account = account
-
-                    signInViewModel.checkEmailSignedIn()
+                    signInViewModel.checkEmailSignedIn(
+                        email = email,
+                    )
                 }
             } else {
 
