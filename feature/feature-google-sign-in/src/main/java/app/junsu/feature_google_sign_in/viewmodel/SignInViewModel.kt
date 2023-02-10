@@ -43,7 +43,11 @@ class SignInViewModel @Inject constructor(
         email: String,
     ) {
         viewModelScope.launch {
-
+            signUpEmailUseCase(
+                email = email,
+            ).onSuccess {
+                // navigate to next
+            }
         }
     }
 }

@@ -8,9 +8,11 @@ class SignUpEmailUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(
         email: String,
-    ) {
-        authRepository.signUpEmail(
-            email = email,
-        )
+    ): Result<Unit> {
+        return kotlin.runCatching {
+            authRepository.signUpEmail(
+                email = email,
+            )
+        }
     }
 }
