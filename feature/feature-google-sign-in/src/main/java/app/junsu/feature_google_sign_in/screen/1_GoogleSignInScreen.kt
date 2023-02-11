@@ -10,15 +10,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import app.junsu.feature_google_sign_in.R
+import app.junsu.feature_google_sign_in.viewmodel.SignInState
 import app.junsu.feature_google_sign_in.viewmodel.SignInViewModel
 import app.junsu.wwwe_design_system.button.DefaultButton
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -28,6 +31,19 @@ fun GoogleSignInScreen(
     navController: NavController,
     signInViewModel: SignInViewModel = hiltViewModel(),
 ) {
+
+    val signInState by signInViewModel.signInState.collectAsStateWithLifecycle(null)
+
+    when (signInState) {
+        SignInState.AccountCreated -> {}
+        SignInState.Loading -> {}
+        SignInState.SignedIn -> {
+            // todo navigate to main screen
+        }
+        null -> {
+
+        }
+    }
 
     val googleSignInActivityResultLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
