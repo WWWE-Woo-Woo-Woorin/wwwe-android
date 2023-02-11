@@ -41,7 +41,6 @@ dependencies {
 
     implementation(Dependencies.Android.CORE_KTX)
     implementation(Dependencies.Android.APPCOMPAT)
-    implementation(Dependencies.Android.MATERIAL)
 
     implementation(Dependencies.Network.OKHTTP)
     implementation(Dependencies.Network.RETROFIT)
