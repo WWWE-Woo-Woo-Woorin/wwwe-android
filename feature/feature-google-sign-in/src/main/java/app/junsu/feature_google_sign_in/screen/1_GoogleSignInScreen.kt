@@ -1,3 +1,5 @@
+package app.junsu.feature_google_sign_in.screen
+
 import android.app.Activity.RESULT_OK
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -8,15 +10,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import app.junsu.feature_google_sign_in.R
+import app.junsu.feature_google_sign_in.viewmodel.SignInState
 import app.junsu.feature_google_sign_in.viewmodel.SignInViewModel
 import app.junsu.wwwe_design_system.button.DefaultButton
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -27,16 +32,33 @@ fun GoogleSignInScreen(
     signInViewModel: SignInViewModel = hiltViewModel(),
 ) {
 
+    val signInState by signInViewModel.signInState.collectAsStateWithLifecycle(null)
+
+    when (signInState) {
+        SignInState.AccountCreated -> {}
+        SignInState.Loading -> {}
+        SignInState.SignedIn -> {
+            // todo navigate to main screen
+        }
+        null -> {
+
+        }
+    }
+
     val googleSignInActivityResultLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
         onResult = {
             if (it.resultCode == RESULT_OK) {
+                if (it.data != null) {
 
-                val account = GoogleSignIn.getSignedInAccountFromIntent(
-                    it.data,
-                ).result
+                    val email = GoogleSignIn.getSignedInAccountFromIntent(
+                        it.data,
+                    ).result.email!!
 
-                signInViewModel.account = account
+                    signInViewModel.checkEmailSignedIn(
+                        email = email,
+                    )
+                }
             } else {
 
                 //todo error screen
@@ -47,7 +69,7 @@ fun GoogleSignInScreen(
     val onStartWithGoogleAccountButtonClick = {
 
         googleSignInActivityResultLauncher.launch(
-            signInViewModel.googleSignInIntent,
+            signInViewModel.googleSignInClient.signInIntent,
         )
     }
 
@@ -76,10 +98,6 @@ fun GoogleSignInScreen(
                 ),
         )
     }
-}
-
-private fun signInWithGoogle() {
-
 }
 
 @Preview(showBackground = true)

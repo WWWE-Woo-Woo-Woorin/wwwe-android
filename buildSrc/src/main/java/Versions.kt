@@ -46,6 +46,7 @@ object Versions {
     }
 
     object Compose {
+        const val COMPOSE_LIFECYCLE_RUNTIME_VERSION = "2.6.0-beta01"
         const val COMPOSE_HILT_NAVIGATION_VERSION = "1.0.0"
         const val ACTIVITY_COMPOSE_VERSION = "1.6.1"
         const val COMPOSE_MATERIAL_VERSION = "1.0.1"

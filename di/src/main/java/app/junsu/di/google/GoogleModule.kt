@@ -21,6 +21,7 @@ private object GoogleModule {
     fun provideGoogleSignInClient(
         @ApplicationContext context: Context,
     ): GoogleSignInClient {
+
         val googleSignInOptions = GoogleSignInOptions.Builder(
             GoogleSignInOptions.DEFAULT_SIGN_IN,
         ).requestIdToken(

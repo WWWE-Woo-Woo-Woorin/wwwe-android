@@ -1,6 +1,5 @@
 package app.junsu.root
 
-import GoogleSignInScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,7 +13,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import app.junsu.feature_google_sign_in.screen.GoogleSignInScreen
+import app.junsu.navigator.WWWERoutes
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,17 +32,19 @@ internal class MainActivity : ComponentActivity() {
 
                 val navController = rememberNavController()
 
-                /*MainScreen(
-                    onTestButtonClick = {
-                        viewModel.signUp(
-                            signUpRequest = SignUpRequest(
-                                "Leesin@gmail.com",
-                                "이용진짱",
-                                "www.google.com",
-                            ),
+                NavHost(
+                    navController = navController,
+                    startDestination = WWWERoutes.GoogleSignIn.route,
+                ) {
+                    composable(
+                        route = WWWERoutes.GoogleSignIn.route,
+                    ) {
+                        GoogleSignInScreen(
+                            navController = navController,
                         )
-                    },
-                )*/
+                    }
+                }
+
                 GoogleSignInScreen(
                     navController = navController,
                 )

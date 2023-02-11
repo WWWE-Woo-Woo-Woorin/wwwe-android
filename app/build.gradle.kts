@@ -56,6 +56,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":remote"))
     implementation(project(":di"))
+    implementation(project(":navigator"))
     implementation(project(":feature:feature-onboarding"))
     implementation(project(":feature:feature-google-sign-in"))
 

@@ -45,6 +45,8 @@ object Dependencies {
     }
 
     object Compose {
+        const val COMPOSE_LIFECYCLE_RUNTIME =
+            "androidx.lifecycle:lifecycle-runtime-compose:${Versions.Compose.COMPOSE_LIFECYCLE_RUNTIME_VERSION}"
         const val COMPOSE_HILT_NAVIGATION =
             "androidx.hilt:hilt-navigation-compose:${Versions.Compose.COMPOSE_HILT_NAVIGATION_VERSION}"
         const val ACTIVITY_COMPOSE =

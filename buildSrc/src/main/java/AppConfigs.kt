@@ -2,6 +2,7 @@ object AppConfigs {
     object NameSpaces {
         const val DOMAIN = "app.junsu.domain"
         const val DATA = "app.junsu.data"
+        const val NAVIGATOR = "app.junsu.navigator"
         const val APP = "app.junsu.app"
         const val DI = "app.junsu.di"
         const val REMOTE = "app.junsu.remote"

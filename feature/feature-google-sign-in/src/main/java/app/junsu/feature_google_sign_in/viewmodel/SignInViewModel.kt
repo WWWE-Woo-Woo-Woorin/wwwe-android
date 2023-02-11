@@ -1,42 +1,62 @@
 package app.junsu.feature_google_sign_in.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.domain.usecase.auth.CheckEmailSignedInUseCase
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import app.junsu.domain.usecase.auth.SignUpEmailUseCase
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SignInViewModel @Inject constructor(
     private val checkEmailSignedInUseCase: CheckEmailSignedInUseCase,
-    private val googleSignInClient: GoogleSignInClient,
+    private val signUpEmailUseCase: SignUpEmailUseCase,
+    internal val googleSignInClient: GoogleSignInClient, // 이게 여기가 맞나..?
 ) : ViewModel() {
 
-    internal val googleSignInIntent = googleSignInClient.signInIntent
-
-    private val _email = MutableLiveData<String>()
-    internal val email: LiveData<String>
-        get() = _email
-
-    internal lateinit var account: GoogleSignInAccount
+    private val _signInState = MutableSharedFlow<SignInState>()
+    internal val signInState = _signInState.asSharedFlow()
 
     internal fun checkEmailSignedIn(
         email: String,
     ) {
-        /*if (!this::account.isInitialized) {
-            // todo email not initialized
-        }*/
         viewModelScope.launch {
             checkEmailSignedInUseCase(
                 email = email,
             ).onSuccess {
-
+                if (it) {
+                    _signInState.emit(SignInState.SignedIn)
+                } else {
+                    signUpEmail(
+                        email = email,
+                    )
+                }
             }
         }
     }
+
+    private fun signUpEmail(
+        email: String,
+    ) {
+        viewModelScope.launch {
+
+            _signInState.emit(SignInState.Loading)
+
+            signUpEmailUseCase(
+                email = email,
+            ).onSuccess {
+                _signInState.emit(SignInState.AccountCreated)
+            }
+        }
+    }
+}
+
+internal sealed interface SignInState {
+    object Loading : SignInState
+    object AccountCreated : SignInState
+    object SignedIn : SignInState
 }

@@ -1,5 +1,5 @@
 package app.junsu.remote.util
 
-internal object PathVariables {
+internal object RequestParams {
     const val EMAIL = "email"
 }
