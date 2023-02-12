@@ -7,7 +7,7 @@ import javax.inject.Inject
 class FetchTokenFromStorageUseCase @Inject constructor(
     private val authRepository: AuthRepository,
 ) {
-    private suspend operator fun invoke(): Token {
+    suspend operator fun invoke(): Token {
         return authRepository.fetchTokenFromStorage()
     }
 }
