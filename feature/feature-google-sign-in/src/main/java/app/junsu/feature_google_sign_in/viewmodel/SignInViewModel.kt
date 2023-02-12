@@ -2,8 +2,8 @@ package app.junsu.feature_google_sign_in.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.junsu.domain.usecase.auth.CheckEmailSignedInUseCase
-import app.junsu.domain.usecase.auth.SignUpEmailUseCase
+import app.junsu.domain.usecase.auth.remote.CheckEmailSignedInUseCase
+import app.junsu.domain.usecase.auth.remote.SignUpEmailUseCase
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

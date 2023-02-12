@@ -3,7 +3,7 @@ package app.junsu.root
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.domain.param.auth.SignUpParam
-import app.junsu.domain.usecase.auth.SignUpUseCase
+import app.junsu.domain.usecase.auth.remote.SignUpUseCase
 import app.junsu.remote.model.auth.signup.SignUpRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
