@@ -59,8 +59,8 @@ dependencies {
     implementation(Dependencies.Android.MATERIAL)
     runtimeOnly(Dependencies.Android.LIFECYCLE_VIEWMODEL)
 
-    implementation(Dependencies.Hilt.HILT_ANDROID)
-    kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
+    implementation(Dependencies.DI.HILT_ANDROID)
+    kapt(Dependencies.DI.HILT_ANDROID_COMPILER)
 
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.COMPOSE_NAVIGATION)

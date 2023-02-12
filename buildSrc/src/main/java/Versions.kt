@@ -28,7 +28,7 @@ object Versions {
     object Gradle {
         const val GRADLE_ANDROID_VERSION = "7.3.0"
         const val GRADLE_KOTLIN_VERSION = "1.8.0"
-        const val GRADLE_HILT_ANDROID_VERSION = Hilt.HILT_ANDROID_VERSION
+        const val GRADLE_HILT_ANDROID_VERSION = DI.HILT_ANDROID_VERSION
     }
 
     object Google {
@@ -36,7 +36,7 @@ object Versions {
         const val PLAY_SERVICES_VERSION = "20.4.0"
     }
 
-    object Hilt {
+    object DI {
         const val HILT_ANDROID_VERSION = "2.44"
     }
 

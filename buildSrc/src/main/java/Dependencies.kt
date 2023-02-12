@@ -28,11 +28,11 @@ object Dependencies {
             "com.google.firebase:firebase-auth-ktx:${Versions.Firebase.FIREBASE_AUTH_VERSION}"
     }
 
-    object Hilt {
+    object DI {
         const val HILT_ANDROID =
-            "com.google.dagger:hilt-android:${Versions.Hilt.HILT_ANDROID_VERSION}"
+            "com.google.dagger:hilt-android:${Versions.DI.HILT_ANDROID_VERSION}"
         const val HILT_ANDROID_COMPILER =
-            "com.google.dagger:hilt-android-compiler:${Versions.Hilt.HILT_ANDROID_VERSION}"
+            "com.google.dagger:hilt-android-compiler:${Versions.DI.HILT_ANDROID_VERSION}"
     }
 
     object Network {
