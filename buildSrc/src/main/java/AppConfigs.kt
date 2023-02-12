@@ -20,6 +20,7 @@ object AppConfigs {
 
         object Core {
             const val WWWE_DESIGN_SYSTEM = "app.junsu.wwwe_design_system"
+            const val DATASTORE = "app.junsu.datastore"
         }
     }
 
