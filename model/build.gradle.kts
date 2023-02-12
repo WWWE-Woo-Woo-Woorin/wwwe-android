@@ -8,3 +8,8 @@ java {
     sourceCompatibility = AppConfigs.CompileOptions.SOURCE_COMPATIBILITY
     targetCompatibility = AppConfigs.CompileOptions.TARGET_COMPATIBILITY
 }
+
+dependencies {
+
+    implementation(Dependencies.Kotlin.SERIALIZATION)
+}

@@ -87,4 +87,9 @@ object Dependencies {
         const val PLAY_SERVICE_AUTH =
             "com.google.android.gms:play-services-auth:${Versions.Google.PLAY_SERVICES_VERSION}"
     }
+
+    object Kotlin {
+        const val SERIALIZATION =
+            "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.SERIALIZATION_VERSION}"
+    }
 }

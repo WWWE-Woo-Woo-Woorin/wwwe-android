@@ -69,5 +69,6 @@ object Versions {
 
     object Kotlin {
         const val KOTLIN_VERSION = "1.8.0"
+        const val SERIALIZATION_VERSION = "1.0.1"
     }
 }
