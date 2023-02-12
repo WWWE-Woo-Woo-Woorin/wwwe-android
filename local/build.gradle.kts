@@ -47,6 +47,8 @@ dependencies {
     implementation(Dependencies.Network.RETROFIT)
     implementation(Dependencies.Network.GSON_CONVERTER)
 
+    implementation(Dependencies.Local.DATASTORE)
+
     implementation(Dependencies.Firebase.FIREBASE_AUTH)
 
     implementation(Dependencies.Google.PLAY_SERVICE_AUTH)

@@ -44,6 +44,10 @@ object Dependencies {
             "com.squareup.retrofit2:converter-gson:${Versions.Network.RETROFIT_VERSION}"
     }
 
+    object Local {
+        const val DATASTORE = "androidx.datastore:datastore:${Versions.Local.DATASTORE_VERSION}"
+    }
+
     object Compose {
         const val COMPOSE_LIFECYCLE_RUNTIME =
             "androidx.lifecycle:lifecycle-runtime-compose:${Versions.Compose.COMPOSE_LIFECYCLE_RUNTIME_VERSION}"

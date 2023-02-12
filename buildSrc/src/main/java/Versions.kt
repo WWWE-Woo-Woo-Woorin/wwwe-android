@@ -45,6 +45,10 @@ object Versions {
         const val OKHTTP_VERSION = "4.10.0"
     }
 
+    object Local {
+        const val DATASTORE_VERSION = "1.0.0"
+    }
+
     object Compose {
         const val COMPOSE_LIFECYCLE_RUNTIME_VERSION = "2.6.0-beta01"
         const val COMPOSE_HILT_NAVIGATION_VERSION = "1.0.0"
