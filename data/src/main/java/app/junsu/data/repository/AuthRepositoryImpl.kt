@@ -1,11 +1,14 @@
 package app.junsu.data.repository
 
+import app.junsu.data.datasource.auth.LocalAuthDataSource
 import app.junsu.data.datasource.auth.RemoteAuthDataSource
 import app.junsu.domain.repository.auth.AuthRepository
+import app.junsu.model.common.Token
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val remoteAuthDataSource: RemoteAuthDataSource,
+    private val localAuthDataSource: LocalAuthDataSource,
 ) : AuthRepository {
 
     override suspend fun signIn(email: String) {
@@ -26,12 +29,14 @@ class AuthRepositoryImpl @Inject constructor(
         )
     }
 
-    override suspend fun fetchTokenFromStorage(accessToken: String) {
-        //todo
+    override suspend fun fetchTokenFromStorage(): Token {
+        return localAuthDataSource.fetchTokenFromStorage()
     }
 
-    override suspend fun saveToken(accessToken: String) {
-        //todo
+    override suspend fun updateToken(token: Token) {
+        localAuthDataSource.updateToken(
+            token = token,
+        )
     }
 
     override suspend fun checkEmailSignedIn(email: String): Boolean {

@@ -1,5 +1,7 @@
 package app.junsu.domain.repository.auth
 
+import app.junsu.model.common.Token
+
 interface AuthRepository {
 
     suspend fun signIn(
@@ -16,12 +18,10 @@ interface AuthRepository {
         email: String,
     )
 
-    suspend fun fetchTokenFromStorage(
-        accessToken: String,
-    )
+    suspend fun fetchTokenFromStorage(): Token
 
-    suspend fun saveToken(
-        accessToken: String,
+    suspend fun updateToken(
+        token: Token,
     )
 
     suspend fun checkEmailSignedIn(
