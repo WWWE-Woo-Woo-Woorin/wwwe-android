@@ -16,7 +16,7 @@ interface AuthRepository {
         email: String,
     )
 
-    suspend fun fetchToken(
+    suspend fun fetchTokenFromStorage(
         accessToken: String,
     )
 

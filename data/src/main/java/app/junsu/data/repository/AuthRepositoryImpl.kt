@@ -26,7 +26,7 @@ class AuthRepositoryImpl @Inject constructor(
         )
     }
 
-    override suspend fun fetchToken(accessToken: String) {
+    override suspend fun fetchTokenFromStorage(accessToken: String) {
         //todo
     }
 
