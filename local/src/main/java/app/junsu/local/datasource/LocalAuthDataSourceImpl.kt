@@ -12,6 +12,14 @@ class LocalAuthDataSourceImpl @Inject constructor(
     private val userPreferencesDataStore: DataStore<UserPreferences>,
 ) : LocalAuthDataSource {
 
+    override suspend fun saveEmail(email: String) {
+        userPreferencesDataStore.updateData {
+            UserPreferences.getDefaultInstance().copy(
+                email = email,
+            )
+        }
+    }
+
     override suspend fun fetchTokenFromStorage(): Token {
 
         val accessToken = userPreferencesDataStore.data.first().accessToken
@@ -30,8 +38,9 @@ class LocalAuthDataSourceImpl @Inject constructor(
     override suspend fun updateToken(
         token: Token,
     ) {
-        userPreferencesDataStore.updateData {
+        userPreferencesDataStore.updateData { oldUserPreferences ->
             UserPreferences(
+                email = oldUserPreferences.email,
                 accessToken = token.accessToken,
                 refreshToken = token.refreshToken,
                 accessTokenExpiresAt = token.accessTokenExpiresAt.toString(),

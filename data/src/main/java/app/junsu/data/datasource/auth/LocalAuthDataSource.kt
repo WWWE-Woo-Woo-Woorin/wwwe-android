@@ -4,6 +4,10 @@ import app.junsu.model.common.Token
 
 interface LocalAuthDataSource {
 
+    suspend fun saveEmail(
+        email: String,
+    )
+
     suspend fun fetchTokenFromStorage(): Token
 
     suspend fun updateToken(

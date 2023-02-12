@@ -19,6 +19,10 @@ interface AuthRepository {
         email: String,
     )
 
+    suspend fun saveEmail(
+        email: String,
+    )
+
     suspend fun fetchTokenFromStorage(): Token
 
     suspend fun updateToken(

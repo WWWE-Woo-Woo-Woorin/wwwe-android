@@ -35,6 +35,12 @@ class AuthRepositoryImpl @Inject constructor(
         )
     }
 
+    override suspend fun saveEmail(email: String) {
+        localAuthDataSource.saveEmail(
+            email = email,
+        )
+    }
+
     override suspend fun fetchTokenFromStorage(): Token {
         return localAuthDataSource.fetchTokenFromStorage()
     }
