@@ -62,5 +62,6 @@ dependencies {
     implementation(Dependencies.Hilt.HILT_ANDROID)
     kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
+    implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
 }

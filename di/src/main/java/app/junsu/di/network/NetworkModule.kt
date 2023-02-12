@@ -20,7 +20,7 @@ private object NetworkModule {
 
     @Provides
     @Singleton
-    private fun provideAuthInterceptor(
+    fun provideAuthInterceptor(
         localAuthDataSource: LocalAuthDataSource,
     ): AuthInterceptor {
         return AuthInterceptor(
@@ -30,7 +30,7 @@ private object NetworkModule {
 
     @Provides
     @Singleton
-    private fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor { log ->
             Log.i("Http Log", log)
         }.setLevel(
