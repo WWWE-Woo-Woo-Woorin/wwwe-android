@@ -1,18 +1,17 @@
 package app.junsu.remote.interceptor
 
-import android.content.Context
 import android.util.Log
+import app.junsu.data.datasource.auth.LocalAuthDataSource
 import app.junsu.remote.interceptor.model.HTTPMethod
 import app.junsu.remote.interceptor.model.HTTPMethod.*
 import app.junsu.remote.interceptor.model.ignoreRequests
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
 
 class AuthInterceptor @Inject constructor(
-    @ApplicationContext private val context: Context,
+    private val localAuthDataSource: LocalAuthDataSource,
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
@@ -26,7 +25,7 @@ class AuthInterceptor @Inject constructor(
         }
 
         val accessToken: String = runBlocking {
-            "accessToken" // TODO
+            localAuthDataSource.fetchTokenFromStorage().accessToken
         }
 
         return chain.proceed(
