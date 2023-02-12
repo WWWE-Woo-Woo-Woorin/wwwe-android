@@ -3,6 +3,7 @@ package app.junsu.remote.api.auth
 import app.junsu.remote.model.auth.signin.SignInRequest
 import app.junsu.remote.model.auth.signin.SignInResponse
 import app.junsu.remote.model.auth.signup.SignUpRequest
+import app.junsu.remote.model.auth.token.RegenerateTokenResponse
 import app.junsu.remote.util.RequestParams
 import app.junsu.remote.util.URL
 import retrofit2.http.Body
@@ -31,4 +32,7 @@ interface AuthAPI {
     suspend fun checkEmailSignedIn(
         @Query(RequestParams.EMAIL) email: String,
     ): Boolean
+
+    @GET(URL.Auth.REGENERATE_TOKEN)
+    suspend fun regenerateToken(): RegenerateTokenResponse
 }
