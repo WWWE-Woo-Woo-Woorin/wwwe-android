@@ -57,6 +57,8 @@ dependencies {
     implementation(Dependencies.Network.RETROFIT)
     implementation(Dependencies.Network.GSON_CONVERTER)
 
+    implementation(Dependencies.Local.DATASTORE)
+
     implementation(Dependencies.Google.PLAY_SERVICE_AUTH)
 
     implementation(Dependencies.DI.HILT_ANDROID)
