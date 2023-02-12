@@ -1,6 +1,6 @@
 package app.junsu.data.datasource.auth
 
-import app.junsu.model.Token
+import app.junsu.model.common.Token
 
 interface RemoteAuthDataSource {
 
