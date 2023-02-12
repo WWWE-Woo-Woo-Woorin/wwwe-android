@@ -14,13 +14,13 @@ class RemoteAuthDataSourceImpl @Inject constructor(
 
     override suspend fun signIn(
         email: String,
-        deviceToken: String?,
+        accessToken: String?,
     ): Token {
         return HTTPHandler {
             authApi.signIn(
                 SignInRequest(
                     email = email,
-                    deviceToken = deviceToken,
+                    deviceToken = accessToken,
                 ),
             )
         }.toToken()

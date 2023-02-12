@@ -6,7 +6,7 @@ interface RemoteAuthDataSource {
 
     suspend fun signIn(
         email: String,
-        deviceToken: String?,
+        accessToken: String?,
     ): Token
 
     suspend fun signUp(
