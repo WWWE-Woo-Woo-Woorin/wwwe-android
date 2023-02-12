@@ -17,8 +17,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 internal object DataStoreModule {
 
-    const val PREFS_USER = "app_junsu.prefs_user"
-    const val PREFS_APP = "app_junsu.prefs_user"
+    private const val PREFS_USER = "app_junsu.prefs_user"
+    private const val PREFS_APP = "app_junsu.prefs_user"
 
     @Provides
     @Singleton
