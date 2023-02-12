@@ -13,7 +13,7 @@ data class SignInResponse(
         return Token(
             accessToken = accessToken,
             refreshToken = refreshToken,
-            accessTokenExpiresAt = accessTokenExpiresAt.toString(),
+            accessTokenExpiresAt = accessTokenExpiresAt,
         )
     }
 }
