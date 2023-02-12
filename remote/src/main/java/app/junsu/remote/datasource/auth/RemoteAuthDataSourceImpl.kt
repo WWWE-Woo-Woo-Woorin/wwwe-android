@@ -54,7 +54,11 @@ class RemoteAuthDataSourceImpl @Inject constructor(
         }
     }
 
-/*    override suspend fun regenerateToken(accessToken: String): User {
-        // TODO
-    }*/
+    override suspend fun regenerateTokens(refreshToken: String): Token {
+        return HTTPHandler {
+            authApi.regenerateTokens(
+                refreshToken = refreshToken,
+            )
+        }.toToken()
+    }
 }
