@@ -42,7 +42,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
                 email = oldUserPreferences.email,
                 accessToken = token.accessToken,
                 refreshToken = token.refreshToken,
-                accessTokenExpiresAt = token.accessTokenExpiresAt.toString(),
+                accessTokenExpiresAt = token.accessTokenExpiresAt,
             )
         }
     }
