@@ -1,10 +1,10 @@
 package app.junsu.remote.interceptor
 
-import android.util.Log
 import app.junsu.data.datasource.auth.LocalAuthDataSource
 import app.junsu.remote.interceptor.model.HTTPMethod
-import app.junsu.remote.interceptor.model.HTTPMethod.*
 import app.junsu.remote.interceptor.model.ignoreRequests
+import app.junsu.remote.interceptor.model.toHttpMethod
+import app.junsu.remote.util.URL
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -18,7 +18,7 @@ class AuthInterceptor @Inject constructor(
         val request = chain.request()
 
         val path = request.url.encodedPath
-        val method = request.method.toEnum()
+        val method = request.method.toHttpMethod()
 
         if (ignoreRequests.any { it.path == path }) {
             chain.proceed(request)
@@ -34,18 +34,5 @@ class AuthInterceptor @Inject constructor(
                 accessToken,
             ).build(),
         )
-    }
-}
-
-private fun String.toEnum(): HTTPMethod {
-    return when (this) {
-        "POST" -> POST
-        "GET" -> GET
-        "PUT" -> PUT
-        "DELETE" -> DELETE
-        "PATCH" -> PATCH
-        else -> UNKNOWN.also {
-            Log.e("HttpMethodParsing", "toEnum: $it")
-        }
     }
 }

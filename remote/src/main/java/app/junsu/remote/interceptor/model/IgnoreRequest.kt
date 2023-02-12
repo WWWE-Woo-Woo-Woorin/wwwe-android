@@ -1,16 +1,27 @@
 package app.junsu.remote.interceptor.model
 
-import app.junsu.remote.interceptor.model.HTTPMethod.POST
-import app.junsu.remote.interceptor.model.HTTPMethod.PUT
 import app.junsu.remote.util.URL
 
-internal data class IgnoreRequest(
-    val method: HTTPMethod,
+internal data class RequestInformation(
     val path: String,
+    val method: HTTPMethod,
 )
 
 internal val ignoreRequests = listOf(
-    IgnoreRequest(POST, URL.Auth.SIGN_IN),
-    IgnoreRequest(POST, URL.Auth.SIGN_UP),
-    IgnoreRequest(PUT, URL.Auth.REGENERATE_TOKEN),
+    RequestInformation(
+        URL.Auth.SIGN_IN,
+        HTTPMethod.POST,
+    ),
+    RequestInformation(
+        URL.Auth.REGENERATE_TOKEN,
+        HTTPMethod.PUT,
+    ),
+    RequestInformation(
+        URL.Auth.SIGN_UP,
+        HTTPMethod.POST,
+    ),
+    RequestInformation(
+        URL.Auth.SignUp.SIGNUP_EMAIL,
+        HTTPMethod.POST,
+    ),
 )
