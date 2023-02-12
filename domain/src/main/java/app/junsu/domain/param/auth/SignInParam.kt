@@ -2,5 +2,5 @@ package app.junsu.domain.param.auth
 
 data class SignInParam(
     internal val email: String,
-    internal val deviceToken: String? = "whhhat",
+    internal val accessToken: String? = "whhhat",
 )
