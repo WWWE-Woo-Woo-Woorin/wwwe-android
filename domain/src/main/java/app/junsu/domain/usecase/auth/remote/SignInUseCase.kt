@@ -12,6 +12,7 @@ class SignInUseCase(
         return kotlin.runCatching {
             authRepository.signIn(
                 email = param.email,
+                accessToken = param.accessToken!!,
             )
         }
     }
