@@ -5,7 +5,6 @@ import app.junsu.data.datasource.auth.LocalAuthDataSource
 import app.junsu.model.common.Token
 import app.junsu.model.preference.UserPreferences
 import kotlinx.coroutines.flow.first
-import java.time.LocalDateTime
 import javax.inject.Inject
 
 class LocalAuthDataSourceImpl @Inject constructor(
@@ -31,7 +30,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
         return Token(
             accessToken = accessToken,
             refreshToken = refreshToken,
-            accessTokenExpiresAt = LocalDateTime.parse(accessTokenExpiresAt),
+            accessTokenExpiresAt = accessTokenExpiresAt,
         )
     }
 
