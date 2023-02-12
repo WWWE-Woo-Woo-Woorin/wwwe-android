@@ -6,10 +6,7 @@ import app.junsu.remote.model.auth.signup.SignUpRequest
 import app.junsu.remote.model.auth.token.RegenerateTokenResponse
 import app.junsu.remote.util.RequestParams
 import app.junsu.remote.util.URL
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface AuthAPI {
 
@@ -34,5 +31,7 @@ interface AuthAPI {
     ): Boolean
 
     @GET(URL.Auth.REGENERATE_TOKEN)
-    suspend fun regenerateToken(): RegenerateTokenResponse
+    suspend fun regenerateTokens(
+        @Header(value = "Authorization") refreshToken: String,
+    ): RegenerateTokenResponse
 }
