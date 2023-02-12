@@ -8,6 +8,7 @@ object Plugins {
         const val KOTLIN_JVM = "org.jetbrains.kotlin.jvm"
         const val KOTLIN_ANDROID = "kotlin-android"
         const val KOTLIN_KAPT = "kotlin-kapt"
+        const val SERIALIZATION = "kotlinx-serialization"
         const val KTLINT = "org.jlleitschuh.gradle.ktlint"
     }
 
@@ -32,5 +33,7 @@ object Plugins {
             "com.google.dagger:hilt-android-gradle-plugin:${Versions.Gradle.GRADLE_HILT_ANDROID_VERSION}"
         const val GOOGLE_SERVICES =
             "com.google.gms:google-services:${Versions.Google.GOOGLE_SERVICES_VERSION}"
+        const val KOTLIN_SERIALIZATION =
+            "org.jetbrains.kotlin:kotlin-serialization:${Versions.Kotlin.KOTLIN_VERSION}"
     }
 }

@@ -66,4 +66,8 @@ object Versions {
             const val PAGER_VERSION = "0.28.0"
         }
     }
+
+    object Kotlin {
+        const val KOTLIN_VERSION = "1.8.0"
+    }
 }
