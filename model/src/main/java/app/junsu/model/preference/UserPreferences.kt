@@ -7,7 +7,7 @@ data class UserPreferences(
     val email: String,
     val accessToken: String,
     val refreshToken: String,
-    val accessTokenExpiresAt: String,
+    val accessTokenExpiresAt: Long,
 ) {
     companion object {
         fun getDefaultInstance(): UserPreferences {
@@ -15,7 +15,7 @@ data class UserPreferences(
                 email = "",
                 accessToken = "",
                 refreshToken = "",
-                accessTokenExpiresAt = "",
+                accessTokenExpiresAt = 0L,
             )
         }
     }

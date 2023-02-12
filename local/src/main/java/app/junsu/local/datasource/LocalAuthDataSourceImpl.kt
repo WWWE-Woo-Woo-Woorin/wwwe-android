@@ -2,6 +2,8 @@ package app.junsu.local.datasource
 
 import androidx.datastore.core.DataStore
 import app.junsu.data.datasource.auth.LocalAuthDataSource
+import app.junsu.data.extension.epochSecondToLocalDateTime
+import app.junsu.data.extension.toEpochSecond
 import app.junsu.model.common.Token
 import app.junsu.model.preference.UserPreferences
 import kotlinx.coroutines.flow.first
@@ -30,7 +32,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
         return Token(
             accessToken = accessToken,
             refreshToken = refreshToken,
-            accessTokenExpiresAt = accessTokenExpiresAt,
+            accessTokenExpiresAt = accessTokenExpiresAt.epochSecondToLocalDateTime(),
         )
     }
 
@@ -42,7 +44,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
                 email = oldUserPreferences.email,
                 accessToken = token.accessToken,
                 refreshToken = token.refreshToken,
-                accessTokenExpiresAt = token.accessTokenExpiresAt,
+                accessTokenExpiresAt = token.accessTokenExpiresAt.toEpochSecond(),
             )
         }
     }
