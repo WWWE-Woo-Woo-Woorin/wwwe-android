@@ -4,9 +4,9 @@ import app.junsu.model.common.Token
 
 interface LocalAuthDataSource {
 
-    fun fetchTokenFromStorage(): Token
+    suspend fun fetchTokenFromStorage(): Token
 
-    fun saveToken(
+    suspend fun saveToken(
         token: Token,
     )
 }
