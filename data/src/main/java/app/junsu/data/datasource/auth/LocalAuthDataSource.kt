@@ -6,7 +6,9 @@ interface LocalAuthDataSource {
 
     suspend fun fetchTokenFromStorage(): Token
 
-    suspend fun saveToken(
+    suspend fun updateToken(
         token: Token,
     )
+
+    suspend fun clearToken()
 }
