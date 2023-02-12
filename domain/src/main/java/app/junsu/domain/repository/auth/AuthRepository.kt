@@ -24,6 +24,8 @@ interface AuthRepository {
         token: Token,
     )
 
+    suspend fun clearToken()
+
     suspend fun checkEmailSignedIn(
         email: String,
     ): Boolean

@@ -39,6 +39,10 @@ class AuthRepositoryImpl @Inject constructor(
         )
     }
 
+    override suspend fun clearToken() {
+        localAuthDataSource.clearToken()
+    }
+
     override suspend fun checkEmailSignedIn(email: String): Boolean {
         return remoteAuthDataSource.checkEmailSignedIn(
             email = email,
