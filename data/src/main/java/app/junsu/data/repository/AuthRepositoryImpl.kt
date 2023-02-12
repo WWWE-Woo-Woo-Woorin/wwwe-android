@@ -11,8 +11,14 @@ class AuthRepositoryImpl @Inject constructor(
     private val localAuthDataSource: LocalAuthDataSource,
 ) : AuthRepository {
 
-    override suspend fun signIn(email: String) {
-        //todo
+    override suspend fun signIn(
+        email: String,
+        accessToken: String,
+    ): Token {
+        return remoteAuthDataSource.signIn(
+            email = email,
+            accessToken = accessToken,
+        )
     }
 
     override suspend fun signUp(email: String, username: String, profileUrl: String?) {

@@ -6,7 +6,8 @@ interface AuthRepository {
 
     suspend fun signIn(
         email: String,
-    )
+        accessToken: String,
+    ): Token
 
     suspend fun signUp(
         email: String,
