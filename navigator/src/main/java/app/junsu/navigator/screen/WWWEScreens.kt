@@ -1,4 +1,4 @@
-package app.junsu.navigator
+package app.junsu.navigator.screen
 
 sealed class WWWEScreens {
 

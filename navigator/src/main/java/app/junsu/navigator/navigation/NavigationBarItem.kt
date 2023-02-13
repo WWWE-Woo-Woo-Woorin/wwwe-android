@@ -1,7 +1,7 @@
-package app.junsu.common_compose.navigation
+package app.junsu.navigator.navigation
 
 data class NavigationBarItem(
-    val title: String,
+    val label: String,
     val icon: Int,
     val route: String,
 )
