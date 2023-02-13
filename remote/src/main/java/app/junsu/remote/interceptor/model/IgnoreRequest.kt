@@ -9,19 +9,23 @@ internal data class RequestInformation(
 
 internal val ignoreRequests = listOf(
     RequestInformation(
-        URL.Auth.SIGN_IN,
-        HTTPMethod.POST,
+        path = URL.Auth.Check.EMAIL_SIGNED_IN,
+        method = HTTPMethod.GET,
     ),
     RequestInformation(
-        URL.Auth.REGENERATE_TOKEN,
-        HTTPMethod.PUT,
+        path = URL.Auth.SIGN_IN,
+        method = HTTPMethod.POST,
     ),
     RequestInformation(
-        URL.Auth.SIGN_UP,
-        HTTPMethod.POST,
+        path = URL.Auth.REGENERATE_TOKEN,
+        method = HTTPMethod.PUT,
     ),
     RequestInformation(
-        URL.Auth.SignUp.SIGNUP_EMAIL,
-        HTTPMethod.POST,
+        path = URL.Auth.SIGN_UP,
+        method = HTTPMethod.POST,
+    ),
+    RequestInformation(
+        path = URL.Auth.SignUp.SIGNUP_EMAIL,
+        method = HTTPMethod.POST,
     ),
 )
