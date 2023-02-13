@@ -16,17 +16,20 @@ import app.junsu.navigator.route.WWWERoutes
 private val navigationBarItems = listOf(
     NavigationBarItem(
         label = "Community",
-        icon = R.drawable.ic_community_filled,
+        selectedIcon = R.drawable.ic_community_filled,
+        defaultIcon = R.drawable.ic_community_outlined,
         route = WWWERoutes.Navigation.Community.route,
     ),
     NavigationBarItem(
         label = "Chat", // todo set as a preference of strings resource
-        icon = R.drawable.ic_chat_filled,
+        selectedIcon = R.drawable.ic_chat_filled,
+        defaultIcon = R.drawable.ic_chat_outlined,
         route = WWWERoutes.Navigation.Chat.route,
     ),
     NavigationBarItem(
         label = "Settings",
-        icon = R.drawable.ic_settings_filled,
+        selectedIcon = R.drawable.ic_settings_filled,
+        defaultIcon = R.drawable.ic_settings_outlined,
         route = WWWERoutes.Navigation.Settings.route,
     ),
 )
@@ -42,33 +45,37 @@ fun WWWENavigationBar(
 
     NavigationBar {
         navigationBarItems.forEach { navigationBarItem ->
-            NavigationBarItem(
-                selected = currentRoute == navigationBarItem.route,
-                onClick = {
-                    navController.navigate(
-                        navigationBarItem.route,
+            NavigationBarItem(selected = currentRoute == navigationBarItem.route, onClick = {
+                navController.navigate(
+                    navigationBarItem.route,
+                ) {
+
+                    popUpTo(
+                        navController.graph.findStartDestination().id,
                     ) {
-
-                        popUpTo(
-                            navController.graph.findStartDestination().id,
-                        ) {
-                            saveState = true
-                        }
-
-                        launchSingleTop = true
-
-                        restoreState = true
+                        saveState = true
                     }
-                },
-                icon = {
-                    Icon(
-                        painter = painterResource(
-                            id = navigationBarItem.icon,
-                        ),
-                        contentDescription = null,
-                    )
-                },
-            )
+
+                    launchSingleTop = true
+
+                    restoreState = true
+                }
+            }, icon = {
+                Icon(
+                    painter = painterResource(
+                        id = if (currentRoute == navigationBarItem.route) {
+                            navigationBarItem.selectedIcon
+                        } else {
+                            navigationBarItem.defaultIcon
+                        },
+                    ),
+                    contentDescription = null,
+                )
+            }, label = {
+                Text(
+                    text = navigationBarItem.label,
+                )
+            })
         }
     }
 }
