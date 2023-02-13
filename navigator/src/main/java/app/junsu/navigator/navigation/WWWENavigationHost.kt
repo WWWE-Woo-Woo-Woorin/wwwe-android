@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import app.junsu.navigator.route.WWWERoutes
 
 @Composable
-internal fun WWWENavigationHost(
+fun WWWENavigationHost(
     navController: NavHostController,
 ) {
     NavHost(
