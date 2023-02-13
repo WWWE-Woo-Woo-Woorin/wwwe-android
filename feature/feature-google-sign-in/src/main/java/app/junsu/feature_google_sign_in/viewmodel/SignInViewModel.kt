@@ -2,8 +2,9 @@ package app.junsu.feature_google_sign_in.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.junsu.domain.usecase.auth.CheckEmailSignedInUseCase
-import app.junsu.domain.usecase.auth.SignUpEmailUseCase
+import app.junsu.domain.usecase.auth.local.SaveEmailUseCase
+import app.junsu.domain.usecase.auth.remote.CheckEmailSignedInUseCase
+import app.junsu.domain.usecase.auth.remote.SignUpEmailUseCase
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -13,9 +14,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignInViewModel @Inject constructor(
+    private val saveEmailUseCase: SaveEmailUseCase,
     private val checkEmailSignedInUseCase: CheckEmailSignedInUseCase,
     private val signUpEmailUseCase: SignUpEmailUseCase,
-    internal val googleSignInClient: GoogleSignInClient, // 이게 여기가 맞나..?
+    internal val googleSignInClient: GoogleSignInClient,
 ) : ViewModel() {
 
     private val _signInState = MutableSharedFlow<SignInState>()
@@ -31,11 +33,26 @@ class SignInViewModel @Inject constructor(
                 if (it) {
                     _signInState.emit(SignInState.SignedIn)
                 } else {
+
                     signUpEmail(
+                        email = email,
+                    )
+
+                    saveEmail(
                         email = email,
                     )
                 }
             }
+        }
+    }
+
+    private fun saveEmail(
+        email: String,
+    ) {
+        viewModelScope.launch {
+            saveEmailUseCase(
+                email = email,
+            )
         }
     }
 

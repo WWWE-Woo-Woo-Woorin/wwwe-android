@@ -1,4 +1,4 @@
-package app.junsu.model
+package app.junsu.model.common
 
 import java.time.LocalDateTime
 

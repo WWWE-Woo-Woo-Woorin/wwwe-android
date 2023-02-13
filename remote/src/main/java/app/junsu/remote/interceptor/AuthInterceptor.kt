@@ -1,33 +1,54 @@
 package app.junsu.remote.interceptor
 
-import android.content.Context
 import android.util.Log
-import app.junsu.remote.interceptor.model.HTTPMethod
-import app.junsu.remote.interceptor.model.HTTPMethod.*
+import app.junsu.data.datasource.auth.LocalAuthDataSource
+import app.junsu.domain.status.client.ClientStatus.Unauthorized
 import app.junsu.remote.interceptor.model.ignoreRequests
-import dagger.hilt.android.qualifiers.ApplicationContext
+import app.junsu.remote.interceptor.model.toHttpMethod
+import app.junsu.remote.model.auth.token.RegenerateTokenResponse
+import app.junsu.remote.util.URL
+import com.google.gson.Gson
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.Response
+import java.time.LocalDateTime
+import java.time.ZoneId
 import javax.inject.Inject
 
 class AuthInterceptor @Inject constructor(
-    @ApplicationContext private val context: Context,
+    private val localAuthDataSource: LocalAuthDataSource,
 ) : Interceptor {
+
+    companion object {
+        const val URL_REGENERATE_TOKEN = "http://172.30.1.33:9090" + URL.Auth.REGENERATE_TOKEN
+    }
+
     override fun intercept(chain: Interceptor.Chain): Response {
 
         val request = chain.request()
 
         val path = request.url.encodedPath
-        val method = request.method.toEnum()
+        val method = request.method.toHttpMethod()
 
-        if (ignoreRequests.any { it.path == path }) {
-            chain.proceed(request)
+        if (ignoreRequests.any { (it.path == path) && (it.method == method) }) {
+            return chain.proceed(request)
         }
 
-        val accessToken: String = runBlocking {
-            "accessToken" // TODO
+        val accessTokenExpiresAt = fetchAccessTokenExpirationTime()
+
+        val currentDeviceTime = LocalDateTime.now(
+            ZoneId.systemDefault(),
+        )
+
+        if (accessTokenExpiresAt.isBefore(currentDeviceTime)) {
+            regenerateTokens()
+        } else {
+            throw Unauthorized()
         }
+
+        val accessToken = fetchAccessToken()
 
         return chain.proceed(
             request.newBuilder().addHeader(
@@ -36,17 +57,51 @@ class AuthInterceptor @Inject constructor(
             ).build(),
         )
     }
-}
 
-private fun String.toEnum(): HTTPMethod {
-    return when (this) {
-        "POST" -> POST
-        "GET" -> GET
-        "PUT" -> PUT
-        "DELETE" -> DELETE
-        "PATCH" -> PATCH
-        else -> UNKNOWN.also {
-            Log.e("HttpMethodParsing", "toEnum: $it")
+    private fun regenerateTokens() {
+
+        val refreshToken = fetchRefreshToken()
+
+        val tokenRefreshRequest = Request.Builder().url(
+            URL_REGENERATE_TOKEN,
+        ).addHeader(
+            "Authorization", refreshToken,
+        ).build()
+
+        val tokenRefreshResponse = OkHttpClient().newCall(
+            tokenRefreshRequest,
+        ).execute()
+
+        if (tokenRefreshResponse.isSuccessful) {
+
+            val newToken = Gson().fromJson(
+                tokenRefreshResponse.body!!.string(),
+                RegenerateTokenResponse::class.java,
+            ).toToken()
+
+            runBlocking {
+                localAuthDataSource.updateToken(
+                    token = newToken,
+                )
+            }
+        } else throw Unauthorized()
+    }
+
+    private fun fetchAccessToken(): String {
+        return runBlocking {
+            localAuthDataSource.fetchTokenFromStorage().accessToken
+        }
+    }
+
+    private fun fetchRefreshToken(): String {
+        return runBlocking {
+            localAuthDataSource.fetchTokenFromStorage().refreshToken
+        }
+    }
+
+    private fun fetchAccessTokenExpirationTime(): LocalDateTime {
+        return runBlocking {
+            localAuthDataSource.fetchTokenFromStorage().accessTokenExpiresAt
         }
     }
 }

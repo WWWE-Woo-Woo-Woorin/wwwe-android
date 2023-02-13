@@ -1,17 +1,17 @@
-package app.junsu.domain.usecase.auth
+package app.junsu.domain.usecase.auth.remote
 
-import app.junsu.domain.param.auth.SignInParam
 import app.junsu.domain.repository.auth.AuthRepository
+import javax.inject.Inject
 
-class SignInUseCase(
+class SignUpEmailUseCase @Inject constructor(
     private val authRepository: AuthRepository,
 ) {
     suspend operator fun invoke(
-        param: SignInParam,
+        email: String,
     ): Result<Unit> {
         return kotlin.runCatching {
-            authRepository.signIn(
-                email = param.email,
+            authRepository.signUpEmail(
+                email = email,
             )
         }
     }

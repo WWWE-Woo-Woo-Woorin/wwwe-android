@@ -1,6 +1,6 @@
 package app.junsu.remote.model.auth.signin
 
-import app.junsu.model.Token
+import app.junsu.model.common.Token
 import com.google.gson.annotations.SerializedName
 import java.time.LocalDateTime
 

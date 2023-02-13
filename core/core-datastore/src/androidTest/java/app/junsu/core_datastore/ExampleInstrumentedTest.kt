@@ -1,4 +1,4 @@
-package app.junsu.domain
+package app.junsu.core_datastore
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("app.junsu.domain.test", appContext.packageName)
+        assertEquals("app.junsu.core_datastore.test", appContext.packageName)
     }
 }

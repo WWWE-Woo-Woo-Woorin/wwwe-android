@@ -1,4 +1,4 @@
-package app.junsu.domain.usecase.auth
+package app.junsu.domain.usecase.auth.remote
 
 import app.junsu.domain.param.auth.SignUpParam
 import app.junsu.domain.repository.auth.AuthRepository

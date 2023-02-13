@@ -28,11 +28,11 @@ object Dependencies {
             "com.google.firebase:firebase-auth-ktx:${Versions.Firebase.FIREBASE_AUTH_VERSION}"
     }
 
-    object Hilt {
+    object DI {
         const val HILT_ANDROID =
-            "com.google.dagger:hilt-android:${Versions.Hilt.HILT_ANDROID_VERSION}"
+            "com.google.dagger:hilt-android:${Versions.DI.HILT_ANDROID_VERSION}"
         const val HILT_ANDROID_COMPILER =
-            "com.google.dagger:hilt-android-compiler:${Versions.Hilt.HILT_ANDROID_VERSION}"
+            "com.google.dagger:hilt-android-compiler:${Versions.DI.HILT_ANDROID_VERSION}"
     }
 
     object Network {
@@ -42,6 +42,10 @@ object Dependencies {
         const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Network.RETROFIT_VERSION}"
         const val GSON_CONVERTER =
             "com.squareup.retrofit2:converter-gson:${Versions.Network.RETROFIT_VERSION}"
+    }
+
+    object Local {
+        const val DATASTORE = "androidx.datastore:datastore:${Versions.Local.DATASTORE_VERSION}"
     }
 
     object Compose {
@@ -82,5 +86,10 @@ object Dependencies {
     object Google {
         const val PLAY_SERVICE_AUTH =
             "com.google.android.gms:play-services-auth:${Versions.Google.PLAY_SERVICES_VERSION}"
+    }
+
+    object Kotlin {
+        const val SERIALIZATION =
+            "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.SERIALIZATION_VERSION}"
     }
 }

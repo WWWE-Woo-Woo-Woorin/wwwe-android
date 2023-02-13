@@ -1,5 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
@@ -17,12 +15,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-
-        buildConfigField(
-            "String",
-            "BASE_URL",
-            gradleLocalProperties(rootDir).getProperty("BASE_URL"),
-        )
     }
 
     buildTypes {
@@ -43,8 +35,11 @@ android {
 
 dependencies {
 
+    implementation(project(":model"))
     implementation(project(":domain"))
+    implementation(project(":core:core-datastore"))
     implementation(project(":data"))
+    implementation(project(":local"))
     implementation(project(":remote"))
 
     implementation(Dependencies.Android.CORE_KTX)
@@ -56,10 +51,13 @@ dependencies {
     implementation(Dependencies.Network.RETROFIT)
     implementation(Dependencies.Network.GSON_CONVERTER)
 
+    implementation(Dependencies.Local.DATASTORE)
+
     implementation(Dependencies.Google.PLAY_SERVICE_AUTH)
 
-    implementation(Dependencies.Hilt.HILT_ANDROID)
-    kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
+    implementation(Dependencies.DI.HILT_ANDROID)
+    kapt(Dependencies.DI.HILT_ANDROID_COMPILER)
 
+    implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
 }

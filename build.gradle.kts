@@ -9,6 +9,7 @@ buildscript {
         classpath(Plugins.Gradle.GRADLE_KOTLIN)
         classpath(Plugins.Gradle.GRADLE_HILT_ANDROID)
         classpath(Plugins.Gradle.GOOGLE_SERVICES)
+        classpath(Plugins.Gradle.KOTLIN_SERIALIZATION)
     }
 }
 

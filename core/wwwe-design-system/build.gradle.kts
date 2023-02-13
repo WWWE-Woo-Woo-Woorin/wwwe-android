@@ -50,4 +50,7 @@ dependencies {
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING_PREVIEW)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
+
+    implementation(Dependencies.Test.JUNIT_KTX)
+    testImplementation(Dependencies.Test.JUNIT)
 }

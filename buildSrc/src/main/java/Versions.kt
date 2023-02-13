@@ -28,7 +28,7 @@ object Versions {
     object Gradle {
         const val GRADLE_ANDROID_VERSION = "7.3.0"
         const val GRADLE_KOTLIN_VERSION = "1.8.0"
-        const val GRADLE_HILT_ANDROID_VERSION = Hilt.HILT_ANDROID_VERSION
+        const val GRADLE_HILT_ANDROID_VERSION = DI.HILT_ANDROID_VERSION
     }
 
     object Google {
@@ -36,13 +36,17 @@ object Versions {
         const val PLAY_SERVICES_VERSION = "20.4.0"
     }
 
-    object Hilt {
+    object DI {
         const val HILT_ANDROID_VERSION = "2.44"
     }
 
     object Network {
         const val RETROFIT_VERSION = "2.9.0"
         const val OKHTTP_VERSION = "4.10.0"
+    }
+
+    object Local {
+        const val DATASTORE_VERSION = "1.0.0"
     }
 
     object Compose {
@@ -61,5 +65,10 @@ object Versions {
         object Pager {
             const val PAGER_VERSION = "0.28.0"
         }
+    }
+
+    object Kotlin {
+        const val KOTLIN_VERSION = "1.8.0"
+        const val SERIALIZATION_VERSION = "1.0.1"
     }
 }

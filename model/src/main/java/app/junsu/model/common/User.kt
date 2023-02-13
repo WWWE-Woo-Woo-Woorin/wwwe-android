@@ -1,4 +1,4 @@
-package app.junsu.model
+package app.junsu.model.common
 
 data class User(
     val email: String,
