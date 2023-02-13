@@ -30,7 +30,7 @@ interface AuthAPI {
         @Query(RequestParams.EMAIL) email: String,
     ): Boolean
 
-    @GET(URL.Auth.REGENERATE_TOKEN)
+    @PUT(URL.Auth.REGENERATE_TOKEN)
     suspend fun regenerateTokens(
         @Header(value = "Authorization") refreshToken: String,
     ): RegenerateTokenResponse
