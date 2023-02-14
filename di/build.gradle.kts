@@ -38,6 +38,7 @@ dependencies {
     implementation(project(":model"))
     implementation(project(":domain"))
     implementation(project(":core:core-datastore"))
+    implementation(project(":common:common-compose"))
     implementation(project(":data"))
     implementation(project(":local"))
     implementation(project(":remote"))

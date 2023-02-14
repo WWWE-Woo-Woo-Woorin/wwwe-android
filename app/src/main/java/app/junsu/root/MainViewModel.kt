@@ -23,8 +23,13 @@ internal class MainViewModel @Inject constructor(
     internal lateinit var user: User
 
     private suspend fun fetchUserInformation() {
-        user = withContext(viewModelScope.coroutineContext) {
+        user = User(
+            "junjaboy@gmail.com",
+            "junsupark",
+            "https://lh3.googleusercontent.com/gx6srQNknQ6mYjVXm45wqZOPcCP7hshwYPEQlhSZcD4R417-rv8m45ht6AYoNXhrf_GR2J1Q8oGrAjGv=w544-h544-l90-rj"
+        )
+        /*user = withContext(viewModelScope.coroutineContext) {
             fetchUserInformationUseCase()
-        }
+        }*/
     }
 }

@@ -55,6 +55,7 @@ android {
 
 dependencies {
 
+    implementation(project(":model"))
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":common:common-compose"))

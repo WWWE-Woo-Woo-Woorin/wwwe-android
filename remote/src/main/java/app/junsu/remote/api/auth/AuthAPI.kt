@@ -9,7 +9,7 @@ import app.junsu.remote.util.RequestParams
 import app.junsu.remote.util.URL
 import retrofit2.http.*
 
-internal interface AuthAPI {
+interface AuthAPI {
 
     @POST(URL.Auth.SIGN_IN)
     suspend fun signIn(
