@@ -62,8 +62,13 @@ object Versions {
     }
 
     object UI {
+
         object Pager {
             const val PAGER_VERSION = "0.28.0"
+        }
+
+        object StreamChat {
+            const val STREAM_CHAT_VERSION = "5.11.10"
         }
     }
 

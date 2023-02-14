@@ -75,11 +75,17 @@ object Dependencies {
     }
 
     object UI {
+
         object Pager {
             const val PAGER =
                 "com.google.accompanist:accompanist-pager:${Versions.UI.Pager.PAGER_VERSION}"
             const val PAGER_INDICATOR =
                 "com.google.accompanist:accompanist-pager-indicators:${Versions.UI.Pager.PAGER_VERSION}"
+        }
+
+        object StreamChat {
+            const val STREAM_CHAT =
+                "io.getstream:stream-chat-android-compose:${Versions.UI.StreamChat.STREAM_CHAT_VERSION}"
         }
     }
 
