@@ -1,6 +1,7 @@
 package app.junsu.domain.repository.auth.remote
 
 import app.junsu.model.common.Token
+import app.junsu.model.common.User
 
 interface RemoteAuthRepository {
 
@@ -23,5 +24,5 @@ interface RemoteAuthRepository {
         email: String,
     ): Boolean
 
-    suspend fun fetchUserInformation(): UserInformation
+    suspend fun fetchUserInformation(): User
 }
