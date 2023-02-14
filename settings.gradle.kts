@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":core:core-route")
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
