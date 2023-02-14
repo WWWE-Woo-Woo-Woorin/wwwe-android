@@ -15,6 +15,13 @@ android {
         targetSdk = AppConfigs.DefaultConfigs.TARGET_SDK_VERSION
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField(
+            "String",
+            "STREAM_CHAT_ACCESS_KEY",
+            com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(rootDir)
+                .getProperty("STREAM_CHAT_ACCESS_KEY"),
+        )
     }
 
     buildFeatures {
