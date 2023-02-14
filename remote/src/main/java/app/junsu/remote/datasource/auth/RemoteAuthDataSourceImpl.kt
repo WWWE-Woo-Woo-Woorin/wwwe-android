@@ -2,6 +2,7 @@ package app.junsu.remote.datasource.auth
 
 import app.junsu.data.datasource.auth.RemoteAuthDataSource
 import app.junsu.model.common.Token
+import app.junsu.model.common.User
 import app.junsu.remote.api.auth.AuthAPI
 import app.junsu.remote.model.auth.signin.SignInRequest
 import app.junsu.remote.model.auth.signup.SignUpRequest
@@ -60,5 +61,11 @@ class RemoteAuthDataSourceImpl @Inject constructor(
                 refreshToken = refreshToken,
             )
         }.toToken()
+    }
+
+    override suspend fun fetchUserInformation(): User {
+        return HTTPHandler {
+            authApi.fetchUserInformation()
+        }.toUser()
     }
 }
