@@ -1,20 +1,12 @@
 package app.junsu.feature_chat.viewmodel
 
 import androidx.lifecycle.ViewModel
-import app.junsu.data.datasource.auth.LocalAuthDataSource
+import app.junsu.data.datasource.auth.RemoteAuthDataSource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.getstream.chat.android.client.models.User
 
 @HiltViewModel
-internal class ChatViewModel(
-    private val localAuthDataSource: LocalAuthDataSource,
+class ChatViewModel(
+    private val remoteAuthDataSource: RemoteAuthDataSource,
 ) : ViewModel() {
 
-    init {
-
-    }
-
-    internal lateinit var user: User
-
-    private fun fetchUserInformation(): 
 }

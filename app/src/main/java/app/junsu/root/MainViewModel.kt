@@ -2,32 +2,29 @@ package app.junsu.root
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.junsu.domain.param.auth.SignUpParam
-import app.junsu.domain.usecase.auth.remote.SignUpUseCase
-import app.junsu.remote.model.auth.signup.SignUpRequest
+import app.junsu.domain.usecase.auth.remote.FetchUserInformationUseCase
+import app.junsu.model.common.User
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
 internal class MainViewModel @Inject constructor(
-    private val signUpUseCase: SignUpUseCase,
+    private val fetchUserInformationUseCase: FetchUserInformationUseCase,
 ) : ViewModel() {
 
-    // todo make private
-    internal fun signUp(
-        signUpRequest: SignUpRequest,
-    ) {
-        viewModelScope.launch {
-            signUpUseCase(
-                SignUpParam(
-                    email = signUpRequest.email,
-                    username = signUpRequest.username,
-                    profileUrl = signUpRequest.profileUrl,
-                ),
-            ).onSuccess {
+    init {
+        runBlocking {
+            fetchUserInformation()
+        }
+    }
 
-            }
+    internal lateinit var user: User
+
+    private suspend fun fetchUserInformation() {
+        user = withContext(viewModelScope.coroutineContext) {
+            fetchUserInformationUseCase()
         }
     }
 }
