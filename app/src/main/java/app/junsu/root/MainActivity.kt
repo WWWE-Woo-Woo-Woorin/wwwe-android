@@ -8,13 +8,11 @@ import androidx.activity.viewModels
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.rememberNavController
-import app.junsu.feature_google_sign_in.screen.GoogleSignInScreen
+import app.junsu.common_compose.compositionlocal.User
 import app.junsu.navigator.navigation.WWWENavigationBar
 import app.junsu.navigator.navigation.WWWENavigationHost
-import app.junsu.navigator.route.WWWERoutes
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,18 +29,26 @@ internal class MainActivity : ComponentActivity() {
 
                 val navController = rememberNavController()
 
-                Scaffold(
-                    content = {
-                        WWWENavigationHost(
-                            navController = navController,
-                        )
-                    },
-                    bottomBar = {
-                        WWWENavigationBar(
-                            navController = navController,
-                        )
-                    },
-                )
+                val user = viewModel.user
+
+                CompositionLocalProvider(
+                    values = arrayOf(
+                        User provides user,
+                    ),
+                ) {
+                    Scaffold(
+                        content = {
+                            WWWENavigationHost(
+                                navController = navController,
+                            )
+                        },
+                        bottomBar = {
+                            WWWENavigationBar(
+                                navController = navController,
+                            )
+                        },
+                    )
+                }
 
                 /*NavHost(
                     navController = navController,
