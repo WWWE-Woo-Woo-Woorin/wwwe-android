@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import app.junsu.core_route.route.WWWERoutes
-import app.junsu.feature_chat.screen.ChatScreen
+import app.junsu.feature_chat.screen.ChatListScreen
 
 @Composable
 fun WWWENavigationHost(
@@ -25,7 +25,9 @@ fun WWWENavigationHost(
         composable(
             route = WWWERoutes.Navigation.Chat.route,
         ) {
-            ChatScreen()
+            ChatListScreen(
+                navController = navController,
+            )
         }
 
         composable(
