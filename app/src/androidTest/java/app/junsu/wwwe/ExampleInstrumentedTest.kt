@@ -1,7 +1,7 @@
 package app.junsu.wwwe
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import app.junsu.domain.repository.auth.AuthRepository
+import app.junsu.domain.repository.auth.local.LocalAuthRepository
 import app.junsu.domain.usecase.auth.remote.SignUpUseCase
 import app.junsu.remote.model.auth.signup.SignUpRequest
 import app.junsu.root.MainViewModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest @Inject constructor(
-    private val authRepository: AuthRepository,
+    private val localAuthRepository: LocalAuthRepository,
 ) {
 
     @Test
@@ -24,7 +24,7 @@ class ExampleInstrumentedTest @Inject constructor(
 
         val vm = MainViewModel(
             signUpUseCase = SignUpUseCase(
-                authRepository = authRepository,
+                authRepository = localAuthRepository,
             )
         )
 

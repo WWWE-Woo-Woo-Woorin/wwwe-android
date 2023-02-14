@@ -1,8 +1,8 @@
-package app.junsu.domain.repository.auth
+package app.junsu.domain.repository.auth.remote
 
 import app.junsu.model.common.Token
 
-interface AuthRepository {
+interface RemoteAuthRepository {
 
     suspend fun signIn(
         email: String,
@@ -19,19 +19,9 @@ interface AuthRepository {
         email: String,
     )
 
-    suspend fun saveEmail(
-        email: String,
-    )
-
-    suspend fun fetchTokenFromStorage(): Token
-
-    suspend fun updateToken(
-        token: Token,
-    )
-
-    suspend fun clearToken()
-
     suspend fun checkEmailSignedIn(
         email: String,
     ): Boolean
+
+    suspend fun fetchUserInformation(): UserInformation
 }

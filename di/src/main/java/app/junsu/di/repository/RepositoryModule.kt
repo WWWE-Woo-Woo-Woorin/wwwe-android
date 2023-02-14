@@ -1,7 +1,9 @@
 package app.junsu.di.repository
 
-import app.junsu.data.repository.AuthRepositoryImpl
-import app.junsu.domain.repository.auth.AuthRepository
+import app.junsu.data.repository.local.LocalLocalAuthRepositoryImpl
+import app.junsu.data.repository.remote.RemoteAuthRepositoryImpl
+import app.junsu.domain.repository.auth.local.LocalAuthRepository
+import app.junsu.domain.repository.auth.remote.RemoteAuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,7 +16,13 @@ private abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindAuthRepository(
-        authRepositoryImpl: AuthRepositoryImpl,
-    ): AuthRepository
+    abstract fun bindLocalAuthRepository(
+        localAuthRepositoryImpl: LocalLocalAuthRepositoryImpl,
+    ): LocalAuthRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindRemoteAuthRepository(
+        remoteAuthRepositoryImpl: RemoteAuthRepositoryImpl,
+    ): RemoteAuthRepository
 }

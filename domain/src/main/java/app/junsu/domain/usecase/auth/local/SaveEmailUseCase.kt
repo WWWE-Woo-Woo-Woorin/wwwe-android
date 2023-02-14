@@ -1,15 +1,15 @@
 package app.junsu.domain.usecase.auth.local
 
-import app.junsu.domain.repository.auth.AuthRepository
+import app.junsu.domain.repository.auth.local.LocalAuthRepository
 import javax.inject.Inject
 
 class SaveEmailUseCase @Inject constructor(
-    private val authRepository: AuthRepository,
+    private val localAuthRepository: LocalAuthRepository,
 ) {
     suspend operator fun invoke(
         email: String,
     ) {
-        authRepository.saveEmail(
+        localAuthRepository.saveEmail(
             email = email,
         )
     }
