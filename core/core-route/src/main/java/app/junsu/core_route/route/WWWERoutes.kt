@@ -1,4 +1,4 @@
-package app.junsu.navigator.route
+package app.junsu.core_route.route
 
 sealed class WWWERoutes(
     val route: String,
