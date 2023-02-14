@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":core:core-route")
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -13,6 +16,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://jitpack.io")
     }
 }
 
@@ -30,4 +34,5 @@ include(":navigator")
 include(":app")
 include(":feature:feature-onboarding")
 include(":feature:feature-google-sign-in")
+include(":feature:feature-chat")
 include(":di")

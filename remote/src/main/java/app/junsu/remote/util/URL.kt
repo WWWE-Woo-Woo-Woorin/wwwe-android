@@ -6,6 +6,7 @@ internal object URL {
 
         internal const val SIGN_IN = "/v1/users/signin/{email}"
         internal const val SIGN_UP = "/v1/users/signup"
+        internal const val FETCH_USER_INFORMATION = "/v1/users"
 
         internal const val REGENERATE_TOKEN = "/v1/users/token"
 

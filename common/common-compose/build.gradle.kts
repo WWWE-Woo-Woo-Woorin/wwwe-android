@@ -41,6 +41,8 @@ android {
 
 dependencies {
 
+    implementation(project(":model"))
+
     implementation(Dependencies.Compose.COMPOSE_UI)
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)

@@ -1,5 +1,6 @@
 package app.junsu.remote.api.auth
 
+import app.junsu.remote.model.auth.fetchuseriinformation.FetchUserInformationResponse
 import app.junsu.remote.model.auth.signin.SignInRequest
 import app.junsu.remote.model.auth.signin.SignInResponse
 import app.junsu.remote.model.auth.signup.SignUpRequest
@@ -34,4 +35,7 @@ interface AuthAPI {
     suspend fun regenerateTokens(
         @Header(value = "Authorization") refreshToken: String,
     ): RegenerateTokenResponse
+
+    @GET(URL.Auth.FETCH_USER_INFORMATION)
+    suspend fun fetchUserInformation(): FetchUserInformationResponse
 }

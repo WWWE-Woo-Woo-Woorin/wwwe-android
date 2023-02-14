@@ -52,9 +52,11 @@ android {
 
 dependencies {
 
+    implementation(project(":model"))
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":remote"))
+    implementation(project(":common:common-compose"))
     implementation(project(":di"))
     implementation(project(":navigator"))
     implementation(project(":feature:feature-onboarding"))

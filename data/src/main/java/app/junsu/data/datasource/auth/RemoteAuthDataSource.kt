@@ -1,6 +1,7 @@
 package app.junsu.data.datasource.auth
 
 import app.junsu.model.common.Token
+import app.junsu.model.common.User
 
 interface RemoteAuthDataSource {
 
@@ -26,4 +27,6 @@ interface RemoteAuthDataSource {
     suspend fun regenerateTokens(
         refreshToken: String,
     ): Token
+
+    suspend fun fetchUserInformation(): User
 }

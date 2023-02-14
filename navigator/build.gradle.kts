@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    implementation(project(":core:core-route"))
+    implementation(project(":feature:feature-chat"))
+
     implementation(Dependencies.Compose.COMPOSE_UI)
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
