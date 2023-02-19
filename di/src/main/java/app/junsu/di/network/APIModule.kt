@@ -1,6 +1,6 @@
 package app.junsu.di.network
 
-import app.junsu.remote.api.auth.AuthAPI
+import app.junsu.remote.auth.api.AuthAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

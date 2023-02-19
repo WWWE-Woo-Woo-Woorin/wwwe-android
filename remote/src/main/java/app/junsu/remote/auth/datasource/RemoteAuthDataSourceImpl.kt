@@ -1,12 +1,12 @@
-package app.junsu.remote.datasource.auth
+package app.junsu.remote.auth.datasource
 
 import app.junsu.data.auth.datasource.RemoteAuthDataSource
 import app.junsu.model.common.Token
 import app.junsu.model.common.User
-import app.junsu.remote.api.auth.AuthAPI
-import app.junsu.remote.model.auth.signin.SignInRequest
-import app.junsu.remote.model.auth.signup.SignUpRequest
-import app.junsu.remote.util.HTTPHandler
+import app.junsu.remote.auth.api.AuthAPI
+import app.junsu.remote.auth.model.signin.SignInRequest
+import app.junsu.remote.auth.model.signup.SignUpRequest
+import app.junsu.remote._util.HTTPHandler
 import javax.inject.Inject
 
 class RemoteAuthDataSourceImpl @Inject constructor(

@@ -1,12 +1,12 @@
-package app.junsu.remote.interceptor
+package app.junsu.remote._interceptor
 
 import app.junsu.data.auth.datasource.LocalAuthDataSource
 import app.junsu.remote._status.client.ClientStatus.Unauthorized
 import app.junsu.remote.BuildConfig
-import app.junsu.remote.interceptor.model.ignoreRequests
-import app.junsu.remote.interceptor.model.toHttpMethod
-import app.junsu.remote.model.auth.token.RegenerateTokenResponse
-import app.junsu.remote.url.URL
+import app.junsu.remote._interceptor.model.ignoreRequests
+import app.junsu.remote._interceptor.model.toHttpMethod
+import app.junsu.remote.auth.model.token.RegenerateTokenResponse
+import app.junsu.remote._common.URL
 import com.google.gson.Gson
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor

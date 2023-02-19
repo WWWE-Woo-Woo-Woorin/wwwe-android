@@ -1,4 +1,4 @@
-package app.junsu.remote.util
+package app.junsu.remote._util
 
 import app.junsu.remote._status.client.ClientStatus.*
 import kotlinx.coroutines.Dispatchers

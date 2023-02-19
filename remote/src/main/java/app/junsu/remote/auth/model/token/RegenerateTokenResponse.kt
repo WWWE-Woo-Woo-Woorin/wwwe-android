@@ -1,4 +1,4 @@
-package app.junsu.remote.model.auth.token
+package app.junsu.remote.auth.model.token
 
 import app.junsu.model.common.Token
 import com.google.gson.annotations.SerializedName

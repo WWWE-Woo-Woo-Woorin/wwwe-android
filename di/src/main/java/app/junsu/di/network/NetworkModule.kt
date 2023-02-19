@@ -3,7 +3,7 @@ package app.junsu.di.network
 import android.util.Log
 import app.junsu.data.auth.datasource.LocalAuthDataSource
 import app.junsu.remote.BuildConfig
-import app.junsu.remote.interceptor.AuthInterceptor
+import app.junsu.remote._interceptor.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

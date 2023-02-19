@@ -1,6 +1,6 @@
-package app.junsu.remote.interceptor.model
+package app.junsu.remote._interceptor.model
 
-import app.junsu.remote.url.URL
+import app.junsu.remote._common.URL
 
 internal data class RequestInformation(
     val path: String,
