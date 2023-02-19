@@ -12,7 +12,10 @@ data class PostResponse(
     @SerializedName("createdAt") val createdAt: LocalDateTime,
 )
 
-internal fun PostResponse.toPost(): Post {
+internal fun PostResponse?.toPost(): Post {
+
+    requireNotNull(this)
+
     return Post(
         postId = this.postId,
         writer = this.writer,
@@ -20,4 +23,12 @@ internal fun PostResponse.toPost(): Post {
         postImageUrl = this.postImageUrl,
         createdAt = this.createdAt,
     )
+}
+
+internal fun List<PostResponse?>.toPost(): List<Post?> {
+    return if (this.isEmpty()) {
+        emptyList()
+    } else {
+        this.map { it.toPost() }
+    }
 }
