@@ -2,7 +2,7 @@ package app.junsu.remote.auth.api
 
 import app.junsu.remote.auth.model.FetchUserInformationResponse
 import app.junsu.remote.auth.model.SignInRequest
-import app.junsu.remote.auth.model.SignInResponse
+import app.junsu.remote.auth.model.TokenResponse
 import app.junsu.remote.auth.model.SignUpRequest
 import app.junsu.remote.auth.model.RegenerateTokenResponse
 import app.junsu.remote._util.RequestParams
@@ -14,7 +14,7 @@ interface AuthAPI {
     @POST(URL.Auth.SIGN_IN)
     suspend fun signIn(
         @Body request: SignInRequest,
-    ): SignInResponse
+    ): TokenResponse
 
     @POST(URL.Auth.SIGN_UP)
     suspend fun signUp(
