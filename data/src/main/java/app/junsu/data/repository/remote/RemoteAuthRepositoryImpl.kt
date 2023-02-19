@@ -1,8 +1,8 @@
 package app.junsu.data.repository.remote
 
 import app.junsu.data.datasource.auth.RemoteAuthDataSource
-import app.junsu.domain.param.auth.SignUpRequest
-import app.junsu.domain.repository.auth.remote.RemoteAuthRepository
+import app.junsu.domain.auth.model.SignUpRequest
+import app.junsu.domain.auth.repository.remote.RemoteAuthRepository
 import app.junsu.model.common.Token
 import app.junsu.model.common.User
 import javax.inject.Inject

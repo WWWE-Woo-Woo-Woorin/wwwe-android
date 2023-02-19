@@ -1,7 +1,7 @@
 package app.junsu.data.repository.local
 
 import app.junsu.data.datasource.auth.LocalAuthDataSource
-import app.junsu.domain.repository.auth.local.LocalAuthRepository
+import app.junsu.domain.auth.repository.LocalAuthRepository
 import app.junsu.model.common.Token
 import javax.inject.Inject
 

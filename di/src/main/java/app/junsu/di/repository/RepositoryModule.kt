@@ -2,8 +2,8 @@ package app.junsu.di.repository
 
 import app.junsu.data.repository.local.LocalLocalAuthRepositoryImpl
 import app.junsu.data.repository.remote.RemoteAuthRepositoryImpl
-import app.junsu.domain.repository.auth.local.LocalAuthRepository
-import app.junsu.domain.repository.auth.remote.RemoteAuthRepository
+import app.junsu.domain.auth.repository.LocalAuthRepository
+import app.junsu.domain.auth.repository.remote.RemoteAuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

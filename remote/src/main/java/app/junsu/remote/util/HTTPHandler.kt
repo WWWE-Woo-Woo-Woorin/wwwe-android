@@ -1,6 +1,6 @@
 package app.junsu.remote.util
 
-import app.junsu.domain.status.client.ClientStatus.*
+import app.junsu.remote._status.client.ClientStatus.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
