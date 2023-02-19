@@ -12,11 +12,9 @@ class RemoteAuthRepositoryImpl @Inject constructor(
 
     override suspend fun signIn(
         email: String,
-        accessToken: String,
     ): Token {
         return remoteAuthDataSource.signIn(
             email = email,
-            accessToken = accessToken,
         )
     }
 
