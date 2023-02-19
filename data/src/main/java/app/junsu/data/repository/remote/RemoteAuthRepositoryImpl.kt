@@ -1,6 +1,7 @@
 package app.junsu.data.repository.remote
 
 import app.junsu.data.datasource.auth.RemoteAuthDataSource
+import app.junsu.domain.param.auth.SignUpRequest
 import app.junsu.domain.repository.auth.remote.RemoteAuthRepository
 import app.junsu.model.common.Token
 import app.junsu.model.common.User
@@ -18,11 +19,13 @@ class RemoteAuthRepositoryImpl @Inject constructor(
         )
     }
 
-    override suspend fun signUp(email: String, username: String, profileUrl: String?) {
+    override suspend fun signUp(
+        request: SignUpRequest,
+    ) {
         remoteAuthDataSource.signUp(
-            email = email,
-            username = username,
-            profileUrl = profileUrl,
+            email = request.email,
+            username = request.username,
+            profileUrl = request.profileUrl,
         )
     }
 

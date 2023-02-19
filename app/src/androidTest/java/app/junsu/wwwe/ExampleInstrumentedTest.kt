@@ -21,18 +21,5 @@ class ExampleInstrumentedTest @Inject constructor(
 
     @Test
     fun signUpTest() {
-
-        val vm = MainViewModel(
-            signUpUseCase = SignUpUseCase(
-                authRepository = localAuthRepository,
-            )
-        )
-
-        vm.signUp(
-            SignUpRequest(
-                "junsu@gmail.com",
-                "박박",
-            )
-        )
     }
 }

@@ -1,5 +1,6 @@
 package app.junsu.domain.repository.auth.remote
 
+import app.junsu.domain.param.auth.SignUpRequest
 import app.junsu.model.common.Token
 import app.junsu.model.common.User
 
@@ -10,9 +11,7 @@ interface RemoteAuthRepository {
     ): Token
 
     suspend fun signUp(
-        email: String,
-        username: String,
-        profileUrl: String?,
+        request: SignUpRequest,
     )
 
     suspend fun signUpEmail(
