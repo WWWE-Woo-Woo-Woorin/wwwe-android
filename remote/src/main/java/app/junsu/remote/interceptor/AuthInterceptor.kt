@@ -6,7 +6,7 @@ import app.junsu.remote.BuildConfig
 import app.junsu.remote.interceptor.model.ignoreRequests
 import app.junsu.remote.interceptor.model.toHttpMethod
 import app.junsu.remote.model.auth.token.RegenerateTokenResponse
-import app.junsu.remote.util.URL
+import app.junsu.remote.url.URL
 import com.google.gson.Gson
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor

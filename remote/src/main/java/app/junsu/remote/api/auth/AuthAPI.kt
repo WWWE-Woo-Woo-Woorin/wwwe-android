@@ -6,7 +6,7 @@ import app.junsu.remote.model.auth.signin.SignInResponse
 import app.junsu.remote.model.auth.signup.SignUpRequest
 import app.junsu.remote.model.auth.token.RegenerateTokenResponse
 import app.junsu.remote.util.RequestParams
-import app.junsu.remote.util.URL
+import app.junsu.remote.url.URL
 import retrofit2.http.*
 
 interface AuthAPI {

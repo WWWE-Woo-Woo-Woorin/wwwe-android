@@ -1,4 +1,4 @@
-package app.junsu.remote.util
+package app.junsu.remote.url
 
 internal object URL {
 
