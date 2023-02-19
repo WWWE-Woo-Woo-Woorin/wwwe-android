@@ -1,10 +1,10 @@
 package app.junsu.remote.auth.api
 
-import app.junsu.remote.auth.model.fetchuseriinformation.FetchUserInformationResponse
-import app.junsu.remote.auth.model.signin.SignInRequest
-import app.junsu.remote.auth.model.signin.SignInResponse
-import app.junsu.remote.auth.model.signup.SignUpRequest
-import app.junsu.remote.auth.model.token.RegenerateTokenResponse
+import app.junsu.remote.auth.model.FetchUserInformationResponse
+import app.junsu.remote.auth.model.SignInRequest
+import app.junsu.remote.auth.model.SignInResponse
+import app.junsu.remote.auth.model.SignUpRequest
+import app.junsu.remote.auth.model.RegenerateTokenResponse
 import app.junsu.remote._util.RequestParams
 import app.junsu.remote._common.URL
 import retrofit2.http.*

@@ -5,7 +5,7 @@ import app.junsu.remote._status.client.ClientStatus.Unauthorized
 import app.junsu.remote.BuildConfig
 import app.junsu.remote._interceptor.model.ignoreRequests
 import app.junsu.remote._interceptor.model.toHttpMethod
-import app.junsu.remote.auth.model.token.RegenerateTokenResponse
+import app.junsu.remote.auth.model.RegenerateTokenResponse
 import app.junsu.remote._common.URL
 import com.google.gson.Gson
 import kotlinx.coroutines.runBlocking

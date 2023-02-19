@@ -1,13 +1,13 @@
-package app.junsu.remote.auth.model.signin
+package app.junsu.remote.auth.model
 
 import app.junsu.model.common.Token
 import com.google.gson.annotations.SerializedName
 import java.time.LocalDateTime
 
-data class SignInResponse(
-    @SerializedName("access_token") val accessToken: String,
-    @SerializedName("refresh_token") val refreshToken: String,
-    @SerializedName("refresh_token_exp") val accessTokenExpiresAt: LocalDateTime,
+data class RegenerateTokenResponse(
+    @SerializedName("accessToken") val accessToken: String,
+    @SerializedName("refreshToken") val refreshToken: String,
+    @SerializedName("accessTokenExpiresAt") val accessTokenExpiresAt: LocalDateTime,
 ) {
     internal fun toToken(): Token {
         return Token(

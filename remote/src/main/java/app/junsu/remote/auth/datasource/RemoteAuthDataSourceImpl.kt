@@ -4,8 +4,8 @@ import app.junsu.data.auth.datasource.RemoteAuthDataSource
 import app.junsu.model.common.Token
 import app.junsu.model.common.User
 import app.junsu.remote.auth.api.AuthAPI
-import app.junsu.remote.auth.model.signin.SignInRequest
-import app.junsu.remote.auth.model.signup.SignUpRequest
+import app.junsu.remote.auth.model.SignInRequest
+import app.junsu.remote.auth.model.SignUpRequest
 import app.junsu.remote._util.HTTPHandler
 import javax.inject.Inject
 
