@@ -1,4 +1,4 @@
-package app.junsu.data.datasource.auth
+package app.junsu.data.auth.datasource
 
 import app.junsu.model.common.Token
 

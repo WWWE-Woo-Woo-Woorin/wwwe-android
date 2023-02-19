@@ -1,6 +1,6 @@
 package app.junsu.remote.interceptor
 
-import app.junsu.data.datasource.auth.LocalAuthDataSource
+import app.junsu.data.auth.datasource.LocalAuthDataSource
 import app.junsu.remote._status.client.ClientStatus.Unauthorized
 import app.junsu.remote.BuildConfig
 import app.junsu.remote.interceptor.model.ignoreRequests

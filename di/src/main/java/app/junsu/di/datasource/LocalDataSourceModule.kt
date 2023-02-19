@@ -1,6 +1,6 @@
 package app.junsu.di.datasource
 
-import app.junsu.data.datasource.auth.LocalAuthDataSource
+import app.junsu.data.auth.datasource.LocalAuthDataSource
 import app.junsu.local.datasource.LocalAuthDataSourceImpl
 import dagger.Binds
 import dagger.Module

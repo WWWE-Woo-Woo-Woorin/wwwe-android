@@ -1,6 +1,6 @@
 package app.junsu.remote.datasource.auth
 
-import app.junsu.data.datasource.auth.RemoteAuthDataSource
+import app.junsu.data.auth.datasource.RemoteAuthDataSource
 import app.junsu.model.common.Token
 import app.junsu.model.common.User
 import app.junsu.remote.api.auth.AuthAPI

@@ -1,6 +1,6 @@
 package app.junsu.di.datasource
 
-import app.junsu.data.datasource.auth.RemoteAuthDataSource
+import app.junsu.data.auth.datasource.RemoteAuthDataSource
 import app.junsu.remote.datasource.auth.RemoteAuthDataSourceImpl
 import dagger.Binds
 import dagger.Module

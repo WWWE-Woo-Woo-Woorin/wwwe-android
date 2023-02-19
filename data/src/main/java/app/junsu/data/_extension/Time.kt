@@ -1,4 +1,4 @@
-package app.junsu.data.extension
+package app.junsu.data._extension
 
 import java.time.Instant
 import java.time.LocalDateTime

@@ -1,9 +1,9 @@
 package app.junsu.local.datasource
 
 import androidx.datastore.core.DataStore
-import app.junsu.data.datasource.auth.LocalAuthDataSource
-import app.junsu.data.extension.epochSecondToLocalDateTime
-import app.junsu.data.extension.toEpochSecond
+import app.junsu.data.auth.datasource.LocalAuthDataSource
+import app.junsu.data._extension.epochSecondToLocalDateTime
+import app.junsu.data._extension.toEpochSecond
 import app.junsu.model.common.Token
 import app.junsu.model.preference.UserPreferences
 import kotlinx.coroutines.flow.first

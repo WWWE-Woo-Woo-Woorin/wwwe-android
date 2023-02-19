@@ -1,6 +1,6 @@
-package app.junsu.data.repository.remote
+package app.junsu.data.auth.repository.remote
 
-import app.junsu.data.datasource.auth.RemoteAuthDataSource
+import app.junsu.data.auth.datasource.RemoteAuthDataSource
 import app.junsu.domain.auth.model.SignUpRequest
 import app.junsu.domain.auth.repository.remote.RemoteAuthRepository
 import app.junsu.model.common.Token
