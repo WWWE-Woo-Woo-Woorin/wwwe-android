@@ -15,4 +15,8 @@ interface LocalAuthRepository {
     )
 
     suspend fun clearToken()
+
+    suspend fun signOut()
+
+    suspend fun isSignedIn(): Boolean
 }
