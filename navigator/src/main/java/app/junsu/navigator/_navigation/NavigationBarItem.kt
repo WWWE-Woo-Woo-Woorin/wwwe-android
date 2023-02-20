@@ -1,4 +1,4 @@
-package app.junsu.navigator.navigation
+package app.junsu.navigator._navigation
 
 data class NavigationBarItem(
     val label: String,

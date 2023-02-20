@@ -1,4 +1,4 @@
-package app.junsu.navigator.navigation
+package app.junsu.navigator.main
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

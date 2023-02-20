@@ -1,4 +1,4 @@
-package app.junsu.navigator.navigation
+package app.junsu.navigator._navigation
 
 import android.annotation.SuppressLint
 import androidx.compose.material3.*
@@ -12,6 +12,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import app.junsu.core_route.route.WWWERoutes
 import app.junsu.navigator.R
+import app.junsu.navigator.main.WWWENavigationHost
 
 private val navigationBarItems = listOf(
     NavigationBarItem(
