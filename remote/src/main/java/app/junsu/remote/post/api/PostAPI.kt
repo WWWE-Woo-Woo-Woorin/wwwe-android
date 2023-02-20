@@ -1,10 +1,10 @@
 package app.junsu.remote.post.api
 
-import app.junsu.domain.post.model.CreatePostRequest
-import app.junsu.domain.post.model.UpdatePostRequest
 import app.junsu.model.post.PostType
 import app.junsu.remote._common.URL
+import app.junsu.remote.post.model.CreatePostRequest
 import app.junsu.remote.post.model.PostResponse
+import app.junsu.remote.post.model.UpdatePostRequest
 import retrofit2.http.*
 
 interface PostAPI {
