@@ -14,7 +14,7 @@ private abstract class LocalDataSourceModule {
 
     @Singleton
     @Binds
-    abstract fun bindLocalAuthDataSource(
+    abstract fun bindsLocalAuthDataSource(
         localAuthDataSourceImpl: LocalAuthDataSourceImpl,
     ): LocalAuthDataSource
 }

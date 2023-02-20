@@ -16,13 +16,13 @@ private abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindLocalAuthRepository(
+    abstract fun bindsLocalAuthRepository(
         localAuthRepositoryImpl: LocalLocalAuthRepositoryImpl,
     ): LocalAuthRepository
 
     @Binds
     @Singleton
-    abstract fun bindRemoteAuthRepository(
+    abstract fun bindsRemoteAuthRepository(
         remoteAuthRepositoryImpl: RemoteAuthRepositoryImpl,
     ): RemoteAuthRepository
 }
