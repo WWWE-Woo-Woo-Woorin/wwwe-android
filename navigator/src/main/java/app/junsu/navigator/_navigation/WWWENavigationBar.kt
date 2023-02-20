@@ -12,7 +12,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import app.junsu.core_route.route.WWWERoutes
 import app.junsu.navigator.R
-import app.junsu.navigator.main.WWWENavigationHost
 
 private val navigationBarItems = listOf(
     NavigationBarItem(
@@ -93,11 +92,7 @@ private fun WWWENavigationBarPreview() {
     val navController = rememberNavController()
 
     Scaffold(
-        content = {
-            WWWENavigationHost(
-                navController = navController,
-            )
-        },
+        content = {},
         bottomBar = {
             WWWENavigationBar(
                 navController = navController,
