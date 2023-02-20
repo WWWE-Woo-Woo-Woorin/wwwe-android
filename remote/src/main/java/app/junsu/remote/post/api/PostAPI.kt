@@ -15,12 +15,12 @@ interface PostAPI {
     ): PostResponse
 
     @GET(URL.Post.INQUIRE_ALL_POSTS)
-    suspend fun inquireAllPosts(): List<PostResponse>
+    suspend fun inquireAllPosts(): List<PostResponse?>
 
     @GET(URL.Post.INQUIRE_POSTS)
     suspend fun inquirePosts(
         @Query("type") postType: PostType,
-    ): List<PostResponse>
+    ): List<PostResponse?>
 
     @GET(URL.Post.INQUIRE_POST)
     suspend fun inquirePost(
