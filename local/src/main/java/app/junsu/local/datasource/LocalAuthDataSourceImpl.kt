@@ -16,6 +16,9 @@ class LocalAuthDataSourceImpl @Inject constructor(
 ) : LocalAuthDataSource {
 
     override suspend fun saveEmail(email: String) {
+
+        require(isSignedIn())
+
         userPreferencesDataStore.updateData {
             UserPreferences.getDefaultInstance().copy(
                 email = email,
@@ -24,6 +27,8 @@ class LocalAuthDataSourceImpl @Inject constructor(
     }
 
     override suspend fun fetchTokenFromStorage(): Token {
+
+        require(isSignedIn())
 
         val accessToken = userPreferencesDataStore.data.first().accessToken
 
@@ -41,6 +46,9 @@ class LocalAuthDataSourceImpl @Inject constructor(
     override suspend fun updateToken(
         token: Token,
     ) {
+
+        require(isSignedIn())
+
         userPreferencesDataStore.updateData { oldUserPreferences ->
             UserPreferences(
                 email = oldUserPreferences.email,
@@ -52,17 +60,24 @@ class LocalAuthDataSourceImpl @Inject constructor(
     }
 
     override suspend fun clearToken() {
+
+        require(isSignedIn())
+
         userPreferencesDataStore.updateData {
             UserPreferences.getDefaultInstance()
         }
     }
 
     override suspend fun signOut() {
+
         clearToken()
-        
+
+        appPreferencesDataStore.updateData {
+            AppPreferencees.getDefaultInstance()
+        }
     }
 
     override suspend fun isSignedIn(): Boolean {
-        TODO("Not yet implemented")
+        return appPreferencesDataStore.data.first().isSignedIn
     }
 }
