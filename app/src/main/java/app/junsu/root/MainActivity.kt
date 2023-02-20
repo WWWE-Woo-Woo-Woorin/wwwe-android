@@ -13,7 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.navigation.compose.rememberNavController
 import app.junsu.common_compose.compositionlocal.User
-import app.junsu.feature_onboarding.screen.onboarding.OnBoardingScreen
+import app.junsu.navigator.auth.AuthNavigationHost
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
 
@@ -61,7 +61,9 @@ internal class MainActivity : ComponentActivity() {
                     )*/
                     }
                 } else {
-                    OnBoardingScreen(navController = navController)
+                    AuthNavigationHost(
+                        navController = navController,
+                    )
                 }
 
                 /*NavHost(

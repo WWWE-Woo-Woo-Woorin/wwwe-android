@@ -20,6 +20,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import app.junsu.common_compose.util.VerticalSpacer
+import app.junsu.core_route.route.WWWERoutes
 import app.junsu.feature_onboarding.R
 import app.junsu.wwwe_design_system.button.DefaultButton
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -89,7 +90,11 @@ fun OnBoardingScreen(
             titleAndDescriptionsState =
                 previewTitleAndDescriptions[previewPagerState.currentPage + 1]
         } else {
-
+            navController.navigate(WWWERoutes.Auth.GoogleSignIn.route) {
+                popUpTo(WWWERoutes.Auth.OnBoarding.route) {
+                    inclusive = true
+                }
+            }
         }
 
         scope.launch {
