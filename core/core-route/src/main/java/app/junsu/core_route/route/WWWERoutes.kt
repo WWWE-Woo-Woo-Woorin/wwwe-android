@@ -19,7 +19,9 @@ sealed class WWWERoutes(
         )
     }
 
-    object Auth {
+    object Auth : WWWERoutes(
+        route = "auth",
+    ) {
 
         object OnBoarding : WWWERoutes(
             route = "onBoarding",
