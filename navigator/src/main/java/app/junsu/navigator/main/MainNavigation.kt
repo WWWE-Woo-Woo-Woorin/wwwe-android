@@ -1,19 +1,18 @@
 package app.junsu.navigator.main
 
-import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
 import app.junsu.core_route.route.WWWERoutes
 import app.junsu.feature_chat.screen.ChatListScreen
 
-@Composable
-fun WWWENavigationHost(
+fun NavGraphBuilder.mainNavigation(
     navController: NavHostController,
 ) {
-    NavHost(
-        navController = navController,
+    navigation(
         startDestination = WWWERoutes.Main.Community.route,
+        route = WWWERoutes.Main.route,
     ) {
 
         composable(
