@@ -1,9 +1,9 @@
 package app.junsu.remote.post.extension
 
 import app.junsu.domain.post.model.CreatePostRequest as DomainCreatePostRequest
-import app.junsu.domain.post.model.UpdatePostRequest as DataUpdatePostRequest
 import app.junsu.domain.post.model.UpdatePostRequest as DomainUpdatePostRequest
 import app.junsu.remote.post.model.CreatePostRequest as DataCreatePostRequest
+import app.junsu.remote.post.model.UpdatePostRequest as DataUpdatePostRequest
 
 internal fun DomainCreatePostRequest.toData(): DataCreatePostRequest {
     return DataCreatePostRequest(
