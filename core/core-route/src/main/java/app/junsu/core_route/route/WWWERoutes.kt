@@ -4,7 +4,9 @@ sealed class WWWERoutes(
     val route: String,
 ) {
 
-    object Main {
+    object Main : WWWERoutes(
+        route = "main",
+    ) {
 
         object Community : WWWERoutes(
             route = "community",
