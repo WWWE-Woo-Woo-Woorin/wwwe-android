@@ -1,12 +1,12 @@
 package app.junsu.model.preference
 
 @kotlinx.serialization.Serializable
-data class AppPreferencees(
+data class AppPreferences(
     val isSignedIn: Boolean = false,
 ) {
     companion object {
-        fun getDefaultInstance(): AppPreferencees {
-            return AppPreferencees(
+        fun getDefaultInstance(): AppPreferences {
+            return AppPreferences(
                 isSignedIn = false,
             )
         }

@@ -5,14 +5,14 @@ import app.junsu.data._extension.epochSecondToLocalDateTime
 import app.junsu.data._extension.toEpochSecond
 import app.junsu.data.auth.datasource.LocalAuthDataSource
 import app.junsu.model.common.Token
-import app.junsu.model.preference.AppPreferencees
+import app.junsu.model.preference.AppPreferences
 import app.junsu.model.preference.UserPreferences
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 class LocalAuthDataSourceImpl @Inject constructor(
     private val userPreferencesDataStore: DataStore<UserPreferences>,
-    private val appPreferencesDataStore: DataStore<AppPreferencees>,
+    private val appPreferencesDataStore: DataStore<AppPreferences>,
 ) : LocalAuthDataSource {
 
     override suspend fun saveEmail(email: String) {
@@ -26,7 +26,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
         }
 
         appPreferencesDataStore.updateData { oldPreferences ->
-            AppPreferencees(
+            AppPreferences(
                 isSignedIn = true,
             )
         }
@@ -79,7 +79,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
         clearToken()
 
         appPreferencesDataStore.updateData {
-            AppPreferencees.getDefaultInstance()
+            AppPreferences.getDefaultInstance()
         }
     }
 
