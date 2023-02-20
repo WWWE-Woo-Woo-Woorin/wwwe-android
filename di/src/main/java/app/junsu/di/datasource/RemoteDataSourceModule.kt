@@ -1,7 +1,9 @@
 package app.junsu.di.datasource
 
-import app.junsu.data.datasource.auth.RemoteAuthDataSource
-import app.junsu.remote.datasource.auth.RemoteAuthDataSourceImpl
+import app.junsu.data.auth.datasource.RemoteAuthDataSource
+import app.junsu.data.post.datasource.PostDataSource
+import app.junsu.remote.auth.datasource.RemoteAuthDataSourceImpl
+import app.junsu.remote.post.datasource.PostDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,7 +16,13 @@ private abstract class RemoteDataSourceModule {
 
     @Singleton
     @Binds
-    abstract fun bindRemoteAuthDataSource(
+    abstract fun bindsRemoteAuthDataSource(
         remoteAuthDataSourceImpl: RemoteAuthDataSourceImpl,
     ): RemoteAuthDataSource
+
+    @Singleton
+    @Binds
+    abstract fun bindsPostDataSource(
+        postDataSourceImpl: PostDataSourceImpl,
+    ): PostDataSource
 }

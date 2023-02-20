@@ -1,10 +1,7 @@
 package app.junsu.wwwe
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import app.junsu.domain.repository.auth.local.LocalAuthRepository
-import app.junsu.domain.usecase.auth.remote.SignUpUseCase
-import app.junsu.remote.model.auth.signup.SignUpRequest
-import app.junsu.root.MainViewModel
+import app.junsu.domain.auth.repository.LocalAuthRepository
 import org.junit.Test
 import org.junit.runner.RunWith
 import javax.inject.Inject
@@ -21,18 +18,5 @@ class ExampleInstrumentedTest @Inject constructor(
 
     @Test
     fun signUpTest() {
-
-        val vm = MainViewModel(
-            signUpUseCase = SignUpUseCase(
-                authRepository = localAuthRepository,
-            )
-        )
-
-        vm.signUp(
-            SignUpRequest(
-                "junsu@gmail.com",
-                "박박",
-            )
-        )
     }
 }

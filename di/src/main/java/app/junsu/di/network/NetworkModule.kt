@@ -1,9 +1,9 @@
 package app.junsu.di.network
 
 import android.util.Log
-import app.junsu.data.datasource.auth.LocalAuthDataSource
+import app.junsu.data.auth.datasource.LocalAuthDataSource
 import app.junsu.remote.BuildConfig
-import app.junsu.remote.interceptor.AuthInterceptor
+import app.junsu.remote._interceptor.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,7 +20,7 @@ private object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideAuthInterceptor(
+    fun providesAuthInterceptor(
         localAuthDataSource: LocalAuthDataSource,
     ): AuthInterceptor {
         return AuthInterceptor(
@@ -30,7 +30,7 @@ private object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    fun providesHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor { log ->
             Log.i("Http Log", log)
         }.setLevel(
@@ -41,7 +41,7 @@ private object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(
+    fun providesOkHttpClient(
         authInterceptor: AuthInterceptor,
         httpLoggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient {
@@ -54,7 +54,7 @@ private object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(
+    fun providesRetrofit(
         okHttpClient: OkHttpClient,
     ): Retrofit {
         return Retrofit.Builder().client(okHttpClient).baseUrl(BuildConfig.BASE_URL)

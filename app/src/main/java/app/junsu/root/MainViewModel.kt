@@ -2,7 +2,7 @@ package app.junsu.root
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.junsu.domain.usecase.auth.remote.FetchUserInformationUseCase
+import app.junsu.domain.auth.usecase.remote.FetchUserInformationUseCase
 import app.junsu.model.common.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.runBlocking

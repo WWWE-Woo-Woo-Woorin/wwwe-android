@@ -18,7 +18,7 @@ private object GoogleModule {
 
     @Provides
     @Singleton
-    fun provideGoogleSignInClient(
+    fun providesGoogleSignInClient(
         @ApplicationContext context: Context,
     ): GoogleSignInClient {
 

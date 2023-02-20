@@ -1,6 +1,6 @@
 package app.junsu.di.datasource
 
-import app.junsu.data.datasource.auth.LocalAuthDataSource
+import app.junsu.data.auth.datasource.LocalAuthDataSource
 import app.junsu.local.datasource.LocalAuthDataSourceImpl
 import dagger.Binds
 import dagger.Module
@@ -14,7 +14,7 @@ private abstract class LocalDataSourceModule {
 
     @Singleton
     @Binds
-    abstract fun bindLocalAuthDataSource(
+    abstract fun bindsLocalAuthDataSource(
         localAuthDataSourceImpl: LocalAuthDataSourceImpl,
     ): LocalAuthDataSource
 }
