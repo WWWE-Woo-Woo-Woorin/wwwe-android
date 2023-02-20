@@ -29,4 +29,12 @@ class LocalLocalAuthRepositoryImpl @Inject constructor(
     override suspend fun clearToken() {
         localAuthDataSource.clearToken()
     }
+
+    override suspend fun signOut() {
+        return localAuthDataSource.signOut()
+    }
+
+    override suspend fun isSignedIn(): Boolean {
+        return localAuthDataSource.isSignedIn()
+    }
 }
