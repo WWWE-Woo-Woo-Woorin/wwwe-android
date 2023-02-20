@@ -18,11 +18,11 @@ class PostRepositoryImpl @Inject constructor(
         )
     }
 
-    override suspend fun inquireAllPosts(): List<Post> {
+    override suspend fun inquireAllPosts(): List<Post?> {
         return postDataSource.inquireAllPosts()
     }
 
-    override suspend fun inquirePosts(postType: PostType): List<Post> {
+    override suspend fun inquirePosts(postType: PostType): List<Post?> {
         return postDataSource.inquirePosts(
             postType = postType,
         )

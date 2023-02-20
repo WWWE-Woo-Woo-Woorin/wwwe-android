@@ -11,11 +11,11 @@ interface PostRepository {
         request: CreatePostRequest,
     ): Post
 
-    suspend fun inquireAllPosts(): List<Post>
+    suspend fun inquireAllPosts(): List<Post?>
 
     suspend fun inquirePosts(
         postType: PostType,
-    ): List<Post>
+    ): List<Post?>
 
     suspend fun inquirePost(
         postId: Long,
