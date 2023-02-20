@@ -13,17 +13,17 @@ fun WWWENavigationHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = WWWERoutes.Navigation.Community.route,
+        startDestination = WWWERoutes.Main.Community.route,
     ) {
 
         composable(
-            route = WWWERoutes.Navigation.Community.route,
+            route = WWWERoutes.Main.Community.route,
         ) {
 
         }
 
         composable(
-            route = WWWERoutes.Navigation.Chat.route,
+            route = WWWERoutes.Main.Chat.route,
         ) {
             ChatListScreen(
                 navController = navController,
@@ -31,7 +31,7 @@ fun WWWENavigationHost(
         }
 
         composable(
-            route = WWWERoutes.Navigation.Settings.route,
+            route = WWWERoutes.Main.Settings.route,
         ) {
 
         }

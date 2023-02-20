@@ -19,19 +19,19 @@ private val navigationBarItems = listOf(
         label = "Community",
         selectedIcon = R.drawable.ic_community_filled,
         defaultIcon = R.drawable.ic_community_outlined,
-        route = WWWERoutes.Navigation.Community.route,
+        route = WWWERoutes.Main.Community.route,
     ),
     NavigationBarItem(
         label = "Chat", // todo set as a preference of strings resource
         selectedIcon = R.drawable.ic_chat_filled,
         defaultIcon = R.drawable.ic_chat_outlined,
-        route = WWWERoutes.Navigation.Chat.route,
+        route = WWWERoutes.Main.Chat.route,
     ),
     NavigationBarItem(
         label = "Settings",
         selectedIcon = R.drawable.ic_settings_filled,
         defaultIcon = R.drawable.ic_settings_outlined,
-        route = WWWERoutes.Navigation.Settings.route,
+        route = WWWERoutes.Main.Settings.route,
     ),
 )
 
