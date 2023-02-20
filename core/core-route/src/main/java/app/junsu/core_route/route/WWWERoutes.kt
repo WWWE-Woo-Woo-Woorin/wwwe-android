@@ -19,15 +19,18 @@ sealed class WWWERoutes(
         )
     }
 
-    object GoogleSignIn : WWWERoutes(
-        route = "googleSignIn",
-    )
+    object Auth {
 
-    object OnBoarding : WWWERoutes(
-        route = "onBoarding",
-    )
+        object OnBoarding : WWWERoutes(
+            route = "onBoarding",
+        )
 
-    object Home : WWWERoutes(
-        route = "home",
-    )
+        object GoogleSignIn : WWWERoutes(
+            route = "googleSignIn",
+        )
+
+        object SignUp : WWWERoutes(
+            route = "signUp",
+        )
+    }
 }
