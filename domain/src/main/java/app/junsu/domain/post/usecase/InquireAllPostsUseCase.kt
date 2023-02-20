@@ -7,7 +7,7 @@ import javax.inject.Inject
 class InquireAllPostsUseCase @Inject constructor(
     private val postRepository: PostRepository,
 ) {
-    suspend operator fun invoke(): List<Post> {
+    suspend operator fun invoke(): List<Post?> {
         return postRepository.inquireAllPosts()
     }
 }
