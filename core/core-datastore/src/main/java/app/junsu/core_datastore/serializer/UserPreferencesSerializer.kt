@@ -35,10 +35,12 @@ class UserPreferencesSerializer(
         output: OutputStream,
     ) {
         withContext(Dispatchers.IO) {
-            output.write(Json.encodeToString(
-                UserPreferences.serializer(),
-                t,
-            ).encodeToByteArray())
+            output.write(
+                Json.encodeToString(
+                    UserPreferences.serializer(),
+                    t,
+                ).encodeToByteArray(),
+            )
         }
     }
 }
