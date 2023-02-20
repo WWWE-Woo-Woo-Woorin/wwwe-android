@@ -7,36 +7,47 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.navigation.compose.rememberNavController
 import app.junsu.common_compose.compositionlocal.User
-import app.junsu.navigator.navigation.WWWENavigationBar
-import app.junsu.navigator.navigation.WWWENavigationHost
+import app.junsu.feature_onboarding.screen.onboarding.OnBoardingScreen
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.runBlocking
 
 @AndroidEntryPoint
 internal class MainActivity : ComponentActivity() {
 
-    private val viewModel by viewModels<MainViewModel>()
+    private val mainViewModel by viewModels<MainViewModel>()
 
     @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val isSignedIn = runBlocking {
+            mainViewModel.checkSignedIn()
+        }
+
         setContent {
             MaterialTheme {
 
                 val navController = rememberNavController()
 
-                val user = viewModel.user
+                if (isSignedIn) {
 
-                CompositionLocalProvider(
-                    values = arrayOf(
-                        User provides user,
-                    ),
-                ) {
-                    Scaffold(
+                    val user by remember {
+                        mutableStateOf(mainViewModel.user)
+                    }
+
+                    CompositionLocalProvider(
+                        values = arrayOf(
+                            User provides user,
+                        ),
+                    ) {
+                        /*Scaffold(
                         content = {
                             WWWENavigationHost(
                                 navController = navController,
@@ -47,7 +58,10 @@ internal class MainActivity : ComponentActivity() {
                                 navController = navController,
                             )
                         },
-                    )
+                    )*/
+                    }
+                } else {
+                    OnBoardingScreen(navController = navController)
                 }
 
                 /*NavHost(

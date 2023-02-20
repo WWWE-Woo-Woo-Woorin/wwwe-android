@@ -89,7 +89,7 @@ fun OnBoardingScreen(
             titleAndDescriptionsState =
                 previewTitleAndDescriptions[previewPagerState.currentPage + 1]
         } else {
-            // TODO else
+
         }
 
         scope.launch {
