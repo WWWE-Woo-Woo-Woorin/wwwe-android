@@ -10,11 +10,6 @@ class CheckWhetherSignedInUseCase @Inject constructor(
     private val localAuthRepository: LocalAuthRepository,
 ) {
     suspend operator fun invoke(): Boolean {
-        kotlin.runCatching {
-            localAuthRepository.fetchTokenFromStorage()
-        }.onSuccess {
-            return true
-        }
-        else false
+        return localAuthRepository.isSignedIn()
     }
 }
