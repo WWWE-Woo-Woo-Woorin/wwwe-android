@@ -54,6 +54,7 @@ dependencies {
 
     implementation(project(":model"))
     implementation(project(":domain"))
+    implementation(project(":core:core-route"))
     implementation(project(":data"))
     implementation(project(":remote"))
     implementation(project(":common:common-compose"))
