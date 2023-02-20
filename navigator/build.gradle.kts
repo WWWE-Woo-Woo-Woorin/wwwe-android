@@ -42,6 +42,7 @@ android {
 dependencies {
 
     implementation(project(":core:core-route"))
+    implementation(project(":feature:feature-onboarding"))
     implementation(project(":feature:feature-google-sign-in"))
     implementation(project(":feature:feature-chat"))
 
