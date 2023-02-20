@@ -24,6 +24,12 @@ class LocalAuthDataSourceImpl @Inject constructor(
                 email = email,
             )
         }
+
+        appPreferencesDataStore.updateData { oldPreferences ->
+            AppPreferencees(
+                isSignedIn = true,
+            )
+        }
     }
 
     override suspend fun fetchTokenFromStorage(): Token {
