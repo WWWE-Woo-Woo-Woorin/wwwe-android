@@ -76,6 +76,7 @@ dependencies {
 
     implementation(Dependencies.UI.Pager.PAGER)
     implementation(Dependencies.UI.Pager.PAGER_INDICATOR)
+    implementation(Dependencies.UI.Glide.LANDSCAPIST_GLIDE)
 
     implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)

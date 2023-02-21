@@ -87,6 +87,11 @@ object Dependencies {
             const val STREAM_CHAT =
                 "io.getstream:stream-chat-android-compose:${Versions.UI.StreamChat.STREAM_CHAT_VERSION}"
         }
+
+        object Glide {
+            const val LANDSCAPIST_GLIDE =
+                "com.github.skydoves:landscapist-glide:${Versions.UI.Glide.LANDSCAPIST_GLIDE_VERSION}"
+        }
     }
 
     object Google {

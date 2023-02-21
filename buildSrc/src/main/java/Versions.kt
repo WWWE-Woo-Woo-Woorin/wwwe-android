@@ -70,6 +70,10 @@ object Versions {
         object StreamChat {
             const val STREAM_CHAT_VERSION = "5.11.10"
         }
+
+        object Glide {
+            const val LANDSCAPIST_GLIDE_VERSION = "1.3.6"
+        }
     }
 
     object Kotlin {
