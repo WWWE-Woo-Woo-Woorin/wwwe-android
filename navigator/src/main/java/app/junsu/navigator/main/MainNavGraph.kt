@@ -24,7 +24,7 @@ fun NavGraphBuilder.mainNavGraph(
             MainNavigationScreen(
                 navigationBarNavController = navigationBarNavController,
                 content = {
-                    MainNavigationHost(
+                    MainNavigationNavHost(
                         navController = navigationBarNavController,
                     )
                 },
