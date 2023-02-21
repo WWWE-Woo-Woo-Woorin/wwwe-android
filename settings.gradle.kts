@@ -17,7 +17,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WWWE"
+rootProject.name = "wwwe-android"
 
 include(":model")
 include(":domain")
@@ -34,4 +34,5 @@ include(":feature:feature-main-nav")
 include(":feature:feature-onboarding")
 include(":feature:feature-google-sign-in")
 include(":feature:feature-chat")
+include(":feature:feature-sign-up")
 include(":di")

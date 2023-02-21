@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="WWWE.app" target="11" />
+      <module name="WWWE.buildSrc" target="11" />
+      <module name="WWWE.buildSrc.main" target="11" />
+      <module name="WWWE.buildSrc.test" target="11" />
+      <module name="WWWE.common.common-compose" target="11" />
+      <module name="WWWE.core.core-datastore" target="11" />
+      <module name="WWWE.core.core-route" target="11" />
+      <module name="WWWE.core.wwwe-design-system" target="11" />
+      <module name="WWWE.data" target="11" />
+      <module name="WWWE.di" target="11" />
+      <module name="WWWE.domain" target="11" />
+      <module name="WWWE.feature.feature-chat" target="11" />
+      <module name="WWWE.feature.feature-google-sign-in" target="11" />
+      <module name="WWWE.feature.feature-main-nav" target="11" />
+      <module name="WWWE.feature.feature-onboarding" target="11" />
+      <module name="WWWE.feature.feature-sign-up" target="11" />
+      <module name="WWWE.local" target="11" />
+      <module name="WWWE.navigator" target="11" />
+      <module name="WWWE.remote" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
