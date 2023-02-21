@@ -46,6 +46,7 @@ dependencies {
     implementation(project(":feature:feature-onboarding"))
     implementation(project(":feature:feature-google-sign-in"))
     implementation(project(":feature:feature-chat"))
+    implementation(project(":feature:feature-sign-up"))
 
     implementation(Dependencies.Compose.COMPOSE_UI)
     implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
