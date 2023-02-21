@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.junsu.common_compose.util.VerticalSpacer
 import app.junsu.core_route.route.WWWERoutes
@@ -62,7 +62,7 @@ private val indicatorDefaultValue: Float
 @OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 @Composable
 fun OnBoardingScreen(
-    navController: NavController,
+    navController: NavHostController,
 ) {
 
     val screenWidth = LocalConfiguration.current.screenWidthDp
