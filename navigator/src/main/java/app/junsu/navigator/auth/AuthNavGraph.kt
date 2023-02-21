@@ -28,6 +28,10 @@ fun NavGraphBuilder.authNavGraph(
             )
         }
 
-        // todo signup screen
+        composable(WWWERoutes.Auth.SignUp.route) {
+            SignUpNavHost(
+                navController = navController,
+            )
+        }
     }
 }
