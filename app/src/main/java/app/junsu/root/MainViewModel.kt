@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
-internal class MainViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val fetchUserInformationUseCase: FetchUserInformationUseCase,
     private val checkWhetherSignedInUseCase: CheckWhetherSignedInUseCase,
 ) : ViewModel() {
@@ -31,7 +31,9 @@ internal class MainViewModel @Inject constructor(
         }*/
     }
 
-    internal suspend fun checkSignedIn(): Boolean {
-        return checkWhetherSignedInUseCase()
+    internal fun checkSignedIn(): Boolean {
+        return runBlocking {
+            checkWhetherSignedInUseCase()
+        }
     }
 }
