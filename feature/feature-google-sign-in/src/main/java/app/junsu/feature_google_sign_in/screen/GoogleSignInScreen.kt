@@ -35,7 +35,13 @@ fun GoogleSignInScreen(
     LaunchedEffect("signInState") {
         signInViewModel.signInState.collect {
             when (it) {
-                SignInState.AccountCreated -> {}
+                SignInState.AccountCreated -> {
+                    navController.navigate(WWWERoutes.Auth.SignUp.route) {
+                        popUpTo(WWWERoutes.Auth.GoogleSignIn.route) {
+                            inclusive = true
+                        }
+                    }
+                }
                 SignInState.Loading -> {}
                 SignInState.SignedIn -> {
                     navController.navigate(WWWERoutes.Main.route) {
