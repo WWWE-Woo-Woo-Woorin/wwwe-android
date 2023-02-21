@@ -60,6 +60,8 @@ dependencies {
     implementation(project(":common:common-compose"))
     implementation(project(":di"))
     implementation(project(":navigator"))
+    implementation(project(":feature:feature-main-nav"))
+    implementation(project(":feature:feature-chat"))
     implementation(project(":feature:feature-onboarding"))
     implementation(project(":feature:feature-google-sign-in"))
 
