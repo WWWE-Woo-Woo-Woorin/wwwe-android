@@ -1,4 +1,4 @@
-package app.junsu.navigator._navigation
+package app.junsu.feature_main_nav._navigation
 
 import android.annotation.SuppressLint
 import androidx.compose.material3.*
@@ -10,27 +10,28 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import app.junsu.common_compose.navigation.NavigationBarItem
 import app.junsu.core_route.route.WWWERoutes
-import app.junsu.navigator.R
+import app.junsu.feature_main_nav.R
 
 private val navigationBarItems = listOf(
     NavigationBarItem(
         label = "Community",
         selectedIcon = R.drawable.ic_community_filled,
         defaultIcon = R.drawable.ic_community_outlined,
-        route = WWWERoutes.Main.Community.route,
+        route = WWWERoutes.Main.Navigation.Community.route,
     ),
     NavigationBarItem(
         label = "Chat", // todo set as a preference of strings resource
         selectedIcon = R.drawable.ic_chat_filled,
         defaultIcon = R.drawable.ic_chat_outlined,
-        route = WWWERoutes.Main.Chat.route,
+        route = WWWERoutes.Main.Navigation.Chat.route,
     ),
     NavigationBarItem(
         label = "Settings",
         selectedIcon = R.drawable.ic_settings_filled,
         defaultIcon = R.drawable.ic_settings_outlined,
-        route = WWWERoutes.Main.Settings.route,
+        route = WWWERoutes.Main.Navigation.Settings.route,
     ),
 )
 
@@ -45,37 +46,39 @@ fun WWWENavigationBar(
 
     NavigationBar {
         navigationBarItems.forEach { navigationBarItem ->
-            NavigationBarItem(selected = currentRoute == navigationBarItem.route, onClick = {
-                navController.navigate(
-                    navigationBarItem.route,
-                ) {
-
-                    popUpTo(
-                        navController.graph.findStartDestination().id,
+            NavigationBarItem(
+                selected = currentRoute == navigationBarItem.route,
+                onClick = {
+                    navController.navigate(
+                        navigationBarItem.route,
                     ) {
-                        saveState = true
+                        navController.graph.startDestinationRoute?.let { route ->
+                            popUpTo(route)
+                        }
+
+                        launchSingleTop = true
+
+                        restoreState = true
                     }
-
-                    launchSingleTop = true
-
-                    restoreState = true
-                }
-            }, icon = {
-                Icon(
-                    painter = painterResource(
-                        id = if (currentRoute == navigationBarItem.route) {
-                            navigationBarItem.selectedIcon
-                        } else {
-                            navigationBarItem.defaultIcon
-                        },
-                    ),
-                    contentDescription = null,
-                )
-            }, label = {
-                Text(
-                    text = navigationBarItem.label,
-                )
-            })
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(
+                            id = if (currentRoute == navigationBarItem.route) {
+                                navigationBarItem.selectedIcon
+                            } else {
+                                navigationBarItem.defaultIcon
+                            },
+                        ),
+                        contentDescription = null,
+                    )
+                },
+                label = {
+                    Text(
+                        text = navigationBarItem.label,
+                    )
+                },
+            )
         }
     }
 }
