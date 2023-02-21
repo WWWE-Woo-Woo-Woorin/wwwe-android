@@ -1,4 +1,4 @@
-package app.junsu.feature_main_nav._navigation
+package app.junsu.feature_main_nav.navigation
 
 import android.annotation.SuppressLint
 import androidx.compose.material3.*
@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
