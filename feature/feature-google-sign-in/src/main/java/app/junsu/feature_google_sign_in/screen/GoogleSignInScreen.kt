@@ -20,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import app.junsu.core_route.route.WWWERoutes
 import app.junsu.feature_google_sign_in.R
 import app.junsu.feature_google_sign_in.viewmodel.SignInState
 import app.junsu.feature_google_sign_in.viewmodel.SignInViewModel
@@ -38,11 +39,13 @@ fun GoogleSignInScreen(
         SignInState.AccountCreated -> {}
         SignInState.Loading -> {}
         SignInState.SignedIn -> {
-            // todo navigate to main screen
+            navController.navigate(WWWERoutes.Main.route) {
+                popUpTo(WWWERoutes.Auth.GoogleSignIn.route) {
+                    inclusive = true
+                }
+            }
         }
-        null -> {
-
-        }
+        null -> {}
     }
 
     val googleSignInActivityResultLauncher = rememberLauncherForActivityResult(
