@@ -18,6 +18,7 @@ object AppConfigs {
             const val ON_BOARDING = "app.junsu.feature_onboarding"
             const val SIGN_IN_GOOGLE = "app.junsu.feature_google_sign_in"
             const val MAIN_NAV = "app.junsu.feature_main_nav"
+            const val SIGN_UP = "app.junsu.feature_sign_up"
         }
 
         object Core {
