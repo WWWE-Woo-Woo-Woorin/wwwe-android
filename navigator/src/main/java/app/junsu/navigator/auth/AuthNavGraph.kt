@@ -7,6 +7,7 @@ import androidx.navigation.navigation
 import app.junsu.core_route.route.WWWERoutes
 import app.junsu.feature_google_sign_in.screen.GoogleSignInScreen
 import app.junsu.feature_onboarding.screen.OnBoardingScreen
+import app.junsu.feature_sign_up.screen.SignUpRootScreen
 
 fun NavGraphBuilder.authNavGraph(
     navController: NavHostController,
@@ -29,7 +30,7 @@ fun NavGraphBuilder.authNavGraph(
         }
 
         composable(WWWERoutes.Auth.SignUp.route) {
-            SignUpNavHost(
+            SignUpRootScreen(
                 navController = navController,
             )
         }
