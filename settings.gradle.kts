@@ -1,8 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":core:core-route")
-
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -28,10 +25,12 @@ include(":data")
 include(":remote")
 include(":local")
 include(":common:common-compose")
+include(":core:core-route")
 include(":core:wwwe-design-system")
 include(":core:core-datastore")
 include(":navigator")
 include(":app")
+include(":feature:feature-main-nav")
 include(":feature:feature-onboarding")
 include(":feature:feature-google-sign-in")
 include(":feature:feature-chat")
