@@ -14,7 +14,7 @@ import app.junsu.feature_main_nav._navigation.WWWENavigationBar
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainNavigationScreen(
-    navigationBarNavController: NavHostController,
+    navController: NavHostController,
     content: @Composable () -> Unit,
 ) {
     Scaffold(
@@ -27,7 +27,7 @@ fun MainNavigationScreen(
         },
         bottomBar = {
             WWWENavigationBar(
-                navController = navigationBarNavController,
+                navController = navController,
             )
         },
     )

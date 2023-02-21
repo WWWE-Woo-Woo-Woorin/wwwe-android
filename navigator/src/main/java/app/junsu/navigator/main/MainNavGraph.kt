@@ -22,7 +22,7 @@ fun NavGraphBuilder.mainNavGraph(
             val navigationBarNavController = rememberNavController()
 
             MainNavigationScreen(
-                navigationBarNavController = navigationBarNavController,
+                navController = navigationBarNavController,
                 content = {
                     MainNavigationNavHost(
                         navController = navigationBarNavController,
