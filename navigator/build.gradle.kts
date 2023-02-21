@@ -52,6 +52,8 @@ dependencies {
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.COMPOSE_NAVIGATION)
+    implementation(Dependencies.Compose.COMPOSE_VIEWMODEL)
+    implementation(Dependencies.Compose.COMPOSE_HILT_NAVIGATION)
 
     implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
