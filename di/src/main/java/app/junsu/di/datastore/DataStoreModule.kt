@@ -3,7 +3,10 @@ package app.junsu.di.datastore
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
+import androidx.datastore.dataStoreFile
+import app.junsu.core_datastore.serializer.AppPreferencesSerializer
 import app.junsu.core_datastore.serializer.UserPreferencesSerializer
+import app.junsu.model.preference.AppPreferences
 import app.junsu.model.preference.UserPreferences
 import dagger.Module
 import dagger.Provides
@@ -28,9 +31,19 @@ internal object DataStoreModule {
         return DataStoreFactory.create(
             serializer = UserPreferencesSerializer()
         ) {
-            File(
-                "${context.cacheDir.path}/$PREFS_USER",
-            )
+            context.dataStoreFile("${context.cacheDir.path}/$PREFS_USER")
+        }
+    }
+
+    @Provides
+    @Singleton
+    fun providesAppPreferencesDataStore(
+        @ApplicationContext context: Context,
+    ): DataStore<AppPreferences> {
+        return DataStoreFactory.create(
+            serializer = AppPreferencesSerializer(),
+        ) {
+            context.dataStoreFile("${context.cacheDir.path}/$PREFS_APP")
         }
     }
 }

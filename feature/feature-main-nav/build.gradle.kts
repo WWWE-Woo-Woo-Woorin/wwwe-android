@@ -1,22 +1,18 @@
 plugins {
-    id(Plugins.Android.ANDROID_APPLICATION)
+    id(Plugins.Android.ANDROID_LIBRARY)
     id(Plugins.Kotlin.KOTLIN_ANDROID)
-    id(Plugins.DI.HILT_ANDROID)
     id(Plugins.Kotlin.KOTLIN_KAPT)
 }
 
 android {
 
-    namespace = AppConfigs.NameSpaces.APP
+    namespace = AppConfigs.NameSpaces.Feature.MAIN_NAV
 
     compileSdk = AppConfigs.DefaultConfigs.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = AppConfigs.DefaultConfigs.APPLICATION_ID
         minSdk = AppConfigs.DefaultConfigs.MINIMUM_SDK_VERSION
         targetSdk = AppConfigs.DefaultConfigs.TARGET_SDK_VERSION
-        versionCode = AppConfigs.DefaultConfigs.VERSION_CODE
-        versionName = AppConfigs.DefaultConfigs.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,18 +48,11 @@ android {
 
 dependencies {
 
-    implementation(project(":model"))
     implementation(project(":domain"))
-    implementation(project(":core:core-route"))
     implementation(project(":data"))
-    implementation(project(":remote"))
+    implementation(project(":core:core-route"))
     implementation(project(":common:common-compose"))
-    implementation(project(":di"))
-    implementation(project(":navigator"))
-    implementation(project(":feature:feature-main-nav"))
-    implementation(project(":feature:feature-chat"))
-    implementation(project(":feature:feature-onboarding"))
-    implementation(project(":feature:feature-google-sign-in"))
+    implementation(project(":core:wwwe-design-system"))
 
     implementation(Dependencies.Android.CORE_KTX)
     implementation(Dependencies.Android.ACTIVITY_KTX)
@@ -74,20 +63,27 @@ dependencies {
     implementation(Dependencies.DI.HILT_ANDROID)
     kapt(Dependencies.DI.HILT_ANDROID_COMPILER)
 
+    implementation(Dependencies.Firebase.FIREBASE_AUTH)
+
     implementation(Dependencies.Compose.ACTIVITY_COMPOSE)
     implementation(Dependencies.Compose.COMPOSE_NAVIGATION)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL)
+    implementation(Dependencies.Compose.COMPOSE_CONSTRAINT_LAYOUT)
     implementation(Dependencies.Compose.COMPOSE_MATERIAL_WINDOW_SIZE_CLASS)
     implementation(Dependencies.Compose.COMPOSE_ANIMATION)
-    implementation(Dependencies.Compose.COMPOSE_UI)
     implementation(Dependencies.Compose.COMPOSE_HILT_NAVIGATION)
+    implementation(Dependencies.Compose.COMPOSE_LIFECYCLE_RUNTIME)
+    implementation(Dependencies.Compose.COMPOSE_UI)
+    implementation(Dependencies.Compose.COMPOSE_UI_TOOLING)
+    implementation(Dependencies.Compose.COMPOSE_UI_TOOLING_PREVIEW)
     androidTestImplementation(Dependencies.Test.COMPOSE_UI_JUNIT)
+
+    implementation(Dependencies.Google.PLAY_SERVICE_AUTH)
+
+    implementation(Dependencies.UI.Pager.PAGER)
+    implementation(Dependencies.UI.Pager.PAGER_INDICATOR)
 
     implementation(Dependencies.Test.JUNIT_KTX)
     testImplementation(Dependencies.Test.JUNIT)
     implementation(Dependencies.Compose.COMPOSE_VIEWMODEL)
-}
-
-kapt {
-    correctErrorTypes = true
 }

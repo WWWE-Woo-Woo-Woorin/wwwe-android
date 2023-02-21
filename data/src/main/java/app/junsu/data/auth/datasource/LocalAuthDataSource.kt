@@ -15,4 +15,8 @@ interface LocalAuthDataSource {
     )
 
     suspend fun clearToken()
+
+    suspend fun signOut()
+
+    suspend fun isSignedIn(): Boolean
 }

@@ -1,4 +1,4 @@
-package app.junsu.navigator.navigation
+package app.junsu.navigator.main
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -8,32 +8,27 @@ import app.junsu.core_route.route.WWWERoutes
 import app.junsu.feature_chat.screen.ChatListScreen
 
 @Composable
-fun WWWENavigationHost(
+fun MainNavigationNavHost(
     navController: NavHostController,
 ) {
     NavHost(
         navController = navController,
-        startDestination = WWWERoutes.Navigation.Community.route,
+        startDestination = WWWERoutes.Main.Navigation.Community.route,
+        route = WWWERoutes.Main.Navigation.route,
     ) {
 
-        composable(
-            route = WWWERoutes.Navigation.Community.route,
-        ) {
-
+        composable(WWWERoutes.Main.Navigation.Community.route) {
+            // todo community
         }
 
-        composable(
-            route = WWWERoutes.Navigation.Chat.route,
-        ) {
+        composable(WWWERoutes.Main.Navigation.Chat.route) {
             ChatListScreen(
                 navController = navController,
             )
         }
 
-        composable(
-            route = WWWERoutes.Navigation.Settings.route,
-        ) {
-
+        composable(WWWERoutes.Main.Navigation.Settings.route) {
+            // todo settings
         }
     }
 }

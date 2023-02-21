@@ -4,30 +4,45 @@ sealed class WWWERoutes(
     val route: String,
 ) {
 
-    object Navigation {
+    object Root : WWWERoutes(
+        route = "root",
+    )
 
-        object Community : WWWERoutes(
-            route = "community",
-        )
+    object Main : WWWERoutes(
+        route = "main",
+    ) {
+        object Navigation : WWWERoutes(
+            route = "mainNavigation",
+        ) {
 
-        object Chat : WWWERoutes(
-            route = "chat",
-        )
+            object Community : WWWERoutes(
+                route = "community",
+            )
 
-        object Settings : WWWERoutes(
-            route = "settings",
-        )
+            object Chat : WWWERoutes(
+                route = "chat",
+            )
+
+            object Settings : WWWERoutes(
+                route = "settings",
+            )
+        }
     }
 
-    object GoogleSignIn : WWWERoutes(
-        route = "googleSignIn",
-    )
+    object Auth : WWWERoutes(
+        route = "auth",
+    ) {
 
-    object OnBoarding : WWWERoutes(
-        route = "onBoarding",
-    )
+        object OnBoarding : WWWERoutes(
+            route = "onBoarding",
+        )
 
-    object Home : WWWERoutes(
-        route = "home",
-    )
+        object GoogleSignIn : WWWERoutes(
+            route = "googleSignIn",
+        )
+
+        object SignUp : WWWERoutes(
+            route = "signUp",
+        )
+    }
 }

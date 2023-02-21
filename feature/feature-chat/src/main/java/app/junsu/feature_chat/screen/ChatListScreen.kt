@@ -1,5 +1,6 @@
 package app.junsu.feature_chat.screen
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -12,6 +13,7 @@ import io.getstream.chat.android.client.logger.ChatLogLevel
 import io.getstream.chat.android.client.models.User
 import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
+import io.getstream.chat.android.compose.ui.theme.StreamColors
 import io.getstream.chat.android.offline.plugin.configuration.Config
 import io.getstream.chat.android.offline.plugin.factory.StreamOfflinePluginFactory
 
@@ -52,7 +54,13 @@ fun ChatListScreen(
         token = token,
     ).enqueue()
 
-    ChatTheme() {
+    ChatTheme(
+        colors = if (isSystemInDarkTheme()) {
+            StreamColors.defaultDarkColors()
+        } else {
+            StreamColors.defaultColors()
+        }
+    ) {
         ChannelsScreen(
             isShowingSearch = true,
         )
