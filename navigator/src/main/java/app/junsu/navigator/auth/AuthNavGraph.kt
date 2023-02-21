@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import app.junsu.core_route.route.WWWERoutes
 import app.junsu.feature_google_sign_in.screen.GoogleSignInScreen
-import app.junsu.feature_onboarding.screen.onboarding.OnBoardingScreen
+import app.junsu.feature_onboarding.screen.OnBoardingScreen
 
 fun NavGraphBuilder.authNavGraph(
     navController: NavHostController,

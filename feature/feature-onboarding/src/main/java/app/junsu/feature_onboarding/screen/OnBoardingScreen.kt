@@ -1,4 +1,4 @@
-package app.junsu.feature_onboarding.screen.onboarding
+package app.junsu.feature_onboarding.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
