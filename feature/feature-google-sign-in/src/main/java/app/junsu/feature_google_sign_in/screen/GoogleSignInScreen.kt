@@ -10,15 +10,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.junsu.core_route.route.WWWERoutes
 import app.junsu.feature_google_sign_in.R
@@ -29,23 +28,24 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 
 @Composable
 fun GoogleSignInScreen(
-    navController: NavController,
+    navController: NavHostController,
     signInViewModel: SignInViewModel = hiltViewModel(),
 ) {
 
-    val signInState by signInViewModel.signInState.collectAsStateWithLifecycle(null)
-
-    when (signInState) {
-        SignInState.AccountCreated -> {}
-        SignInState.Loading -> {}
-        SignInState.SignedIn -> {
-            navController.navigate(WWWERoutes.Main.route) {
-                popUpTo(WWWERoutes.Auth.GoogleSignIn.route) {
-                    inclusive = true
+    LaunchedEffect("signInState") {
+        signInViewModel.signInState.collect {
+            when (it) {
+                SignInState.AccountCreated -> {}
+                SignInState.Loading -> {}
+                SignInState.SignedIn -> {
+                    navController.navigate(WWWERoutes.Main.route) {
+                        popUpTo(WWWERoutes.Auth.GoogleSignIn.route) {
+                            inclusive = true
+                        }
+                    }
                 }
             }
         }
-        null -> {}
     }
 
     val googleSignInActivityResultLauncher = rememberLauncherForActivityResult(
