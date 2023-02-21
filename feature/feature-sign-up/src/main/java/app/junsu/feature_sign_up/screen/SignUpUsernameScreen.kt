@@ -10,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import app.junsu.core_route.route.WWWERoutes
 import app.junsu.wwwe_design_system.button.DefaultButton
 
 @Composable
@@ -18,7 +19,7 @@ fun SignUpUsernameScreen(
 ) {
 
     val onNextButtonClick = {
-
+        navController.navigate(WWWERoutes.Auth.SignUp.ProfileImage.route)
     }
 
     Box(
