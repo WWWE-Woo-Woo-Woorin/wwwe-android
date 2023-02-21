@@ -4,25 +4,13 @@ sealed class WWWERoutes(
     val route: String,
 ) {
 
+    object Root : WWWERoutes(
+        route = "root",
+    )
+
     object Main : WWWERoutes(
         route = "main",
     ) {
-
-        @Deprecated("no")
-        object Community : WWWERoutes(
-            route = "community",
-        )
-
-        @Deprecated("no")
-        object Chat : WWWERoutes(
-            route = "chat",
-        )
-
-        @Deprecated("no")
-        object Settings : WWWERoutes(
-            route = "settings",
-        )
-
         object Navigation : WWWERoutes(
             route = "mainNavigation",
         ) {
