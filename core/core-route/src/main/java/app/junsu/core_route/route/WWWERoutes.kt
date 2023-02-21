@@ -43,6 +43,15 @@ sealed class WWWERoutes(
 
         object SignUp : WWWERoutes(
             route = "signUp",
-        )
+        ) {
+
+            object Username : WWWERoutes(
+                route = "username",
+            )
+
+            object ProfileImage : WWWERoutes(
+                route = "profileImage",
+            )
+        }
     }
 }
