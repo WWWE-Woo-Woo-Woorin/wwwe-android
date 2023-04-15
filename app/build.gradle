@@ -48,6 +48,7 @@ android {
 
 def compose_version = "1.4.1"
 def nav_version = "2.5.3"
+def glide_version = "1.4.7"
 
 dependencies {
 
@@ -64,4 +65,5 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     implementation "androidx.navigation:navigation-compose:$nav_version"
+    implementation "com.github.skydoves:landscapist-glide:$glide_version"
 }
