@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">wwwe</string>
+
+    <string name="community">Community</string>
+    <string name="chat">Chat</string>
+    <string name="settings">Settings</string>
 </resources>
