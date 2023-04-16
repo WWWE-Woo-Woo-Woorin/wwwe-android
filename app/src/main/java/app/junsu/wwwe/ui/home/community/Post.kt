@@ -13,6 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.glide.GlideImage
+/*
 
 @Composable
 fun Post(
@@ -62,3 +63,4 @@ fun Post(
         }
     }
 }
+*/
