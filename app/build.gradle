@@ -54,8 +54,7 @@ def koin_version = "3.4.0"
 dependencies {
 
     // koin
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-    testImplementation "org.koin:koin-test:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
 
     // android
     implementation 'androidx.core:core-ktx:1.10.0'
