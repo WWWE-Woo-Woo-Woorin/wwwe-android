@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
+import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
-/*
 
 @Composable
 fun Post(
@@ -31,22 +31,26 @@ fun Post(
         modifier = Modifier.fillMaxWidth(),
     ) {
         GlideImage(
-            imageModel = imageUrl,
+            imageModel = { imageUrl },
             modifier = Modifier.size(
                 width = screenWidthDp,
                 height = screenWidthDp,
             ),
-            alignment = Alignment.Center,
-            contentScale = ContentScale.Crop,
+            imageOptions = ImageOptions(
+                contentScale = ContentScale.Crop,
+                alignment = Alignment.Center,
+            ),
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
         ) {
             GlideImage(
-                imageModel = profileUrl,
+                imageModel = { profileUrl },
                 modifier = Modifier.size(24.dp),
-                alignment = Alignment.Center,
-                contentScale = ContentScale.Crop,
+                imageOptions = ImageOptions(
+                    alignment = Alignment.Center,
+                    contentScale = ContentScale.Crop,
+                ),
             )
             Column(
                 modifier = Modifier.weight(1f),
@@ -63,4 +67,3 @@ fun Post(
         }
     }
 }
-*/
