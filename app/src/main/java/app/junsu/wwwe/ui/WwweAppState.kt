@@ -7,13 +7,17 @@ import androidx.compose.material.icons.outlined.MailOutline
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.BottomSheetScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
 import kotlinx.coroutines.CoroutineScope
 
@@ -37,6 +41,24 @@ enum class HomeSections(
         route = "home/settings",
         icon = Icons.Outlined.Settings, // TODO: Change Icon
     ),
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun rememberWwweAppState(
+    scaffoldState: BottomSheetScaffoldState = rememberBottomSheetScaffoldState(),
+    navController: NavHostController = rememberNavController(),
+    coroutineScope: CoroutineScope = rememberCoroutineScope(),
+): WwweAppState {
+    return remember(
+        scaffoldState, navController, coroutineScope,
+    ) {
+        WwweAppState(
+            scaffoldState = scaffoldState,
+            navController = navController,
+            coroutineScope = coroutineScope,
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
