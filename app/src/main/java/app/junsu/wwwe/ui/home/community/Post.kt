@@ -67,3 +67,10 @@ fun Post(
         }
     }
 }
+
+@Composable
+fun PostList(
+    posts: List<Post>
+) {
+
+}
