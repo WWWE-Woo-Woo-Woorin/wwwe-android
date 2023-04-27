@@ -50,9 +50,9 @@ fun WwweBottomAppBar(
                     imageVector = section.icon,
                     contentDescription = null,
                     tint = if (selected) {
-                        MaterialTheme.colorScheme.surface
+                        MaterialTheme.colorScheme.primary
                     } else {
-                        MaterialTheme.colorScheme.surfaceTint
+                        MaterialTheme.colorScheme.secondary
                     },
                 )
             }, label = {
