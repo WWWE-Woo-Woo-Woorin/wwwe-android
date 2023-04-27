@@ -50,11 +50,16 @@ def compose_version = "1.4.2"
 def nav_version = "2.5.3"
 def glide_version = '2.1.11'
 def koin_version = "3.4.0"
+def ktor_version = "2.3.0"
 
 dependencies {
 
     // koin
     implementation "io.insert-koin:koin-android:$koin_version"
+
+    // ktor
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
 
     // android
     implementation 'androidx.core:core-ktx:1.10.0'
