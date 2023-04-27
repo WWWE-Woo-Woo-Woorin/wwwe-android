@@ -14,8 +14,16 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import app.junsu.wwwe.ui.HomeSections
 import app.junsu.wwwe.ui.home.community.CommunityScreen
 
+fun NavGraphBuilder.addHomeGraph() {
+    composable(
+        route = HomeSections.COMMUNITY.route,
+    ) { CommunityScreen() }
+    composable(HomeSections.CHAT.route) {}
+    composable(HomeSections.SETTINGS.route) {}
+}
+
 @Composable
-private fun WwweBottomAppBar(
+fun WwweBottomAppBar(
     vararg tabs: HomeSections,
     navController: NavHostController,
 ) {
@@ -41,7 +49,11 @@ private fun WwweBottomAppBar(
                 Icon(
                     imageVector = section.icon,
                     contentDescription = null,
-                    tint = if (selected) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.surfaceTint
+                    tint = if (selected) {
+                        MaterialTheme.colorScheme.surface
+                    } else {
+                        MaterialTheme.colorScheme.surfaceTint
+                    },
                 )
             }, label = {
                 Text(
@@ -53,14 +65,4 @@ private fun WwweBottomAppBar(
             })
         }
     }
-}
-
-fun NavGraphBuilder.addHomeGraph(
-    navController: NavHostController,
-) {
-    composable(
-        route = HomeSections.COMMUNITY.route,
-    ) { CommunityScreen() }
-    composable(HomeSections.CHAT.route) {}
-    composable(HomeSections.SETTINGS.route) {}
 }

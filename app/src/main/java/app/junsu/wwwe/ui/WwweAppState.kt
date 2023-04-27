@@ -51,7 +51,9 @@ fun rememberWwweAppState(
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
 ): WwweAppState {
     return remember(
-        scaffoldState, navController, coroutineScope,
+        scaffoldState,
+        navController,
+        coroutineScope,
     ) {
         WwweAppState(
             scaffoldState = scaffoldState,
