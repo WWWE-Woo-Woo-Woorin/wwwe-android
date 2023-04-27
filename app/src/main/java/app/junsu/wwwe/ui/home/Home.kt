@@ -12,12 +12,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import app.junsu.wwwe.ui.HomeSections
-import app.junsu.wwwe.ui.home.community.CommunityScreen
+import app.junsu.wwwe.ui.home.community.Community
 
 fun NavGraphBuilder.addHomeGraph() {
     composable(
         route = HomeSections.COMMUNITY.route,
-    ) { CommunityScreen() }
+    ) { Community() }
     composable(HomeSections.CHAT.route) {}
     composable(HomeSections.SETTINGS.route) {}
 }
