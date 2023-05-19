@@ -73,11 +73,11 @@ fun Post(
             ) {
                 Text(
                     text = writer,
-                    style = MaterialTheme.typography.bodyLarge,
+                    style = MaterialTheme.typography.bodyMedium,
                 )
                 Text(
                     text = content,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodySmall,
                 )
             }
         }
