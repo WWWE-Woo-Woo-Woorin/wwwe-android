@@ -52,6 +52,7 @@ dependencies {
 
     // koin
     implementation("io.insert-koin:koin-android:$koin_version")
+    implementation("io.insert-koin:koin-androidx-compose:$koin_version")
 
     // ktor
     implementation("io.ktor:ktor-client-core:$ktor_version")
