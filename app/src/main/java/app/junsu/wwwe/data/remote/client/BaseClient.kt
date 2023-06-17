@@ -11,5 +11,4 @@ abstract class BaseClient {
             json()
         }
     }
-
 }
