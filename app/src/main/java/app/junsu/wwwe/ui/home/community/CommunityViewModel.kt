@@ -3,14 +3,22 @@ package app.junsu.wwwe.ui.home.community
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.wwwe.data.CommunityRepository
+import app.junsu.wwwe.model.Post
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 class CommunityViewModel(
     private val communityRepository: CommunityRepository,
 ) : ViewModel() {
+    val flow = MutableStateFlow(CommunityState(emptyList()))
+
     init {
         viewModelScope.launch {
-            communityRepository.testInquirePosts()
+            flow.value = flow.value.copy(communityRepository.testInquirePosts())
         }
     }
 }
+
+data class CommunityState(
+    val posts: List<Post>,
+)

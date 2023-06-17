@@ -1,10 +1,10 @@
 package app.junsu.wwwe.ui.home.community
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import org.koin.androidx.compose.getViewModel
 
@@ -12,23 +12,20 @@ import org.koin.androidx.compose.getViewModel
 fun Community(
     viewModel: CommunityViewModel = getViewModel(),
 ) {
-
-    Column(
-        Modifier
-            .fillMaxSize()
-            .verticalScroll(
-                state = rememberScrollState(),
-            ),
+    val state = viewModel.flow.collectAsState()
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize(),
     ) {
-        repeat(3) {
+        items(state.value.posts) { post ->
             Post(
-                postId = 123,
-                imageUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MjhfMzEg%2FMDAxNjgyNjQ4OTY0NTc5._LfcSxCiUwPlljgw6-XP2JD3PkuYkuXcqQs_WQz1Mmkg.sulvdNT6G3BZOz8fEcu_rIbBAwcwgMpWihqagmk6iJ4g.JPEG.aboard13389%2FKakaoTalk_20230420_120739846_03_%25282%2529.jpg&type=sc960_832",
-                profileUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MjhfMzEg%2FMDAxNjgyNjQ4OTY0NTc5._LfcSxCiUwPlljgw6-XP2JD3PkuYkuXcqQs_WQz1Mmkg.sulvdNT6G3BZOz8fEcu_rIbBAwcwgMpWihqagmk6iJ4g.JPEG.aboard13389%2FKakaoTalk_20230420_120739846_03_%25282%2529.jpg&type=sc960_832",
-                writer = "Junsu",
-                content = "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello",
-                totalLikes = 123,
-                liked = true,
+                postId = post.id,
+                imageUrl = post.postImageUrl,
+                profileUrl = "",
+                writer = post.writer,
+                content = post.content,
+                totalLikes = 0,
+                liked = false,
             )
         }
     }
