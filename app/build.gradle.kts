@@ -75,6 +75,10 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
     debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+    implementation("androidx.compose.material:material-icons-extended:$compose_version")
+
+    // stream chat SDK
+    implementation("io.getstream:stream-chat-android-compose:5.12.0")
 
     // test
     testImplementation("junit:junit:4.13.2")
