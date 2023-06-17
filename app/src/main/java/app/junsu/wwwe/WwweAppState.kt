@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui
+package app.junsu.wwwe
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
@@ -18,7 +18,6 @@ import androidx.navigation.NavGraph
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import app.junsu.wwwe.R
 import kotlinx.coroutines.CoroutineScope
 
 enum class HomeSections(

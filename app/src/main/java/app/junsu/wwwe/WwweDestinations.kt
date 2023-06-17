@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui
+package app.junsu.wwwe
 
 object WwweDestinations {
     const val WALK_THROUGH = "walk_through"

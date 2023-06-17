@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui
+package app.junsu.wwwe
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

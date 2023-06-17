@@ -11,7 +11,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import app.junsu.wwwe.ui.HomeSections
+import app.junsu.wwwe.HomeSections
 import app.junsu.wwwe.ui.home.community.Community
 
 fun NavGraphBuilder.addHomeGraph() {

@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui
+package app.junsu.wwwe
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
