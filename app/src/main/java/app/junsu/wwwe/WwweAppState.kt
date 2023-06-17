@@ -1,10 +1,5 @@
 package app.junsu.wwwe
 
-import androidx.annotation.StringRes
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.MailOutline
-import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.BottomSheetScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -12,35 +7,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import app.junsu.wwwe.ui.home.HomeSections
 import kotlinx.coroutines.CoroutineScope
-
-enum class HomeSections(
-    @StringRes val title: Int,
-    val route: String,
-    val icon: ImageVector,
-) {
-    COMMUNITY(
-        title = R.string.community,
-        route = "home/community",
-        icon = Icons.Outlined.Home, // TODO: Change Icon
-    ),
-    CHAT(
-        title = R.string.chat,
-        route = "home/chat",
-        icon = Icons.Outlined.MailOutline, // TODO: Change Icon
-    ),
-    SETTINGS(
-        title = R.string.settings,
-        route = "home/settings",
-        icon = Icons.Outlined.Settings, // TODO: Change Icon
-    ),
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
