@@ -12,13 +12,27 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import app.junsu.wwwe.HomeSections
+import app.junsu.wwwe.R
 import app.junsu.wwwe.ui.home.community.Community
+import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
+import io.getstream.chat.android.compose.ui.theme.ChatTheme
 
 fun NavGraphBuilder.addHomeGraph() {
     composable(
         route = HomeSections.COMMUNITY.route,
     ) { Community() }
-    composable(HomeSections.CHAT.route) {}
+    composable(HomeSections.CHAT.route) {
+        ChatTheme {
+            ChannelsScreen(
+                title = stringResource(R.string.app_name),
+                isShowingSearch = true,
+                onItemClick = { channel ->
+                    // TODO Start Messages Activity
+                },
+                onBackPressed = {}
+            )
+        }
+    }
     composable(HomeSections.SETTINGS.route) {}
 }
 
