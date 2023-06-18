@@ -35,7 +35,7 @@ val httpClient: HttpClient by lazy {
                     }
                 }
                 encode {
-                    when (it as PostType) { // when type-casting removed, the compiler says that has syntax error
+                    when (it as PostType) { // when type-casting removed, the compiler shows that has syntax error
                         PostType.DEFAULT -> listOf("DEFAULT")
                         PostType.MAJOR -> listOf("MAJOR")
                         PostType.CLUB -> listOf("CLUB")
