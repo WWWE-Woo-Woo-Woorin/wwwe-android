@@ -52,6 +52,7 @@ val ktor_version = "2.3.0"
 dependencies {
     // firebase
     implementation("com.google.firebase:firebase-auth-ktx:22.0.0")
+    implementation("com.google.android.gms:play-services-auth:20.5.0")
 
     // koin
     implementation("io.insert-koin:koin-android:$koin_version")

@@ -1,5 +1,10 @@
 package app.junsu.wwwe.ui.signin
 
+import android.app.Activity.RESULT_OK
+import android.content.Context
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,12 +21,19 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -29,6 +41,20 @@ fun SignInScreen(
     modifier: Modifier = Modifier,
     signInViewModel: SignInViewModel = koinViewModel(),
 ) {
+    val context = LocalContext.current
+    val googleSignInClient by remember { mutableStateOf(getGoogleSignInClient(context)) }
+
+    val googleSignInLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult(),
+        onResult = {
+            if (it.resultCode == RESULT_OK) it.data?.run {
+                val email = GoogleSignIn.getSignedInAccountFromIntent(it.data).result.email!!
+                // todo viewmodel check
+            }
+            Toast.makeText(context, "SIGN IN ${it.resultCode}", Toast.LENGTH_SHORT).show()
+        },
+    )
+
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -53,7 +79,9 @@ fun SignInScreen(
             horizontalArrangement = Arrangement.End,
         ) {
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    googleSignInLauncher.launch(googleSignInClient.signInIntent)
+                },
             ) {
                 Icon(
                     imageVector = Icons.Filled.Add,
@@ -66,4 +94,19 @@ fun SignInScreen(
             }
         }
     }
+}
+
+private fun getGoogleSignInClient(
+    context: Context,
+): GoogleSignInClient {
+    val googleSignInOptions = GoogleSignInOptions.Builder(
+        GoogleSignInOptions.DEFAULT_SIGN_IN,
+    ).requestIdToken(
+        context.getString(R.string.default_web_client_id),
+    ).requestEmail().build()
+
+    return GoogleSignIn.getClient(
+        context,
+        googleSignInOptions,
+    )
 }
