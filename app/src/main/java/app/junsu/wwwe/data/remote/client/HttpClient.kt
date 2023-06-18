@@ -1,7 +1,9 @@
 package app.junsu.wwwe.data.remote.client
 
+import app.junsu.wwwe.model.PostType
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.DataConversion
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
@@ -19,6 +21,27 @@ val httpClient: HttpClient by lazy {
         install(Logging) {
             logger = Logger.DEFAULT
             level = LogLevel.ALL
+        }
+        install(DataConversion) {
+            convert {
+                decode { values ->
+                    values.single().let {
+                        when (it) {
+                            "DEFAULT" -> PostType.DEFAULT
+                            "MAJOR" -> PostType.MAJOR
+                            "CLUB" -> PostType.CLUB
+                            else -> throw IllegalStateException()
+                        }
+                    }
+                }
+                encode {
+                    when (it as PostType) { // when type-casting removed, the compiler says that has syntax error
+                        PostType.DEFAULT -> listOf("DEFAULT")
+                        PostType.MAJOR -> listOf("MAJOR")
+                        PostType.CLUB -> listOf("CLUB")
+                    }
+                }
+            }
         }
     }
 }
