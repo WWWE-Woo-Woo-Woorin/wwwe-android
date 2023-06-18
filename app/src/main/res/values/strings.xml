@@ -4,4 +4,8 @@
     <string name="community">Community</string>
     <string name="chat">Chat</string>
     <string name="settings">Settings</string>
+
+    <string name="community_tab_all">All</string>
+    <string name="community_tab_major">Major</string>
+    <string name="community_tab_club">Club</string>
 </resources>

@@ -9,16 +9,31 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import app.junsu.wwwe.R
 import app.junsu.wwwe.model.PostType
 import org.koin.androidx.compose.getViewModel
 
-@Stable
-val communityTabs = listOf<String>("All", "Major", "Club")
+@Immutable
+private enum class CommunityTab(
+    val value: String,
+) {
+    ALL("ALL"), MAJOR("MAJOR"), CLUB("CLUB"), ;
+
+    val text: String
+        @Composable get() = stringResource(
+            when (this) {
+                ALL -> R.string.community_tab_all
+                MAJOR -> R.string.community_tab_major
+                CLUB -> R.string.community_tab_club
+            }
+        )
+}
 
 @Composable
 fun Community(
@@ -33,14 +48,18 @@ fun Community(
         TabRow(
             selectedTabIndex = selectedTab,
         ) {
-            communityTabs.forEachIndexed { index, tab ->
-                Tab(selected = selectedTab == index, onClick = { setSelectedTab(index) }, text = {
-                    Text(
-                        text = tab,
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                })
+            CommunityTab.values().forEachIndexed { index, tab ->
+                Tab(
+                    selected = selectedTab == index,
+                    onClick = { setSelectedTab(index) },
+                    text = {
+                        Text(
+                            text = tab.text,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                        )
+                    },
+                )
             }
         }
         LazyColumn(
