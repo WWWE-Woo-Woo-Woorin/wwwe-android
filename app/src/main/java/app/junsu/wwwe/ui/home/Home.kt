@@ -76,34 +76,40 @@ fun WwweBottomAppBar(
             val sectionRoute = section.route
             val selected = currentRoute == sectionRoute
 
-            NavigationBarItem(selected = selected, onClick = {
-                navController.navigate(
-                    route = sectionRoute,
-                ) {
-                    launchSingleTop = true
-                    restoreState = true
-                    navController.graph.startDestinationRoute?.let { route ->
-                        popUpTo(route)
+            NavigationBarItem(
+                selected = selected,
+                onClick = {
+                    navController.navigate(
+                        route = sectionRoute,
+                    ) {
+                        launchSingleTop = true
+                        restoreState = true
+                        navController.graph.startDestinationRoute?.let { route ->
+                            popUpTo(route) {
+                                saveState = true
+                            }
+                        }
                     }
-                }
-            }, icon = {
-                Icon(
-                    imageVector = section.icon,
-                    contentDescription = null,
-                    tint = if (selected) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        MaterialTheme.colorScheme.secondary
-                    },
-                )
-            }, label = {
-                Text(
-                    text = stringResource(
-                        id = section.title,
-                    ),
-                    style = MaterialTheme.typography.labelMedium,
-                )
-            })
+                },
+                icon = {
+                    Icon(
+                        imageVector = section.icon,
+                        contentDescription = null,
+                        tint = if (selected) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.secondary
+                        },
+                    )
+                },
+                label = {
+                    Text(
+                        text = stringResource(section.title),
+                        style = MaterialTheme.typography.labelMedium,
+                    )
+                },
+                alwaysShowLabel = false,
+            )
         }
     }
 }
