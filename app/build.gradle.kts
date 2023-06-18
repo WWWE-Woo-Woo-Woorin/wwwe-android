@@ -43,8 +43,8 @@ android {
     }
 }
 
-val compose_version = "1.4.2"
-val nav_version = "2.5.3"
+val compose_version = "1.4.3"
+val nav_version = "2.6.0"
 val glide_version = "2.1.11"
 val koin_version = "3.4.0"
 val ktor_version = "2.3.0"
@@ -67,16 +67,16 @@ dependencies {
     implementation("io.ktor:ktor-client-logging-jvm:$ktor_version")
 
     // android
-    implementation("androidx.core:core-ktx:1.10.0")
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.1")
+    implementation("androidx.activity:activity-compose:1.7.2")
 
     // compose
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("com.github.skydoves:landscapist-glide:$glide_version")
     implementation("androidx.compose.ui:ui:$compose_version")
     implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
-    implementation("androidx.compose.material3:material3:1.1.0-rc01")
+    implementation("androidx.compose.material3:material3:1.2.0-alpha02")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
     debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
