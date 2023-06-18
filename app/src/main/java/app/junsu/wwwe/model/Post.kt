@@ -15,7 +15,7 @@ data class Post(
 
 @Serializable
 enum class PostType {
-    @SerialName("ALL")
+    @SerialName("DEFAULT")
     DEFAULT,
 
     @SerialName("MAJOR")
