@@ -4,6 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.serialization")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -49,6 +50,8 @@ val koin_version = "3.4.0"
 val ktor_version = "2.3.0"
 
 dependencies {
+    // firebase
+    implementation("com.google.firebase:firebase-auth-ktx:22.0.0")
 
     // koin
     implementation("io.insert-koin:koin-android:$koin_version")
