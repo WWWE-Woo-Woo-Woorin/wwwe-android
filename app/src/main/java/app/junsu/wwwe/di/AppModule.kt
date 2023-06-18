@@ -4,5 +4,6 @@ import app.junsu.wwwe.data.remote.client.httpClient
 import org.koin.dsl.module
 
 val appModule = module {
+    includes(communityModule)
     single { httpClient }
 }
