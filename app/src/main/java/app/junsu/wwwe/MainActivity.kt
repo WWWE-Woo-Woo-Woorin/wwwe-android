@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import app.junsu.wwwe.ui.home.WwweBottomAppBar
 import app.junsu.wwwe.ui.navigator.WwweDestinations
 import app.junsu.wwwe.ui.navigator.wwweNavGraph
+import app.junsu.wwwe.ui.signin.SignInScreen
 import app.junsu.wwwe.ui.theme.WwweTheme
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.logger.ChatLogLevel
@@ -66,7 +67,7 @@ fun WwweApp() {
     WwweTheme {
         val appState = rememberWwweAppState()
 
-        Scaffold(
+        /*Scaffold(
             bottomBar = {
                 if (appState.shouldShowBottomBar) {
                     WwweBottomAppBar(
@@ -87,6 +88,7 @@ fun WwweApp() {
                     upPress = appState::upPress,
                 )
             }
-        }
+        }*/
+        SignInScreen()
     }
 }

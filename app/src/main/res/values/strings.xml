@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">wwwe</string>
 
+    <string name="next">NEXT</string>
+
     <string name="community">Community</string>
     <string name="chat">Chat</string>
     <string name="settings">Settings</string>
+
+    <string name="sign_in_google">Sign in with Google</string>
 
     <string name="community_compose">Compose</string>
     <string name="community_tab_all">All</string>
