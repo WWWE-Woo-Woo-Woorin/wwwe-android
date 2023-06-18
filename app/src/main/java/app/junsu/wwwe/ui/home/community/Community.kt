@@ -17,8 +17,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -48,7 +50,7 @@ fun Community(
     viewModel: CommunityViewModel = getViewModel(),
 ) {
     val state = viewModel.flow.collectAsState()
-    val (selectedTab, setSelectedTab) = remember { mutableStateOf(0) }
+    var selectedTab by remember { mutableStateOf(0) }
 
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -61,7 +63,7 @@ fun Community(
                 CommunityTab.values().forEachIndexed { index, tab ->
                     Tab(
                         selected = selectedTab == index,
-                        onClick = { setSelectedTab(index) },
+                        onClick = { selectedTab = index },
                         text = {
                             Text(
                                 text = tab.text,
