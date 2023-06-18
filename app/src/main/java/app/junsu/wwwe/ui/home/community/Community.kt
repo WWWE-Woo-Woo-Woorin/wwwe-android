@@ -97,7 +97,6 @@ fun Community(
                 }
             }
         }
-
         FloatingActionButton(
             modifier = Modifier.padding(
                 bottom = 16.dp,
