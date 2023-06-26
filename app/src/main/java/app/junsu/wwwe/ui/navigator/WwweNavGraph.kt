@@ -1,24 +1,30 @@
 package app.junsu.wwwe.ui.navigator
 
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import app.junsu.wwwe.ui.home.HomeSections
 import app.junsu.wwwe.ui.home.addHomeGraph
 
 fun NavGraphBuilder.wwweNavGraph(
     upPress: () -> Unit,
+    onNavigateToHome: () -> Unit,
 ) {
+    mainNavigation()
+    authNavigation()
+}
+
+fun NavGraphBuilder.mainNavigation() {
     navigation(
-        route = WwweDestinations.HOME,
-        startDestination = HomeSections.COMMUNITY.route,
+        route = WwweDestinations.MainNavigation.route,
+        startDestination = WwweDestinations.MainNavigation.HOME,
     ) {
         addHomeGraph()
     }
-    composable(
-        route = WwweDestinations.AUTH,
-    ) {}
-    composable(
-        route = WwweDestinations.WALK_THROUGH,
-    ) {}
+}
+
+fun NavGraphBuilder.authNavigation() {
+    navigation(
+        route = WwweDestinations.AuthNavigation.route,
+        startDestination = WwweDestinations.AuthNavigation.SIGN_IN,
+    ) {
+    }
 }

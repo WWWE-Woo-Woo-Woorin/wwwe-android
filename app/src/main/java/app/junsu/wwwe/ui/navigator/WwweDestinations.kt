@@ -1,7 +1,13 @@
 package app.junsu.wwwe.ui.navigator
 
-object WwweDestinations {
-    const val WALK_THROUGH = "walk_through"
-    const val AUTH = "auth"
-    const val HOME = "home"
+sealed class WwweDestinations(
+    val route: String,
+) {
+    object AuthNavigation : WwweDestinations("auth") {
+        const val SIGN_IN = "signIn"
+    }
+
+    object MainNavigation : WwweDestinations("main") {
+        const val HOME = "home"
+    }
 }
