@@ -12,6 +12,7 @@ import com.skydoves.landscapist.InternalLandscapistApi
 fun NavGraphBuilder.mainNavigation(
     bottomAppBarTabs: List<HomeSections>,
     onNavigateToCreatePost: () -> Unit,
+    onNavigateUp: () -> Unit,
 ) {
     navigation(
         route = WwweDestinations.MainNavigation.route,
@@ -24,7 +25,9 @@ fun NavGraphBuilder.mainNavigation(
             )
         }
         composable(WwweDestinations.MainNavigation.CREATE_POST) {
-            CreatePostScreen()
+            CreatePostScreen(
+                onNavigateUp = onNavigateUp,
+            )
         }
     }
 }

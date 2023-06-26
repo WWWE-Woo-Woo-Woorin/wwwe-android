@@ -72,6 +72,7 @@ fun WwweApp() {
             mainNavigation(
                 bottomAppBarTabs = appState.bottomAppBarTabs,
                 onNavigateToCreatePost = navController::navigateToCreatePost,
+                onNavigateUp = navController::navigateUp,
             )
             authNavigation()
         }

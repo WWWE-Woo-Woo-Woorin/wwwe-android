@@ -16,8 +16,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
+import app.junsu.wwwe.ui.component.AppBar
 import com.skydoves.landscapist.InternalLandscapistApi
 import com.skydoves.landscapist.glide.GlideImage
 import org.koin.androidx.compose.koinViewModel
@@ -27,6 +29,7 @@ import org.koin.androidx.compose.koinViewModel
 fun CreatePostScreen(
     modifier: Modifier = Modifier,
     viewModel: CreatePostViewModel = koinViewModel(),
+    onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.flow.collectAsState()
     val (text, onTextChange) = remember { mutableStateOf("") }
@@ -39,6 +42,10 @@ fun CreatePostScreen(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        AppBar(
+            title = stringResource(R.string.compose_new_post),
+            onNavigateUp = onNavigateUp,
+        )
         GlideImage(
             modifier = Modifier
                 .size(screenWidthDp)
