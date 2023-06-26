@@ -52,7 +52,7 @@ fun CreatePostScreen(
                 .clickable {
                     pickPhotoLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
                 },
-            imageModel = { state.selectedImageUri ?: R.drawable.img_toss },
+            imageModel = { state.selectedImageUri ?: R.drawable.img_add_photo },
         )
         OutlinedTextField(
             value = text,
