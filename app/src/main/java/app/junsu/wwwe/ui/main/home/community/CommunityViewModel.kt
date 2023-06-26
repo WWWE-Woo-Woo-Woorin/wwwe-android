@@ -14,7 +14,7 @@ class CommunityViewModel(
 
     init {
         viewModelScope.launch {
-            flow.value = flow.value.copy(communityRepository.testInquirePosts())
+            flow.value = flow.value.copy(posts = communityRepository.testInquirePosts())
         }
     }
 }
