@@ -19,7 +19,6 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -49,6 +48,7 @@ private enum class CommunityTab(
 @Composable
 fun Community(
     viewModel: CommunityViewModel = getViewModel(),
+    onNavigateToCreatePost: () -> Unit,
 ) {
     val state = viewModel.flow.collectAsState()
     var selectedTab by remember { mutableIntStateOf(0) }

@@ -8,6 +8,7 @@ import app.junsu.wwwe.ui.home.HomeSections
 
 fun NavGraphBuilder.mainNavigation(
     bottomAppBarTabs: List<HomeSections>,
+    onNavigateToCreatePost: () -> Unit,
 ) {
     navigation(
         route = WwweDestinations.MainNavigation.route,
@@ -16,6 +17,7 @@ fun NavGraphBuilder.mainNavigation(
         composable(WwweDestinations.MainNavigation.HOME) {
             Home(
                 bottomAppBarTabs = bottomAppBarTabs,
+                onNavigateToCreatePost = onNavigateToCreatePost,
             )
         }
     }

@@ -12,6 +12,7 @@ import app.junsu.wwwe.ui.navigator.WwweDestinations
 import app.junsu.wwwe.ui.navigator.authNavigation
 import app.junsu.wwwe.ui.navigator.mainNavigation
 import app.junsu.wwwe.ui.theme.WwweTheme
+import app.junsu.wwwe.util.navigateToCreatePost
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.logger.ChatLogLevel
 import io.getstream.chat.android.client.models.User
@@ -73,6 +74,7 @@ fun WwweApp() {
         ) {
             mainNavigation(
                 bottomAppBarTabs = appState.bottomAppBarTabs,
+                onNavigateToCreatePost = navController::navigateToCreatePost,
             )
             authNavigation()
         }

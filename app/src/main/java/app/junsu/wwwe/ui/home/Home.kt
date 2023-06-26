@@ -31,6 +31,7 @@ import io.getstream.chat.android.compose.ui.theme.ChatTheme
 fun Home(
     modifier: Modifier = Modifier,
     bottomAppBarTabs: List<HomeSections>,
+    onNavigateToCreatePost: () -> Unit,
 ) {
     val navController = rememberNavController()
 
@@ -51,9 +52,11 @@ fun Home(
             navController = navController,
             startDestination = HomeSections.COMMUNITY.route,
         ) {
-            composable(
-                route = HomeSections.COMMUNITY.route,
-            ) { Community() }
+            composable(HomeSections.COMMUNITY.route) {
+                Community(
+                    onNavigateToCreatePost = onNavigateToCreatePost,
+                )
+            }
             composable(HomeSections.CHAT.route) {
                 ChatTheme {
                     ChannelsScreen(
