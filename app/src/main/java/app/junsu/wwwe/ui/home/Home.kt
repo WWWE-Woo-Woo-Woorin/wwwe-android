@@ -1,6 +1,8 @@
 package app.junsu.wwwe.ui.home
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.MailOutline
@@ -9,20 +11,65 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.navigation
+import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
 import app.junsu.wwwe.ui.home.community.Community
-import app.junsu.wwwe.ui.navigator.WwweDestinations
 import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
+
+@Composable
+fun Home(
+    modifier: Modifier = Modifier,
+    bottomAppBarTabs: List<HomeSections>,
+) {
+    val navController = rememberNavController()
+
+
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        bottomBar = {
+            WwweBottomAppBar(
+                tabs = bottomAppBarTabs,
+                navController = navController,
+            )
+        },
+    ) { paddingValues ->
+        NavHost(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+            navController = navController,
+            startDestination = HomeSections.COMMUNITY.route,
+        ) {
+            composable(
+                route = HomeSections.COMMUNITY.route,
+            ) { Community() }
+            composable(HomeSections.CHAT.route) {
+                ChatTheme {
+                    ChannelsScreen(
+                        title = stringResource(R.string.app_name),
+                        isShowingSearch = true,
+                        onItemClick = { channel ->
+                            // TODO Start Messages Activity
+                        },
+                        onBackPressed = {}
+                    )
+                }
+            }
+            composable(HomeSections.SETTINGS.route) {}
+        }
+    }
+}
 
 enum class HomeSections(
     @StringRes val title: Int,
@@ -46,33 +93,9 @@ enum class HomeSections(
     ),
 }
 
-fun NavGraphBuilder.addHomeGraph() {
-    navigation(
-        route = WwweDestinations.MainNavigation.HOME,
-        startDestination = HomeSections.COMMUNITY.route,
-    ) {
-        composable(
-            route = HomeSections.COMMUNITY.route,
-        ) { Community() }
-        composable(HomeSections.CHAT.route) {
-            ChatTheme {
-                ChannelsScreen(
-                    title = stringResource(R.string.app_name),
-                    isShowingSearch = true,
-                    onItemClick = { channel ->
-                        // TODO Start Messages Activity
-                    },
-                    onBackPressed = {}
-                )
-            }
-        }
-        composable(HomeSections.SETTINGS.route) {}
-    }
-}
-
 @Composable
 fun WwweBottomAppBar(
-    vararg tabs: HomeSections,
+    tabs: List<HomeSections>,
     navController: NavHostController,
 ) {
     val backStackEntry = navController.currentBackStackEntryAsState()

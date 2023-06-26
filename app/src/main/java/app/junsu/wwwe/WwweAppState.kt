@@ -42,7 +42,9 @@ class WwweAppState(
     val navController: NavHostController,
     val coroutineScope: CoroutineScope,
 ) {
-    val bottomAppBarTabs = HomeSections.values()
+    val bottomAppBarTabs: List<HomeSections>
+        get() = HomeSections.values().asList()
+
     private val bottomAppBarRoutes = bottomAppBarTabs.map { it.route }
 
     val shouldShowBottomBar: Boolean

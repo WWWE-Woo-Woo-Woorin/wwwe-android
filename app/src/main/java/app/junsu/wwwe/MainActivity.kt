@@ -3,15 +3,14 @@ package app.junsu.wwwe
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import app.junsu.wwwe.ui.home.WwweBottomAppBar
 import app.junsu.wwwe.ui.navigator.WwweDestinations
-import app.junsu.wwwe.ui.navigator.wwweNavGraph
+import app.junsu.wwwe.ui.navigator.authNavigation
+import app.junsu.wwwe.ui.navigator.mainNavigation
 import app.junsu.wwwe.ui.theme.WwweTheme
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.logger.ChatLogLevel
@@ -67,26 +66,15 @@ fun WwweApp() {
         val appState = rememberWwweAppState()
         val navController = appState.navController
 
-        Scaffold(
-            bottomBar = {
-                if (appState.shouldShowBottomBar) {
-                    WwweBottomAppBar(
-                        tabs = appState.bottomAppBarTabs,
-                        navController = appState.navController,
-                    )
-                }
-            },
-        ) { paddingValues ->
-            NavHost(
-                navController = navController,
-                startDestination = WwweDestinations.MainNavigation.route,
-                modifier = Modifier.padding(paddingValues),
-            ) {
-                wwweNavGraph(
-                    upPress = appState::upPress,
-                    onNavigateToHome = { navController.navigate(WwweDestinations.MainNavigation.route) },
-                )
-            }
+        NavHost(
+            modifier = Modifier.fillMaxSize(),
+            navController = navController,
+            startDestination = WwweDestinations.MainNavigation.route,
+        ) {
+            mainNavigation(
+                bottomAppBarTabs = appState.bottomAppBarTabs,
+            )
+            authNavigation()
         }
     }
 }
