@@ -105,7 +105,7 @@ fun Community(
                 bottom = 16.dp,
                 end = 16.dp,
             ),
-            onClick = { /*TODO*/ },
+            onClick = onNavigateToCreatePost,
         ) {
             Icon(
                 imageVector = Icons.Filled.AddComment,
