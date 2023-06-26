@@ -44,6 +44,7 @@ fun Home(
                 navController = navController,
             )
         },
+        containerColor = MaterialTheme.colorScheme.background,
     ) { paddingValues ->
         NavHost(
             modifier = Modifier
