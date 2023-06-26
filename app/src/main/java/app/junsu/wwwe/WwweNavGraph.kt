@@ -3,7 +3,7 @@ package app.junsu.wwwe
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import app.junsu.wwwe.WwweDestinations
+import app.junsu.wwwe.ui.main.createpost.CreatePostScreen
 import app.junsu.wwwe.ui.main.home.Home
 import app.junsu.wwwe.ui.main.home.HomeSections
 
@@ -22,7 +22,7 @@ fun NavGraphBuilder.mainNavigation(
             )
         }
         composable(WwweDestinations.MainNavigation.CREATE_POST) {
-
+            CreatePostScreen()
         }
     }
 }
