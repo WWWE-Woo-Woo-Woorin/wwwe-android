@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.home.community
+package app.junsu.wwwe.ui.main.home.community
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

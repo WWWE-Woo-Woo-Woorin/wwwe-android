@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.home
+package app.junsu.wwwe.ui.main.home
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,7 +23,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
-import app.junsu.wwwe.ui.home.community.Community
+import app.junsu.wwwe.ui.main.home.community.Community
 import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
 

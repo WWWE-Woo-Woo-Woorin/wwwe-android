@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.navigator
+package app.junsu.wwwe
 
 sealed class WwweDestinations(
     val route: String,

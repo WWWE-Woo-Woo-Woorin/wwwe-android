@@ -8,9 +8,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import app.junsu.wwwe.ui.navigator.WwweDestinations
-import app.junsu.wwwe.ui.navigator.authNavigation
-import app.junsu.wwwe.ui.navigator.mainNavigation
 import app.junsu.wwwe.ui.theme.WwweTheme
 import app.junsu.wwwe.util.navigateToCreatePost
 import io.getstream.chat.android.client.ChatClient

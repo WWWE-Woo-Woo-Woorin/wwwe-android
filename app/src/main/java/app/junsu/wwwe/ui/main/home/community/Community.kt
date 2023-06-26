@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.home.community
+package app.junsu.wwwe.ui.main.home.community
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
