@@ -8,6 +8,7 @@ import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.MailOutline
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarItem
@@ -34,7 +35,6 @@ fun Home(
     onNavigateToCreatePost: () -> Unit,
 ) {
     val navController = rememberNavController()
-
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
