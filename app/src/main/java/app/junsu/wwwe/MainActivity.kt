@@ -12,7 +12,6 @@ import androidx.navigation.compose.NavHost
 import app.junsu.wwwe.ui.home.WwweBottomAppBar
 import app.junsu.wwwe.ui.navigator.WwweDestinations
 import app.junsu.wwwe.ui.navigator.wwweNavGraph
-import app.junsu.wwwe.ui.signin.SignInScreen
 import app.junsu.wwwe.ui.theme.WwweTheme
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.logger.ChatLogLevel
@@ -35,10 +34,10 @@ class MainActivity : ComponentActivity() {
             appContext = applicationContext,
         )
 
-        val client = ChatClient.Builder("ekhu33sa6879", applicationContext)
-            .withPlugin(offlinePluginFactory)
-            .logLevel(ChatLogLevel.ALL) // Set to NOTHING in prod
-            .build()
+        val client =
+            ChatClient.Builder("ekhu33sa6879", applicationContext).withPlugin(offlinePluginFactory)
+                .logLevel(ChatLogLevel.ALL) // Set to NOTHING in prod
+                .build()
 
         val user = User(
             id = "tutorial-droid",
@@ -66,8 +65,9 @@ class MainActivity : ComponentActivity() {
 fun WwweApp() {
     WwweTheme {
         val appState = rememberWwweAppState()
+        val navController = appState.navController
 
-        /*Scaffold(
+        Scaffold(
             bottomBar = {
                 if (appState.shouldShowBottomBar) {
                     WwweBottomAppBar(
@@ -78,17 +78,15 @@ fun WwweApp() {
             },
         ) { paddingValues ->
             NavHost(
-                navController = appState.navController,
-                startDestination = WwweDestinations.HOME,
-                modifier = Modifier.padding(
-                    paddingValues = paddingValues,
-                ),
+                navController = navController,
+                startDestination = WwweDestinations.MainNavigation.route,
+                modifier = Modifier.padding(paddingValues),
             ) {
                 wwweNavGraph(
                     upPress = appState::upPress,
+                    onNavigateToHome = { navController.navigate(WwweDestinations.MainNavigation.route) },
                 )
             }
-        }*/
-        SignInScreen()
+        }
     }
 }
