@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.signin
+package app.junsu.wwwe.ui.auth.signin
 
 import android.app.Activity.RESULT_OK
 import android.content.Context
@@ -39,6 +39,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun SignInScreen(
     modifier: Modifier = Modifier,
+    onNavigateToHomeNav: () -> Unit,
     signInViewModel: SignInViewModel = koinViewModel(),
 ) {
     val context = LocalContext.current

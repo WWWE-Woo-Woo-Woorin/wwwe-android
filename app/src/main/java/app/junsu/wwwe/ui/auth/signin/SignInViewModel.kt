@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.signin
+package app.junsu.wwwe.ui.auth.signin
 
 import androidx.lifecycle.ViewModel
 
