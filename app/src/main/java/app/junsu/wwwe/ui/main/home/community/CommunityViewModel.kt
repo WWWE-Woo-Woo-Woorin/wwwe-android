@@ -21,4 +21,10 @@ class CommunityViewModel(
 
 data class CommunityState(
     val posts: List<Post>,
-)
+) {
+    companion object {
+        fun initial() = CommunityState(
+            posts = emptyList(),
+        )
+    }
+}
