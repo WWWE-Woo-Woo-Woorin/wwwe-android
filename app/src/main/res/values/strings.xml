@@ -13,4 +13,6 @@
     <string name="community_tab_all">All</string>
     <string name="community_tab_major">Major</string>
     <string name="community_tab_club">Club</string>
+
+    <string name="compose_new_post">Compose New Post</string>
 </resources>
