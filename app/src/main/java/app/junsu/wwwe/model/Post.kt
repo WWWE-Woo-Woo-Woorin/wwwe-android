@@ -14,6 +14,13 @@ data class Post(
 )
 
 @Serializable
+data class CreatePostRequest(
+    @SerialName("post_image_url") val postImageUrl: String,
+    @SerialName("content") val content: String,
+    @SerialName("post_type") val postType: String,
+)
+
+@Serializable
 enum class PostType {
     @SerialName("DEFAULT")
     DEFAULT,
