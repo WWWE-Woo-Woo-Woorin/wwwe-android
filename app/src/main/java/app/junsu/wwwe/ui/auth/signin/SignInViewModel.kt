@@ -19,6 +19,7 @@ class SignInViewModel(
             }.onSuccess {
                 sideEffectFlow.tryEmit(SignInSideEffect.SignInSuccess)
             }.onFailure {
+                it.printStackTrace()
                 sideEffectFlow.tryEmit(SignInSideEffect.SignInFailure)
             }
         }
