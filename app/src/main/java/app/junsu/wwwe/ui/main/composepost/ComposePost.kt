@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.main.createpost
+package app.junsu.wwwe.ui.main.composepost
 
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -46,9 +46,9 @@ import org.koin.androidx.compose.koinViewModel
 
 @InternalLandscapistApi
 @Composable
-fun CreatePostScreen(
+fun ComposePost(
     modifier: Modifier = Modifier,
-    viewModel: CreatePostViewModel = koinViewModel(),
+    viewModel: ComposePostViewModel = koinViewModel(),
     onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.flow.collectAsState()

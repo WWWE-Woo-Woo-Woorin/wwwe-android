@@ -1,4 +1,4 @@
-package app.junsu.wwwe.ui.main.createpost
+package app.junsu.wwwe.ui.main.composepost
 
 import android.net.Uri
 import androidx.lifecycle.ViewModel
@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class CreatePostViewModel(private val postRepository: PostRepository) : ViewModel() {
+class ComposePostViewModel(private val postRepository: PostRepository) : ViewModel() {
     val flow = MutableStateFlow(CreatePostState.initial())
     val sideEffectFlow = MutableStateFlow<CreatePostSideEffect?>(null)
 
