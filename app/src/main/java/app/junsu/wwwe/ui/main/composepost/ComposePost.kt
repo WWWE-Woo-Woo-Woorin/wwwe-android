@@ -37,6 +37,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
+import app.junsu.wwwe.model.CreatePostRequest
 import app.junsu.wwwe.model.PostType
 import app.junsu.wwwe.model.PostType.*
 import app.junsu.wwwe.ui.component.AppBar
@@ -123,7 +124,16 @@ fun ComposePost(
             horizontalArrangement = Arrangement.End,
         ) {
             Button(
-                onClick = {},
+                onClick = {
+                    viewModel.createPost(
+                        request = CreatePostRequest(
+                            // todo
+                            postImageUrl = "https://static.toss.im/homepage-static/newtoss/newtoss-og.jpg",
+                            content = "THIS IS CONTENT, AH HA",
+                            postType = selectedPostType.name,
+                        ),
+                    )
+                },
                 enabled = text.isNotBlank(),
             ) {
                 Icon(
