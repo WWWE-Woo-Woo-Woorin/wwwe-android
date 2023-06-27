@@ -7,7 +7,7 @@ val appModule = module {
     includes(
         communityModule,
         signInModule,
-        createPostModule,
+        postModule,
     )
     single { httpClient }
 }
