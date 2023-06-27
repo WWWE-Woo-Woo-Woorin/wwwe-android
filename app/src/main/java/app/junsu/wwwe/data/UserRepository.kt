@@ -7,11 +7,16 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
 
 class UserRepository(
     private val httpClient: HttpClient,
 ) {
     suspend fun signIn(request: SignInRequest): Token {
-        return httpClient.post("$BASE_URL/v1/users/signin") { setBody(request) }.body()
+        return httpClient.post("$BASE_URL/v1/users/signin") {
+            contentType(ContentType.Application.Json)
+            setBody(request)
+        }.body()
     }
 }

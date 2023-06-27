@@ -9,6 +9,7 @@
     <string name="compose">Compose</string>
 
     <string name="sign_in_google">Sign in with Google</string>
+    <string name="sign_in_failure">Sign in failure.</string>
 
     <string name="community_compose">Compose</string>
     <string name="community_tab_all">All</string>

@@ -22,6 +22,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,6 +34,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
+import app.junsu.wwwe.model.user.SignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -40,10 +43,25 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun SignInScreen(
     modifier: Modifier = Modifier,
-    signInViewModel: SignInViewModel = koinViewModel(),
+    viewModel: SignInViewModel = koinViewModel(),
     onNavigateToHomeNav: () -> Unit,
 ) {
     val context = LocalContext.current
+    val sideEffect by viewModel.sideEffectFlow.collectAsState()
+    LaunchedEffect(sideEffect) {
+        when (sideEffect) {
+            SignInSideEffect.SignInSuccess -> onNavigateToHomeNav()
+            SignInSideEffect.SignInFailure -> Toast.makeText(
+                context,
+                context.getString(R.string.sign_in_failure),
+                Toast.LENGTH_SHORT,
+            ).show()
+
+            SignInSideEffect.UserNotFound -> {} // todo
+            null -> {}
+        }
+    }
+
     val googleSignInClient by remember { mutableStateOf(getGoogleSignInClient(context)) }
 
     val googleSignInLauncher = rememberLauncherForActivityResult(
@@ -51,9 +69,13 @@ fun SignInScreen(
         onResult = {
             if (it.resultCode == RESULT_OK) it.data?.run {
                 val email = GoogleSignIn.getSignedInAccountFromIntent(it.data).result.email!!
-                // todo viewmodel check
+
+                viewModel.signIn(
+                    request = SignInRequest(
+                        email = email,
+                    ),
+                )
             }
-            Toast.makeText(context, "SIGN IN ${it.resultCode}", Toast.LENGTH_SHORT).show()
         },
     )
 

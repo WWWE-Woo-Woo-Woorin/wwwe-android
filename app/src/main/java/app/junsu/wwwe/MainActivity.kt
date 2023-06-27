@@ -68,7 +68,7 @@ fun WwweApp() {
         NavHost(
             modifier = Modifier.fillMaxSize(),
             navController = navController,
-            startDestination = WwweDestinations.MainNavigation.route,
+            startDestination = WwweDestinations.AuthNavigation.route,
         ) {
             mainNavigation(
                 bottomAppBarTabs = appState.bottomAppBarTabs,
