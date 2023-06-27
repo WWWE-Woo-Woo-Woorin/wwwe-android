@@ -1,5 +1,6 @@
 package app.junsu.wwwe.data
 
+import app.junsu.wwwe.data.remote.client.BASE_URL
 import app.junsu.wwwe.model.Post
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -12,5 +13,3 @@ class CommunityRepository(
         return httpClient.get("$BASE_URL/v1/posts").body()
     }
 }
-
-const val BASE_URL = "http://192.168.249.37:8080"
