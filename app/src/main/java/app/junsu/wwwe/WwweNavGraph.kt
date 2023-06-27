@@ -33,13 +33,15 @@ fun NavGraphBuilder.mainNavigation(
     }
 }
 
-fun NavGraphBuilder.authNavigation() {
+fun NavGraphBuilder.authNavigation(
+    onNavigateToHomeNav: () -> Unit,
+) {
     navigation(
         route = WwweDestinations.AuthNavigation.route,
         startDestination = WwweDestinations.AuthNavigation.SIGN_IN,
     ) {
         composable(WwweDestinations.AuthNavigation.SIGN_IN) {
-            SignInScreen(onNavigateToHomeNav = { /*TODO*/ })
+            SignInScreen(onNavigateToHomeNav = onNavigateToHomeNav)
         }
     }
 }

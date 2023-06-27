@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import app.junsu.wwwe.ui.theme.WwweTheme
 import app.junsu.wwwe.util.navigateToCreatePost
+import app.junsu.wwwe.util.navigateToHomeNav
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.logger.ChatLogLevel
 import io.getstream.chat.android.client.models.User
@@ -74,7 +75,9 @@ fun WwweApp() {
                 onNavigateToCreatePost = navController::navigateToCreatePost,
                 onNavigateUp = navController::navigateUp,
             )
-            authNavigation()
+            authNavigation(
+                onNavigateToHomeNav = navController::navigateToHomeNav,
+            )
         }
     }
 }

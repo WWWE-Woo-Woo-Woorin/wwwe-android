@@ -40,8 +40,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun SignInScreen(
     modifier: Modifier = Modifier,
-    onNavigateToHomeNav: () -> Unit,
     signInViewModel: SignInViewModel = koinViewModel(),
+    onNavigateToHomeNav: () -> Unit,
 ) {
     val context = LocalContext.current
     val googleSignInClient by remember { mutableStateOf(getGoogleSignInClient(context)) }
