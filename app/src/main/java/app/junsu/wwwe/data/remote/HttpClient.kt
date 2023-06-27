@@ -1,4 +1,4 @@
-package app.junsu.wwwe.data.remote.client
+package app.junsu.wwwe.data.remote
 
 import app.junsu.wwwe.model.post.PostType
 import io.ktor.client.HttpClient

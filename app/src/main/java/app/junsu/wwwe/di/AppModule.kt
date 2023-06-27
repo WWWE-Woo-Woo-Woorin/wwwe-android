@@ -1,6 +1,6 @@
 package app.junsu.wwwe.di
 
-import app.junsu.wwwe.data.remote.client.httpClient
+import app.junsu.wwwe.data.remote.httpClient
 import org.koin.dsl.module
 
 val appModule = module {

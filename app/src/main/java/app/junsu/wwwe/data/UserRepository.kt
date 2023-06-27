@@ -1,6 +1,6 @@
 package app.junsu.wwwe.data
 
-import app.junsu.wwwe.data.remote.client.BASE_URL
+import app.junsu.wwwe.data.remote.BASE_URL
 import app.junsu.wwwe.model.user.SignInRequest
 import app.junsu.wwwe.model.user.Token
 import io.ktor.client.HttpClient
