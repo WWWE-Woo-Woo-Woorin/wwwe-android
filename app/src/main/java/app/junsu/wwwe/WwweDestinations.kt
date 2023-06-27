@@ -9,6 +9,6 @@ sealed class WwweDestinations(
 
     object MainNavigation : WwweDestinations("main") {
         const val HOME = "home"
-        const val CREATE_POST = "createPost"
+        const val COMPOSE_POST = "createPost"
     }
 }

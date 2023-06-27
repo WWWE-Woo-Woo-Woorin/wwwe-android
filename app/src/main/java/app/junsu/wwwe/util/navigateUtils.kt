@@ -4,7 +4,7 @@ import androidx.navigation.NavHostController
 import app.junsu.wwwe.WwweDestinations
 
 fun NavHostController.navigateToCreatePost() {
-    this.navigate(WwweDestinations.MainNavigation.CREATE_POST) {
+    this.navigate(WwweDestinations.MainNavigation.COMPOSE_POST) {
         launchSingleTop = true
         restoreState = true
     }

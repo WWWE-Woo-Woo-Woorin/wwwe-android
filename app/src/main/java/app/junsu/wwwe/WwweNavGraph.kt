@@ -24,7 +24,7 @@ fun NavGraphBuilder.mainNavigation(
                 onNavigateToCreatePost = onNavigateToCreatePost,
             )
         }
-        composable(WwweDestinations.MainNavigation.CREATE_POST) {
+        composable(WwweDestinations.MainNavigation.COMPOSE_POST) {
             ComposePost(
                 onNavigateUp = onNavigateUp,
             )
