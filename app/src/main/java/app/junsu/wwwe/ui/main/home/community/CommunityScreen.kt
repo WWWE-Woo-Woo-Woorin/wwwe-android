@@ -46,7 +46,7 @@ private enum class CommunityTab(
 }
 
 @Composable
-fun Community(
+fun CommunityScreen(
     viewModel: CommunityViewModel = getViewModel(),
     onNavigateToCreatePost: () -> Unit,
 ) {

@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddComment
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -32,6 +34,8 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
+import app.junsu.wwwe.model.PostType
+import app.junsu.wwwe.model.PostType.*
 import app.junsu.wwwe.ui.component.AppBar
 import com.skydoves.landscapist.InternalLandscapistApi
 import com.skydoves.landscapist.glide.GlideImage
@@ -45,12 +49,15 @@ fun CreatePostScreen(
     onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.flow.collectAsState()
-    val (text, onTextChange) = remember { mutableStateOf("") }
     val screenWidthDp = LocalConfiguration.current.screenWidthDp.dp
     val pickPhotoLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.PickVisualMedia(),
         onResult = { if (it != null) viewModel.updateImage(it) },
     )
+
+    val (text, onTextChange) = remember { mutableStateOf("") }
+    val (selectedPostType, onSelectedTypeChange) = remember { mutableStateOf(DEFAULT) }
+
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -67,6 +74,14 @@ fun CreatePostScreen(
                     pickPhotoLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
                 },
             imageModel = { state.selectedImageUri ?: R.drawable.img_add_photo },
+        )
+        PostTypeChips(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp),
+            chips = PostType.values().toList(),
+            selectedPostType = selectedPostType,
+            onSelectPostType = onSelectedTypeChange,
         )
         OutlinedTextField(
             modifier = Modifier
@@ -102,6 +117,40 @@ fun CreatePostScreen(
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
+        }
+    }
+}
+
+private val PostType.text: String
+    @Composable inline get() = when (this) {
+        DEFAULT -> stringResource(R.string.community_tab_all)
+        MAJOR -> stringResource(R.string.community_tab_major)
+        CLUB -> stringResource(R.string.community_tab_club)
+    }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun PostTypeChips(
+    modifier: Modifier = Modifier,
+    chips: List<PostType>,
+    selectedPostType: PostType,
+    onSelectPostType: (PostType) -> Unit,
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        chips.forEach { currentPostType ->
+            FilterChip(
+                selected = selectedPostType == currentPostType,
+                onClick = { onSelectPostType(currentPostType) },
+                label = {
+                    Text(
+                        text = currentPostType.text,
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                },
+            )
         }
     }
 }

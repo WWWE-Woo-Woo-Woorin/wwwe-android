@@ -8,7 +8,6 @@ import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.MailOutline
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarItem
@@ -24,7 +23,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
-import app.junsu.wwwe.ui.main.home.community.Community
+import app.junsu.wwwe.ui.main.home.community.CommunityScreen
 import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
 
@@ -54,7 +53,7 @@ fun Home(
             startDestination = HomeSections.COMMUNITY.route,
         ) {
             composable(HomeSections.COMMUNITY.route) {
-                Community(
+                CommunityScreen(
                     onNavigateToCreatePost = onNavigateToCreatePost,
                 )
             }
