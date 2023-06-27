@@ -11,3 +11,5 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "ww
 val ACCESS_TOKEN = stringPreferencesKey("access_token")
 val ACCESS_TOKEN_EXP = stringPreferencesKey("access_token_exp")
 val REFRESH_TOKEN = stringPreferencesKey("refresh_token")
+
+val EMAIL = stringPreferencesKey("email")
