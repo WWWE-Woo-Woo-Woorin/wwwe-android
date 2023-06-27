@@ -6,7 +6,7 @@ import org.koin.dsl.module
 val appModule = module {
     includes(
         communityModule,
-        signInModule,
+        userModule,
         postModule,
     )
     single { httpClient }
