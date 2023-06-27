@@ -46,4 +46,4 @@ val httpClient: HttpClient by lazy {
     }
 }
 
-const val BASE_URL = "http://192.168.249.37:8080"
+const val BASE_URL = "http://192.168.10.37:8080"
