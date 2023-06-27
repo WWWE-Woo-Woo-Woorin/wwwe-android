@@ -8,6 +8,7 @@ val appModule = module {
         communityModule,
         userModule,
         postModule,
+
     )
     single { httpClient }
 }
