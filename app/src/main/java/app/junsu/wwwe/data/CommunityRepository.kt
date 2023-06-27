@@ -13,4 +13,4 @@ class CommunityRepository(
     }
 }
 
-const val BASE_URL = "http://192.168.42.37:8080"
+const val BASE_URL = "http://192.168.249.37:8080"
