@@ -1,7 +1,7 @@
 package app.junsu.wwwe.data
 
 import app.junsu.wwwe.data.remote.client.BASE_URL
-import app.junsu.wwwe.model.Post
+import app.junsu.wwwe.model.post.Post
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get

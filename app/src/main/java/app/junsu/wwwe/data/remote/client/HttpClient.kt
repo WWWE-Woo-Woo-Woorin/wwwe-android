@@ -1,6 +1,6 @@
 package app.junsu.wwwe.data.remote.client
 
-import app.junsu.wwwe.model.PostType
+import app.junsu.wwwe.model.post.PostType
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DataConversion
