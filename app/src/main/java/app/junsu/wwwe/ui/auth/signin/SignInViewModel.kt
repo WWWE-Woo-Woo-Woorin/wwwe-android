@@ -14,14 +14,14 @@ class SignInViewModel(
     val sideEffectFlow = MutableStateFlow<SignInSideEffect?>(null)
     fun signIn(request: SignInRequest) {
         viewModelScope.launch(Dispatchers.IO) {
-            kotlin.runCatching {
-                userRepository.signIn(request)
-            }.onSuccess {
-                sideEffectFlow.tryEmit(SignInSideEffect.SignInSuccess)
-            }.onFailure {
-                it.printStackTrace()
-                sideEffectFlow.tryEmit(SignInSideEffect.SignInFailure)
-            }
+            val result = kotlin.runCatching { userRepository.signInWithSavingToken(request) }
+            sideEffectFlow.tryEmit(
+                if (result.isSuccess) {
+                    SignInSideEffect.SignInSuccess
+                } else {
+                    SignInSideEffect.SignInFailure
+                },
+            )
         }
     }
 }
