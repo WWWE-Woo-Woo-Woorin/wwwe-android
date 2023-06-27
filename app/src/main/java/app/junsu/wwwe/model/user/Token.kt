@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 data class Token(
     @SerialName("access_token") val accessToken: String,
     @SerialName("access_token_exp") val accessTokenExp: String,
-    @SerialName("refresh_token_exp") val refreshTokenExp: String,
+    @SerialName("refresh_token") val refreshTokenExp: String,
 )
