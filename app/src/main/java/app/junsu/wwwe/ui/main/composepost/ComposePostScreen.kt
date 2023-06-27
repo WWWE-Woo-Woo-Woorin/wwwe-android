@@ -47,7 +47,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @InternalLandscapistApi
 @Composable
-fun ComposePost(
+fun ComposePostScreen(
     modifier: Modifier = Modifier,
     viewModel: ComposePostViewModel = koinViewModel(),
     onNavigateUp: () -> Unit,
