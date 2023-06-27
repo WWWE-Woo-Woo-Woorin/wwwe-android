@@ -8,7 +8,7 @@ import io.ktor.client.request.get
 class CommunityRepository(
     private val httpClient: HttpClient,
 ) {
-    suspend fun testInquirePosts(): List<Post> {
+    suspend fun inquirePosts(): List<Post> {
         return httpClient.get("$BASE_URL/v1/posts").body()
     }
 }
