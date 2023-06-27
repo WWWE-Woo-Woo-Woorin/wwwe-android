@@ -7,7 +7,7 @@ import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
 val userModule = module {
-    single { UserRepository(get()) }
+    single { UserRepository(get(), get()) }
 
     viewModel { SignInViewModel(get()) }
     viewModelOf(::SignInViewModel)
