@@ -1,5 +1,6 @@
 package app.junsu.wwwe.ui.main.createpost
 
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -24,6 +25,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
@@ -49,6 +52,21 @@ fun CreatePostScreen(
     onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.flow.collectAsState()
+    val sideEffect by viewModel.sideEffectFlow.collectAsState()
+    val context = LocalContext.current
+    LaunchedEffect(sideEffect) {
+        when (sideEffect) {
+            CreatePostSideEffect.PostCreated -> onNavigateUp()
+            CreatePostSideEffect.PostCreationFailed -> Toast.makeText(
+                context,
+                context.getString(R.string.compose_post_failed),
+                Toast.LENGTH_SHORT,
+            ).show()
+
+            null -> {}
+        }
+    }
+
     val screenWidthDp = LocalConfiguration.current.screenWidthDp.dp
     val pickPhotoLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.PickVisualMedia(),
@@ -63,7 +81,7 @@ fun CreatePostScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         AppBar(
-            title = stringResource(R.string.compose_new_post),
+            title = stringResource(R.string.compose_post),
             onNavigateUp = onNavigateUp,
         )
         Spacer(modifier = Modifier.height(48.dp))
@@ -106,6 +124,7 @@ fun CreatePostScreen(
         ) {
             Button(
                 onClick = {},
+                enabled = text.isNotBlank(),
             ) {
                 Icon(
                     imageVector = Icons.Filled.AddComment,

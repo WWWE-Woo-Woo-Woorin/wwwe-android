@@ -15,5 +15,6 @@
     <string name="community_tab_major">Major</string>
     <string name="community_tab_club">Club</string>
 
-    <string name="compose_new_post">Compose New Post</string>
+    <string name="compose_post">Compose New Post</string>
+    <string name="compose_post_failed">Composing new post failed.</string>
 </resources>
