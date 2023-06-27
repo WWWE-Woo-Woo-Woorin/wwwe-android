@@ -66,7 +66,7 @@ fun CreatePostScreen(
             title = stringResource(R.string.compose_new_post),
             onNavigateUp = onNavigateUp,
         )
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(48.dp))
         GlideImage(
             modifier = Modifier
                 .size(screenWidthDp)
