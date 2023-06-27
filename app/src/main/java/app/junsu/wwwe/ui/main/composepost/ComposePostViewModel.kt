@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.wwwe.data.PostRepository
-import app.junsu.wwwe.model.CreatePostRequest
+import app.junsu.wwwe.model.post.CreatePostRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch

@@ -37,9 +37,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
-import app.junsu.wwwe.model.CreatePostRequest
-import app.junsu.wwwe.model.PostType
-import app.junsu.wwwe.model.PostType.*
+import app.junsu.wwwe.model.post.CreatePostRequest
+import app.junsu.wwwe.model.post.PostType
+import app.junsu.wwwe.model.post.PostType.*
 import app.junsu.wwwe.ui.component.AppBar
 import com.skydoves.landscapist.InternalLandscapistApi
 import com.skydoves.landscapist.glide.GlideImage

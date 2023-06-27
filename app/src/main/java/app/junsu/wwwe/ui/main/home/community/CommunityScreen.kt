@@ -26,7 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
-import app.junsu.wwwe.model.PostType
+import app.junsu.wwwe.model.post.PostType
 import org.koin.androidx.compose.getViewModel
 
 @Immutable

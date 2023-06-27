@@ -1,4 +1,4 @@
-package app.junsu.wwwe.model
+package app.junsu.wwwe.model.post
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

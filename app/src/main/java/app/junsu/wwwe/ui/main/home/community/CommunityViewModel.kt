@@ -3,7 +3,7 @@ package app.junsu.wwwe.ui.main.home.community
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.wwwe.data.CommunityRepository
-import app.junsu.wwwe.model.Post
+import app.junsu.wwwe.model.post.Post
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
