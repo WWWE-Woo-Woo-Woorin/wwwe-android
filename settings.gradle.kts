@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "wwwe"
+rootProject.name = "wwwe-android"
 include(":app")
