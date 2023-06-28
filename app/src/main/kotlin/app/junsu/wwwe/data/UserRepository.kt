@@ -29,4 +29,8 @@ class UserRepository(
         tokenFacade.saveToken(token)
         tokenFacade.saveEmail(request.email)
     }
+
+    suspend fun regenerateToken() {
+        tokenFacade.regenerateToken()
+    }
 }
