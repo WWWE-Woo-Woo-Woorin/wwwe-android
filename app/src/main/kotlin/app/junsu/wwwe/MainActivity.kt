@@ -32,16 +32,20 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initNavigationFlipperPlugin()
+        initStreamChatClient()
 
-        lifecycleScope.launch {
-            delay(500)
-            NavigationFlipperPlugin.getInstance().sendNavigationEvent(
-                this.javaClass.simpleName,
-                this.javaClass.simpleName,
-                Date(),
+        setContent {
+            val regenerateTokenSuccess by remember { mutableStateOf(viewModel.regenerateToken()) }
+            WwweApp(
+                modifier = Modifier.fillMaxSize(),
+                initialRoute = if (regenerateTokenSuccess) WwweDestinations.MainNavigation.route
+                else WwweDestinations.AuthNavigation.route,
             )
         }
+    }
 
+    private fun initStreamChatClient() {
         val offlinePluginFactory = StreamOfflinePluginFactory(
             config = Config(
                 backgroundSyncEnabled = true,
@@ -71,14 +75,15 @@ class MainActivity : ComponentActivity() {
             user = user,
             token = token,
         ).enqueue()
+    }
 
-        setContent {
-            val regenerateTokenSuccess by remember { mutableStateOf(viewModel.regenerateToken()) }
-
-            WwweApp(
-                modifier = Modifier.fillMaxSize(),
-                initialRoute = if (regenerateTokenSuccess) WwweDestinations.MainNavigation.route
-                else WwweDestinations.AuthNavigation.route,
+    private fun initNavigationFlipperPlugin() {
+        lifecycleScope.launch {
+            delay(500)
+            NavigationFlipperPlugin.getInstance().sendNavigationEvent(
+                this.javaClass.simpleName,
+                this.javaClass.simpleName,
+                Date(),
             )
         }
     }
