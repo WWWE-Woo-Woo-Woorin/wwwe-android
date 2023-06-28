@@ -34,6 +34,7 @@ class UserRepository(
     suspend fun regenerateToken() {
         val email = this.findEmail() ?: throw IOException()
         httpClient.put("$BASE_URL/v1/users/token") {
+            contentType(ContentType.Application.Json)
             setBody(SignInRequest(email = email))
         }
     }
