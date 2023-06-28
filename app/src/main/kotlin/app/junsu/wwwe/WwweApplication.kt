@@ -8,6 +8,7 @@ import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin
 import com.facebook.flipper.plugins.inspector.DescriptorMapping
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin
+import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin
 import com.facebook.soloader.SoLoader
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -31,6 +32,7 @@ class WwweApplication : Application() {
                 )
                 addPlugin(DatabasesFlipperPlugin(this@WwweApplication))
                 addPlugin(NavigationFlipperPlugin.getInstance())
+                addPlugin(SharedPreferencesFlipperPlugin(this@WwweApplication))
             }.start()
         }
     }
