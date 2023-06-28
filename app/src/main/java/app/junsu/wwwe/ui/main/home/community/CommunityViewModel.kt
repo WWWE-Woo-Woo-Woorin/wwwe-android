@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class CommunityViewModel(
     private val communityRepository: CommunityRepository,
 ) : ViewModel() {
-    val flow = MutableStateFlow(CommunityState(emptyList()))
+    val flow = MutableStateFlow(CommunityState.initial())
 
     init {
         viewModelScope.launch {
