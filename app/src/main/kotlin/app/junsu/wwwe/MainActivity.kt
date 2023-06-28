@@ -10,16 +10,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.NavHost
 import app.junsu.wwwe.ui.theme.WwweTheme
 import app.junsu.wwwe.util.navigateToCreatePost
 import app.junsu.wwwe.util.navigateToHomeNav
+import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.logger.ChatLogLevel
 import io.getstream.chat.android.client.models.User
 import io.getstream.chat.android.offline.model.message.attachments.UploadAttachmentsNetworkType
 import io.getstream.chat.android.offline.plugin.configuration.Config
 import io.getstream.chat.android.offline.plugin.factory.StreamOfflinePluginFactory
+import java.util.Date
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -27,6 +32,15 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        lifecycleScope.launch {
+            delay(500)
+            NavigationFlipperPlugin.getInstance().sendNavigationEvent(
+                this.javaClass.simpleName,
+                this.javaClass.simpleName,
+                Date(),
+            )
+        }
 
         val offlinePluginFactory = StreamOfflinePluginFactory(
             config = Config(
