@@ -1,30 +1,34 @@
 package app.junsu.wwwe
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import app.junsu.wwwe.data.UserRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class MainViewModel(
     private val userRepository: UserRepository,
 ) : ViewModel() {
     val sideEffectFlow = MutableStateFlow<MainSideEffect?>(null)
 
-    fun regenerateToken() {
-        viewModelScope.launch(Dispatchers.IO) {
+    fun regenerateToken(): Boolean {
+        return runBlocking {
             val result = kotlin.runCatching {
                 userRepository.regenerateToken()
+            }.onFailure {
+                it.printStackTrace()
             }
 
+            val success = result.isSuccess
+
             sideEffectFlow.tryEmit(
-                if (result.isSuccess) {
+                if (success) {
                     MainSideEffect.TokenAvailable
                 } else {
                     MainSideEffect.TokenNotAvailable
                 },
             )
+
+            return@runBlocking success
         }
     }
 }

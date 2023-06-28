@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -60,20 +59,12 @@ class MainActivity : ComponentActivity() {
         ).enqueue()
 
         setContent {
-            val sideEffect by viewModel.sideEffectFlow.collectAsState()
-            val initialRoute by remember {
-                mutableStateOf(
-                    when (sideEffect) {
-                        MainSideEffect.TokenAvailable -> WwweDestinations.MainNavigation.route
-                        MainSideEffect.TokenNotAvailable -> WwweDestinations.AuthNavigation.route
-                        null -> WwweDestinations.MainNavigation.route
-                    },
-                )
-            }
+            val regenerateTokenSuccess by remember { mutableStateOf(viewModel.regenerateToken()) }
 
             WwweApp(
                 modifier = Modifier.fillMaxSize(),
-                initialRoute = initialRoute,
+                initialRoute = if (regenerateTokenSuccess) WwweDestinations.MainNavigation.route
+                else WwweDestinations.AuthNavigation.route,
             )
         }
     }
