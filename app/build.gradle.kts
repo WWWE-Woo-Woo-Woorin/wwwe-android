@@ -91,4 +91,9 @@ dependencies {
 
     // data store
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // flipper
+    debugImplementation("com.facebook.flipper:flipper:0.201.0")
+    debugImplementation("com.facebook.soloader:soloader:0.10.5")
+    releaseImplementation("com.facebook.flipper:flipper-noop:0.201.0")
 }
