@@ -5,15 +5,18 @@ import app.junsu.wwwe.model.post.CreatePostRequest
 import app.junsu.wwwe.model.post.Post
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.request.bearerAuth
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 
 class PostRepository(
     private val httpClient: HttpClient,
+    private val tokenFacade: TokenFacade,
 ) {
     suspend fun createPost(request: CreatePostRequest) {
         httpClient.post("$BASE_URL/v1/posts") {
+            bearerAuth(tokenFacade.findAccessTokenOrThrow())
             setBody(request)
         }
     }
