@@ -16,7 +16,7 @@ class PostRepository(
 ) {
     suspend fun createPost(request: CreatePostRequest) {
         httpClient.post("$BASE_URL/v1/posts") {
-            bearerAuth(tokenFacade.findAccessTokenOrThrow())
+            bearerAuth(tokenFacade.findAccessTokenOrRegenerate())
             setBody(request)
         }
     }

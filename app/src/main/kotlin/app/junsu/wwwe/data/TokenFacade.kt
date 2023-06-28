@@ -11,6 +11,7 @@ import app.junsu.wwwe.data.remote.BASE_URL
 import app.junsu.wwwe.model.user.SignInRequest
 import app.junsu.wwwe.model.user.Token
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
@@ -22,12 +23,12 @@ class TokenFacade(
     private val httpClient: HttpClient,
     private val dataStore: DataStore<Preferences>,
 ) {
-    suspend fun regenerateToken() {
+    suspend fun regenerateToken(): Token {
         val email = this.findEmail() ?: throw IOException()
-        httpClient.put("$BASE_URL/v1/users/token") {
+        return httpClient.put("$BASE_URL/v1/users/token") {
             contentType(ContentType.Application.Json)
             setBody(SignInRequest(email = email))
-        }
+        }.body()
     }
 
     suspend fun saveToken(token: Token) {
@@ -78,5 +79,13 @@ class TokenFacade(
 
     suspend fun findRefreshTokenOrThrow(): String {
         return this.findRefreshToken() ?: throw IOException()
+    }
+
+    suspend fun findAccessTokenOrRegenerate(): String {
+        return try {
+            this.findAccessTokenOrThrow()
+        } catch (e: IOException) {
+            regenerateToken().accessToken
+        }
     }
 }
