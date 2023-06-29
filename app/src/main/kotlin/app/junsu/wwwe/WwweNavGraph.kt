@@ -48,6 +48,7 @@ fun NavGraphBuilder.mainNavigation(
                 ChatTheme {
                     MessagesScreen(
                         channelId = channelId,
+                        onBackPressed = onNavigateUp,
                     )
                 }
             }
