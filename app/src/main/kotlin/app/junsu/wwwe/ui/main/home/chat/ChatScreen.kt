@@ -12,6 +12,7 @@ import io.getstream.chat.android.compose.ui.theme.ChatTheme
 @Composable
 fun ChatScreen(
     modifier: Modifier = Modifier,
+    onNavigateUp: () -> Unit,
 ) {
     Surface(
         modifier = modifier.fillMaxSize(),
@@ -23,7 +24,7 @@ fun ChatScreen(
                 onItemClick = { channel ->
                     // TODO Start Messages Activity
                 },
-                onBackPressed = {}
+                onBackPressed = onNavigateUp,
             )
         }
     }

@@ -58,17 +58,14 @@ fun Home(
         ) {
             composable(HomeSections.COMMUNITY.route) {
                 CommunityScreen(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues),
+                    modifier = Modifier.fillMaxSize(),
                     onNavigateToCreatePost = onNavigateToCreatePost,
                 )
             }
             composable(HomeSections.CHAT.route) {
                 ChatScreen(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues),
+                    modifier = Modifier.fillMaxSize(),
+                    onNavigateUp = navController::navigateUp,
                 )
             }
             composable(HomeSections.SETTINGS.route) {}
