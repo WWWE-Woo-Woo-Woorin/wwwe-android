@@ -21,9 +21,9 @@ import com.skydoves.landscapist.glide.GlideImage
 @Composable
 fun Post(
     postId: Long,
-    imageUrl: String,
-    profileUrl: String,
+    postImageUrl: String,
     writer: String,
+    writerProfileImageUrl: String,
     content: String,
     totalLikes: Int,
     liked: Boolean,
@@ -34,7 +34,7 @@ fun Post(
         modifier = Modifier.fillMaxWidth(),
     ) {
         GlideImage(
-            imageModel = { imageUrl },
+            imageModel = { postImageUrl },
             modifier = Modifier.size(
                 width = screenWidthDp,
                 height = screenWidthDp,
@@ -50,7 +50,7 @@ fun Post(
             verticalAlignment = Alignment.Top,
         ) {
             GlideImage(
-                imageModel = { profileUrl },
+                imageModel = { writerProfileImageUrl },
                 modifier = Modifier
                     .padding(
                         start = 12.dp,

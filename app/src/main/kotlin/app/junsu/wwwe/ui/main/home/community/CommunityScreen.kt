@@ -90,9 +90,9 @@ fun CommunityScreen(
                 ) { post ->
                     Post(
                         postId = post.id,
-                        imageUrl = post.postImageUrl,
-                        profileUrl = "",
+                        postImageUrl = post.postImageUrl,
                         writer = post.writer,
+                        writerProfileImageUrl = post.writerProfileImageUrl,
                         content = post.content,
                         totalLikes = 0,
                         liked = false,
