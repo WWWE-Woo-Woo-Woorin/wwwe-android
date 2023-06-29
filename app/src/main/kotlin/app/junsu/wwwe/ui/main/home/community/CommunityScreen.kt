@@ -31,10 +31,8 @@ import app.junsu.wwwe.model.post.PostType
 import org.koin.androidx.compose.getViewModel
 
 @Immutable
-private enum class CommunityTab(
-    val value: String,
-) {
-    ALL("ALL"), MAJOR("MAJOR"), CLUB("CLUB"), ;
+private enum class CommunityTab {
+    ALL, MAJOR, CLUB, ;
 
     val text: String
         @Composable inline get() = stringResource(
