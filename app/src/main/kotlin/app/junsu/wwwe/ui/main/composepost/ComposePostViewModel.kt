@@ -28,6 +28,12 @@ class ComposePostViewModel(private val postRepository: PostRepository) : ViewMod
             }
         }
     }
+
+    fun uploadFile() {
+        kotlin.runCatching {
+            postRepository.uploadFile(fileUri = flow.value.selectedImageUri!!)
+        }.onSuccess {}
+    }
 }
 
 data class CreatePostState(

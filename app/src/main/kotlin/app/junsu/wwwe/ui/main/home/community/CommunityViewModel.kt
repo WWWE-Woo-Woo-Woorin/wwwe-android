@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.wwwe.data.PostRepository
 import app.junsu.wwwe.model.post.Post
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
@@ -13,8 +14,12 @@ class CommunityViewModel(
     val flow = MutableStateFlow(CommunityState.initial())
 
     init {
-        viewModelScope.launch {
-            flow.value = flow.value.copy(posts = postRepository.inquirePosts())
+        viewModelScope.launch(Dispatchers.IO) {
+            kotlin.runCatching {
+                postRepository.inquirePosts()
+            }.onSuccess {
+                flow.value = flow.value.copy(posts = postRepository.inquirePosts())
+            }
         }
     }
 }
