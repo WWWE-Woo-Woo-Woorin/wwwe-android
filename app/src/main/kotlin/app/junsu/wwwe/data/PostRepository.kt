@@ -1,7 +1,7 @@
 package app.junsu.wwwe.data
 
 import app.junsu.wwwe.data.remote.BASE_URL
-import app.junsu.wwwe.model.post.CreatePostRequest
+import app.junsu.wwwe.model.post.ComposePostRequest
 import app.junsu.wwwe.model.post.Post
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -16,7 +16,7 @@ class PostRepository(
     private val httpClient: HttpClient,
     private val tokenFacade: TokenFacade,
 ) {
-    suspend fun createPost(request: CreatePostRequest) {
+    suspend fun composePost(request: ComposePostRequest) {
         httpClient.post("$BASE_URL/v1/posts") {
             contentType(ContentType.Application.Json)
             bearerAuth(tokenFacade.findAccessTokenOrRegenerate())

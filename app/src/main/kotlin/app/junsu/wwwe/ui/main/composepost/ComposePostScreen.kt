@@ -37,7 +37,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
-import app.junsu.wwwe.model.post.CreatePostRequest
+import app.junsu.wwwe.model.post.ComposePostRequest
 import app.junsu.wwwe.model.post.PostType
 import app.junsu.wwwe.model.post.PostType.*
 import app.junsu.wwwe.ui.component.AppBar
@@ -125,8 +125,8 @@ fun ComposePostScreen(
         ) {
             Button(
                 onClick = {
-                    viewModel.createPost(
-                        request = CreatePostRequest(
+                    viewModel.composePost(
+                        request = ComposePostRequest(
                             // todo
                             postImageUrl = "https://static.toss.im/homepage-static/newtoss/newtoss-og.jpg",
                             content = "THIS IS CONTENT, AH HA",

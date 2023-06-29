@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.junsu.wwwe.data.PostRepository
-import app.junsu.wwwe.model.post.CreatePostRequest
+import app.junsu.wwwe.model.post.ComposePostRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -17,10 +17,10 @@ class ComposePostViewModel(private val postRepository: PostRepository) : ViewMod
         flow.tryEmit(flow.value.copy(selectedImageUri = imageUri))
     }
 
-    fun createPost(request: CreatePostRequest) {
+    fun composePost(request: ComposePostRequest) {
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
-                postRepository.createPost(request)
+                postRepository.composePost(request)
             }.onSuccess {
                 sideEffectFlow.tryEmit(CreatePostSideEffect.PostCreated)
             }.onFailure {

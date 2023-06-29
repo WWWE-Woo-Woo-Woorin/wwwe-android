@@ -15,7 +15,7 @@ data class Post(
 )
 
 @Serializable
-data class CreatePostRequest(
+data class ComposePostRequest(
     @SerialName("post_image_url") val postImageUrl: String,
     @SerialName("content") val content: String,
     @SerialName("post_type") val postType: String,
