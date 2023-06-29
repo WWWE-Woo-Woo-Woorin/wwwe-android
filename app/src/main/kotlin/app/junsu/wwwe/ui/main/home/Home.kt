@@ -3,6 +3,7 @@ package app.junsu.wwwe.ui.main.home
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChatBubble
 import androidx.compose.material.icons.filled.Feed
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -133,6 +135,7 @@ fun WwweBottomAppBar(
                 },
                 icon = {
                     Icon(
+                        modifier = Modifier.size(24.dp),
                         imageVector = if (selected) section.selectedIcon else section.defaultIcon,
                         contentDescription = null,
                         tint = if (selected) {
