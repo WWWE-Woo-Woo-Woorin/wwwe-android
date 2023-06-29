@@ -92,7 +92,7 @@ fun ComposePostScreen(
                 .clickable {
                     pickPhotoLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
                 },
-            imageModel = { state.selectedImageUri ?: R.drawable.img_add_photo },
+            imageModel = { state.selectedImageUri ?: R.drawable.img_gallery },
         )
         PostTypeChips(
             modifier = Modifier
