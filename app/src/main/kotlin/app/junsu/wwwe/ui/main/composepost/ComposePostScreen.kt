@@ -18,8 +18,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
+import androidx.compose.material3.ElevatedFilterChip
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -170,13 +170,13 @@ private fun PostTypeChips(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         chips.forEach { currentPostType ->
-            FilterChip(
+            ElevatedFilterChip(
                 selected = selectedPostType == currentPostType,
                 onClick = { onSelectPostType(currentPostType) },
                 label = {
                     Text(
                         text = currentPostType.text,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.labelLarge,
                     )
                 },
             )
