@@ -22,7 +22,7 @@ fun ChatScreen(
             ChannelsScreen(
                 title = stringResource(R.string.chat),
                 isShowingSearch = false,
-                onItemClick = { channel -> onNavigateToMessages(channel.id) },
+                onItemClick = { channel -> onNavigateToMessages(channel.cid) },
                 onBackPressed = onNavigateUp,
             )
         }

@@ -30,13 +30,13 @@ import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
 import app.junsu.wwwe.ui.main.home.chat.ChatScreen
 import app.junsu.wwwe.ui.main.home.community.CommunityScreen
-import app.junsu.wwwe.util.navigateToMessages
 
 @Composable
 fun Home(
     modifier: Modifier = Modifier,
     bottomAppBarTabs: List<HomeSections>,
     onNavigateToCreatePost: () -> Unit,
+    onNavigateToMessages: (channelId: String) -> Unit,
 ) {
     val navController = rememberNavController()
 
@@ -66,7 +66,7 @@ fun Home(
             composable(HomeSections.CHAT.route) {
                 ChatScreen(
                     onNavigateUp = navController::navigateUp,
-                    onNavigateToMessages = navController::navigateToMessages,
+                    onNavigateToMessages = onNavigateToMessages,
                 )
             }
             composable(HomeSections.SETTINGS.route) {}

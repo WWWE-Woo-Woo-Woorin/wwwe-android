@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import app.junsu.wwwe.ui.theme.WwweTheme
 import app.junsu.wwwe.util.navigateToCreatePost
 import app.junsu.wwwe.util.navigateToHomeNav
+import app.junsu.wwwe.util.navigateToMessages
 import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.logger.ChatLogLevel
@@ -108,6 +109,7 @@ fun WwweApp(
                 bottomAppBarTabs = appState.bottomAppBarTabs,
                 onNavigateToCreatePost = navController::navigateToCreatePost,
                 onNavigateUp = navController::navigateUp,
+                onNavigateToMessages =  navController::navigateToMessages,
             )
             authNavigation(
                 onNavigateToHomeNav = navController::navigateToHomeNav,
