@@ -3,12 +3,17 @@ package app.junsu.wwwe
 sealed class WwweDestinations(
     val route: String,
 ) {
-    object AuthNavigation : WwweDestinations("auth") {
-        const val SIGN_IN = "signIn"
+    object MainNavigation : WwweDestinations("main") {
+        const val HOME = "/home"
+        const val COMPOSE_POST = "/createPost"
+
+        object ChatNavigation : WwweDestinations("chat") {
+            const val CHANNELS = "/channels"
+            const val MESSAGES = "/messages"
+        }
     }
 
-    object MainNavigation : WwweDestinations("main") {
-        const val HOME = "home"
-        const val COMPOSE_POST = "createPost"
+    object AuthNavigation : WwweDestinations("auth") {
+        const val SIGN_IN = "/signIn"
     }
 }
