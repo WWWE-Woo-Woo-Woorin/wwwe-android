@@ -1,11 +1,11 @@
 package app.junsu.wwwe.data.remote
 
+import android.util.Log
 import app.junsu.wwwe.model.post.PostType
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DataConversion
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.logging.ANDROID
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
@@ -19,7 +19,11 @@ val httpClient: HttpClient by lazy {
             json()
         }
         install(Logging) {
-            logger = Logger.ANDROID
+            logger = object : Logger {
+                override fun log(message: String) {
+                    Log.i("HttpClient " + this@HttpClient.hashCode(), message)
+                }
+            }
             level = LogLevel.ALL
         }
         install(DataConversion) {
