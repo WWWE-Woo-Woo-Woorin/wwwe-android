@@ -16,7 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddComment
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -137,7 +137,7 @@ fun ComposePostScreen(
                 enabled = postContentText.isNotBlank(),
             ) {
                 Icon(
-                    imageVector = Icons.Filled.AddComment,
+                    imageVector = Icons.Filled.Edit,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.width(8.dp))

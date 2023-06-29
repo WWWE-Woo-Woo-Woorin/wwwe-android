@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 class ComposePostViewModel(private val postRepository: PostRepository) : ViewModel() {
-    val flow = MutableStateFlow(CreatePostState.initial())
-    val sideEffectFlow = MutableStateFlow<CreatePostSideEffect?>(null)
+    val flow = MutableStateFlow(ComposePostState.initial())
+    val sideEffectFlow = MutableStateFlow<ComposePostSideEffect?>(null)
 
     fun updateImage(imageUri: Uri) {
         flow.tryEmit(flow.value.copy(selectedImageUri = imageUri))
@@ -22,9 +22,9 @@ class ComposePostViewModel(private val postRepository: PostRepository) : ViewMod
             kotlin.runCatching {
                 postRepository.composePost(request)
             }.onSuccess {
-                sideEffectFlow.tryEmit(CreatePostSideEffect.PostCreated)
+                sideEffectFlow.tryEmit(ComposePostSideEffect.PostCreated)
             }.onFailure {
-                sideEffectFlow.tryEmit(CreatePostSideEffect.PostCreationFailed)
+                sideEffectFlow.tryEmit(ComposePostSideEffect.PostCreationFailed)
             }
         }
     }
@@ -36,17 +36,17 @@ class ComposePostViewModel(private val postRepository: PostRepository) : ViewMod
     }
 }
 
-data class CreatePostState(
+data class ComposePostState(
     val selectedImageUri: Uri?,
 ) {
     companion object {
-        fun initial() = CreatePostState(
+        fun initial() = ComposePostState(
             selectedImageUri = null,
         )
     }
 }
 
-sealed interface CreatePostSideEffect {
-    object PostCreated : CreatePostSideEffect
-    object PostCreationFailed : CreatePostSideEffect
+sealed interface ComposePostSideEffect {
+    object PostCreated : ComposePostSideEffect
+    object PostCreationFailed : ComposePostSideEffect
 }
