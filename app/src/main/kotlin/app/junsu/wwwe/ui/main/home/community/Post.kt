@@ -2,10 +2,13 @@ package app.junsu.wwwe.ui.main.home.community
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,8 +48,7 @@ fun Post(
             ),
         )
         Row(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.Top,
         ) {
             GlideImage(
@@ -81,6 +83,11 @@ fun Post(
                 )
             }
         }
+        Divider(
+            modifier = Modifier.padding(horizontal = 16.dp),
+            thickness = 1.dp,
+        )
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }
 
