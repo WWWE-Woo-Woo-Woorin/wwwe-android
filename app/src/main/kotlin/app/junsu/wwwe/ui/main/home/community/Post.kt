@@ -2,9 +2,7 @@ package app.junsu.wwwe.ui.main.home.community
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -68,8 +66,8 @@ fun Post(
             Column(
                 modifier = Modifier
                     .padding(
-                        horizontal = 12.dp,
-                        vertical = 8.dp,
+                        horizontal = 16.dp,
+                        vertical = 12.dp,
                     )
                     .weight(1f),
             ) {
@@ -83,11 +81,7 @@ fun Post(
                 )
             }
         }
-        Divider(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            thickness = 1.dp,
-        )
-        Spacer(modifier = Modifier.height(8.dp))
+        Divider(thickness = 1.dp)
     }
 }
 
