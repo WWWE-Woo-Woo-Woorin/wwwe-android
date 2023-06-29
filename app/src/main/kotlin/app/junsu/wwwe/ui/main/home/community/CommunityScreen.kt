@@ -48,6 +48,7 @@ private enum class CommunityTab(
 
 @Composable
 fun CommunityScreen(
+    modifier: Modifier = Modifier,
     viewModel: CommunityViewModel = getViewModel(),
     onNavigateToCreatePost: () -> Unit,
 ) {
@@ -55,7 +56,7 @@ fun CommunityScreen(
     var selectedTab by remember { mutableIntStateOf(0) }
 
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomEnd,
     ) {
         Column {
