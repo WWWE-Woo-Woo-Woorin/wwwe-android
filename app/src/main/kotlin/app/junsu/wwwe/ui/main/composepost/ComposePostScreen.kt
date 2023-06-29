@@ -74,7 +74,7 @@ fun ComposePostScreen(
         onResult = { if (it != null) viewModel.updateImage(it) },
     )
 
-    val (text, onTextChange) = remember { mutableStateOf("") }
+    val (postContentText, onTextChange) = remember { mutableStateOf("") }
     val (selectedPostType, onSelectedTypeChange) = remember { mutableStateOf(DEFAULT) }
 
     Column(
@@ -109,7 +109,7 @@ fun ComposePostScreen(
                     horizontal = 16.dp,
                     vertical = 12.dp,
                 ),
-            value = text,
+            value = postContentText,
             onValueChange = onTextChange,
             maxLines = 4,
         )
@@ -129,12 +129,12 @@ fun ComposePostScreen(
                         request = ComposePostRequest(
                             // todo
                             postImageUrl = "https://static.toss.im/homepage-static/newtoss/newtoss-og.jpg",
-                            content = "THIS IS CONTENT, AH HA",
+                            content = postContentText,
                             postType = selectedPostType.name,
                         ),
                     )
                 },
-                enabled = text.isNotBlank(),
+                enabled = postContentText.isNotBlank(),
             ) {
                 Icon(
                     imageVector = Icons.Filled.AddComment,
