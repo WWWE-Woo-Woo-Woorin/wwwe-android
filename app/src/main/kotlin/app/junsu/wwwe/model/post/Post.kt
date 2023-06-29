@@ -30,5 +30,5 @@ enum class PostType {
     MAJOR,
 
     @SerialName("CLUB")
-    CLUB, ;
+    CLUB,
 }

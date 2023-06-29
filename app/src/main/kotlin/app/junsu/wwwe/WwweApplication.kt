@@ -27,7 +27,8 @@ class WwweApplication : Application() {
             AndroidFlipperClient.getInstance(this).apply {
                 addPlugin(
                     InspectorFlipperPlugin(
-                        this@WwweApplication, DescriptorMapping.withDefaults(),
+                        this@WwweApplication,
+                        DescriptorMapping.withDefaults(),
                     ),
                 )
                 addPlugin(DatabasesFlipperPlugin(this@WwweApplication))
@@ -41,9 +42,7 @@ class WwweApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@WwweApplication)
-            modules(
-                appModule,
-            )
+            modules(appModule)
         }
     }
 }

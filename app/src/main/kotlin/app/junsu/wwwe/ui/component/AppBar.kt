@@ -40,19 +40,23 @@ fun AppBar(
         ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        if (onNavigateUp != null) Icon(
-            modifier = Modifier
-                .size(32.dp)
-                .clip(RoundedCornerShape(10.dp))
-                .clickable(onClick = onNavigateUp),
-            imageVector = Icons.Filled.ArrowBack,
-            contentDescription = "back",
-            tint = MaterialTheme.colorScheme.onBackground,
-        )
-        if (title != null) Text(
-            modifier = Modifier.weight(1f),
-            text = title,
-            style = MaterialTheme.typography.titleMedium,
-        )
+        if (onNavigateUp != null) {
+            Icon(
+                modifier = Modifier
+                    .size(32.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .clickable(onClick = onNavigateUp),
+                imageVector = Icons.Filled.ArrowBack,
+                contentDescription = "back",
+                tint = MaterialTheme.colorScheme.onBackground,
+            )
+        }
+        if (title != null) {
+            Text(
+                modifier = Modifier.weight(1f),
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+            )
+        }
     }
 }

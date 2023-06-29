@@ -37,12 +37,12 @@ private enum class CommunityTab(
     ALL("ALL"), MAJOR("MAJOR"), CLUB("CLUB"), ;
 
     val text: String
-        @Composable get() = stringResource(
+        @Composable inline get() = stringResource(
             when (this) {
                 ALL -> R.string.community_tab_all
                 MAJOR -> R.string.community_tab_major
                 CLUB -> R.string.community_tab_club
-            }
+            },
         )
 }
 

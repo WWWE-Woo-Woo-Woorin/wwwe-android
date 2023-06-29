@@ -67,14 +67,16 @@ fun SignInScreen(
     val googleSignInLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
         onResult = {
-            if (it.resultCode == RESULT_OK) it.data?.run {
-                val email = GoogleSignIn.getSignedInAccountFromIntent(it.data).result.email!!
+            if (it.resultCode == RESULT_OK) {
+                it.data?.run {
+                    val email = GoogleSignIn.getSignedInAccountFromIntent(it.data).result.email!!
 
-                viewModel.signIn(
-                    request = SignInRequest(
-                        email = email,
-                    ),
-                )
+                    viewModel.signIn(
+                        request = SignInRequest(
+                            email = email,
+                        ),
+                    )
+                }
             }
         },
     )

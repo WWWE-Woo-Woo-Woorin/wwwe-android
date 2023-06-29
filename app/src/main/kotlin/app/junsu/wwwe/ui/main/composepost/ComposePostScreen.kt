@@ -39,7 +39,9 @@ import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
 import app.junsu.wwwe.model.post.ComposePostRequest
 import app.junsu.wwwe.model.post.PostType
-import app.junsu.wwwe.model.post.PostType.*
+import app.junsu.wwwe.model.post.PostType.CLUB
+import app.junsu.wwwe.model.post.PostType.DEFAULT
+import app.junsu.wwwe.model.post.PostType.MAJOR
 import app.junsu.wwwe.ui.component.AppBar
 import com.skydoves.landscapist.InternalLandscapistApi
 import com.skydoves.landscapist.glide.GlideImage

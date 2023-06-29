@@ -97,7 +97,7 @@ enum class HomeSections(
         route = "home/settings",
         defaultIcon = Icons.Outlined.Settings,
         selectedIcon = Icons.Filled.Settings,
-    ), ;
+    ),
 }
 
 @Composable

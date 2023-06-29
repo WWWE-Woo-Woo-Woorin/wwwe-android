@@ -1,5 +1,6 @@
 package app.junsu.wwwe
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -40,8 +41,11 @@ class MainActivity : ComponentActivity() {
             val regenerateTokenSuccess by remember { mutableStateOf(viewModel.regenerateToken()) }
             WwweApp(
                 modifier = Modifier.fillMaxSize(),
-                initialRoute = if (regenerateTokenSuccess) WwweDestinations.MainNavigation.route
-                else WwweDestinations.AuthNavigation.route,
+                initialRoute = if (regenerateTokenSuccess) {
+                    WwweDestinations.MainNavigation.route
+                } else {
+                    WwweDestinations.AuthNavigation.route
+                },
             )
         }
     }
@@ -109,7 +113,7 @@ fun WwweApp(
                 bottomAppBarTabs = appState.bottomAppBarTabs,
                 onNavigateToCreatePost = navController::navigateToCreatePost,
                 onNavigateUp = navController::navigateUp,
-                onNavigateToMessages =  navController::navigateToMessages,
+                onNavigateToMessages = navController::navigateToMessages,
             )
             authNavigation(
                 onNavigateToHomeNav = navController::navigateToHomeNav,
