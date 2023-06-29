@@ -9,6 +9,8 @@ import io.ktor.client.request.bearerAuth
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
 
 class PostRepository(
     private val httpClient: HttpClient,
@@ -16,12 +18,15 @@ class PostRepository(
 ) {
     suspend fun createPost(request: CreatePostRequest) {
         httpClient.post("$BASE_URL/v1/posts") {
+            contentType(ContentType.Application.Json)
             bearerAuth(tokenFacade.findAccessTokenOrRegenerate())
             setBody(request)
         }
     }
 
     suspend fun inquirePosts(): List<Post> {
-        return httpClient.get("$BASE_URL/v1/posts").body()
+        return httpClient.get("$BASE_URL/v1/posts") {
+            bearerAuth(tokenFacade.findAccessTokenOrRegenerate())
+        }.body()
     }
 }
