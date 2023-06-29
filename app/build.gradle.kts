@@ -44,7 +44,7 @@ android {
 }
 
 val compose_version = "1.4.3"
-val nav_version = "2.6.0"
+val nav_version = "2.7.0-beta01"
 val glide_version = "2.1.11"
 val koin_version = "3.4.0"
 val ktor_version = "2.3.0"
