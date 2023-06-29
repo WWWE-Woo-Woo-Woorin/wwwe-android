@@ -28,9 +28,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
+import app.junsu.wwwe.ui.main.home.chat.ChatScreen
 import app.junsu.wwwe.ui.main.home.community.CommunityScreen
-import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
-import io.getstream.chat.android.compose.ui.theme.ChatTheme
 
 @Composable
 fun Home(
@@ -59,20 +58,18 @@ fun Home(
         ) {
             composable(HomeSections.COMMUNITY.route) {
                 CommunityScreen(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
                     onNavigateToCreatePost = onNavigateToCreatePost,
                 )
             }
             composable(HomeSections.CHAT.route) {
-                ChatTheme {
-                    ChannelsScreen(
-                        title = stringResource(R.string.app_name),
-                        isShowingSearch = true,
-                        onItemClick = { channel ->
-                            // TODO Start Messages Activity
-                        },
-                        onBackPressed = {}
-                    )
-                }
+                ChatScreen(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                )
             }
             composable(HomeSections.SETTINGS.route) {}
         }
