@@ -8,6 +8,7 @@ data class Post(
     @SerialName("post_id") val id: Long,
     @SerialName("post_type") val postType: PostType,
     @SerialName("writer") val writer: String,
+    @SerialName("writer_profile_image_url") val writerProfileImageUrl: String,
     @SerialName("content") val content: String,
     @SerialName("post_image_url") val postImageUrl: String,
     @SerialName("created_at") val createdAt: String,
