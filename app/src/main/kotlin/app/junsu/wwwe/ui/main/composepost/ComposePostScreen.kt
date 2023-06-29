@@ -57,8 +57,8 @@ fun ComposePostScreen(
     val context = LocalContext.current
     LaunchedEffect(sideEffect) {
         when (sideEffect) {
-            CreatePostSideEffect.PostCreated -> onNavigateUp()
-            CreatePostSideEffect.PostCreationFailed -> Toast.makeText(
+            ComposePostSideEffect.PostCreated -> onNavigateUp()
+            ComposePostSideEffect.PostCreationFailed -> Toast.makeText(
                 context,
                 context.getString(R.string.compose_post_failed),
                 Toast.LENGTH_SHORT,
