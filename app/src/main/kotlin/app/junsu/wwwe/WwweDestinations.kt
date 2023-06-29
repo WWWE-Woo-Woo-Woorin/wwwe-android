@@ -6,11 +6,7 @@ sealed class WwweDestinations(
     object MainNavigation : WwweDestinations("main") {
         const val HOME = "/home"
         const val COMPOSE_POST = "/createPost"
-
-        object ChatNavigation : WwweDestinations("chat") {
-            const val CHANNELS = "/channels"
-            const val MESSAGES = "/messages"
-        }
+        const val CHAT_MESSAGES = "/chatMessages"
     }
 
     object AuthNavigation : WwweDestinations("auth") {

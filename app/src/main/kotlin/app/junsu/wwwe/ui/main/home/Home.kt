@@ -64,7 +64,6 @@ fun Home(
             }
             composable(HomeSections.CHAT.route) {
                 ChatScreen(
-                    modifier = Modifier.fillMaxSize(),
                     onNavigateUp = navController::navigateUp,
                 )
             }
@@ -96,7 +95,7 @@ enum class HomeSections(
         route = "home/settings",
         defaultIcon = Icons.Outlined.Settings,
         selectedIcon = Icons.Filled.Settings,
-    ),
+    ), ;
 }
 
 @Composable

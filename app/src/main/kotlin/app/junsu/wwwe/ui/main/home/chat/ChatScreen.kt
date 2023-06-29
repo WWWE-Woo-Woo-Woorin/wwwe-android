@@ -7,6 +7,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import app.junsu.wwwe.R
 import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
+import io.getstream.chat.android.compose.ui.channels.list.ChannelItem
+import io.getstream.chat.android.compose.ui.messages.MessagesScreen
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
 
 @Composable
@@ -22,7 +24,6 @@ fun ChatScreen(
                 title = stringResource(R.string.chat),
                 isShowingSearch = false,
                 onItemClick = { channel ->
-                    // TODO Start Messages Activity
                 },
                 onBackPressed = onNavigateUp,
             )
