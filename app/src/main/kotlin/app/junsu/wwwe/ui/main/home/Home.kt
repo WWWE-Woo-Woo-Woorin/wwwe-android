@@ -4,8 +4,11 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.MailOutline
+import androidx.compose.material.icons.filled.ChatBubble
+import androidx.compose.material.icons.filled.Feed
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.ChatBubbleOutline
+import androidx.compose.material.icons.outlined.Feed
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
@@ -77,22 +80,26 @@ fun Home(
 enum class HomeSections(
     @StringRes val title: Int,
     val route: String,
-    val icon: ImageVector,
+    val defaultIcon: ImageVector,
+    val selectedIcon: ImageVector,
 ) {
     COMMUNITY(
         title = R.string.community,
         route = "home/community",
-        icon = Icons.Outlined.Home, // TODO: Change Icon
+        defaultIcon = Icons.Outlined.Feed,
+        selectedIcon = Icons.Filled.Feed,
     ),
     CHAT(
         title = R.string.chat,
         route = "home/chat",
-        icon = Icons.Outlined.MailOutline, // TODO: Change Icon
+        defaultIcon = Icons.Outlined.ChatBubbleOutline,
+        selectedIcon = Icons.Filled.ChatBubble,
     ),
     SETTINGS(
         title = R.string.settings,
         route = "home/settings",
-        icon = Icons.Outlined.Settings, // TODO: Change Icon
+        defaultIcon = Icons.Outlined.Settings,
+        selectedIcon = Icons.Filled.Settings,
     ),
 }
 
@@ -126,7 +133,7 @@ fun WwweBottomAppBar(
                 },
                 icon = {
                     Icon(
-                        imageVector = section.icon,
+                        imageVector = if (selected) section.selectedIcon else section.defaultIcon,
                         contentDescription = null,
                         tint = if (selected) {
                             MaterialTheme.colorScheme.primary
