@@ -20,3 +20,10 @@ fun NavHostController.navigateToCreatePost() {
         restoreState = true
     }
 }
+
+fun NavHostController.navigateToMessages(channelId: String) {
+    this.navigate(WwweDestinations.MainNavigation.CHAT_MESSAGES + "/$channelId") {
+        launchSingleTop = true
+        restoreState = true
+    }
+}

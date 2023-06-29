@@ -30,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
 import app.junsu.wwwe.ui.main.home.chat.ChatScreen
 import app.junsu.wwwe.ui.main.home.community.CommunityScreen
+import app.junsu.wwwe.util.navigateToMessages
 
 @Composable
 fun Home(
@@ -65,6 +66,7 @@ fun Home(
             composable(HomeSections.CHAT.route) {
                 ChatScreen(
                     onNavigateUp = navController::navigateUp,
+                    onNavigateToMessages = navController::navigateToMessages,
                 )
             }
             composable(HomeSections.SETTINGS.route) {}

@@ -7,14 +7,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import app.junsu.wwwe.R
 import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
-import io.getstream.chat.android.compose.ui.channels.list.ChannelItem
-import io.getstream.chat.android.compose.ui.messages.MessagesScreen
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
 
 @Composable
 fun ChatScreen(
     modifier: Modifier = Modifier,
     onNavigateUp: () -> Unit,
+    onNavigateToMessages: (channelId: String) -> Unit,
 ) {
     Surface(
         modifier = modifier.fillMaxSize(),
@@ -23,8 +22,7 @@ fun ChatScreen(
             ChannelsScreen(
                 title = stringResource(R.string.chat),
                 isShowingSearch = false,
-                onItemClick = { channel ->
-                },
+                onItemClick = { channel -> onNavigateToMessages(channel.id) },
                 onBackPressed = onNavigateUp,
             )
         }
