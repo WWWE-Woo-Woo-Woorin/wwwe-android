@@ -28,8 +28,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -37,7 +35,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
-import app.junsu.wwwe.model.post.ComposePostRequest
 import app.junsu.wwwe.model.post.PostType
 import app.junsu.wwwe.model.post.PostType.CLUB
 import app.junsu.wwwe.model.post.PostType.DEFAULT
@@ -76,9 +73,6 @@ fun ComposePostScreen(
         onResult = { if (it != null) viewModel.updateImage(it) },
     )
 
-    val (postContentText, onTextChange) = remember { mutableStateOf("") }
-    val (selectedPostType, onSelectedTypeChange) = remember { mutableStateOf(DEFAULT) }
-
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -101,8 +95,8 @@ fun ComposePostScreen(
                 .fillMaxWidth()
                 .padding(start = 16.dp),
             chips = PostType.values().toList(),
-            selectedPostType = selectedPostType,
-            onSelectPostType = onSelectedTypeChange,
+            selectedPostType = state.postType,
+            onSelectPostType = { type -> viewModel.updatePostType(type) },
         )
         OutlinedTextField(
             modifier = Modifier
@@ -111,8 +105,8 @@ fun ComposePostScreen(
                     horizontal = 16.dp,
                     vertical = 12.dp,
                 ),
-            value = postContentText,
-            onValueChange = onTextChange,
+            value = state.text,
+            onValueChange = { text -> viewModel.updateText(text) },
             maxLines = 4,
         )
         Spacer(modifier = Modifier.weight(1f))
@@ -126,17 +120,8 @@ fun ComposePostScreen(
             horizontalArrangement = Arrangement.End,
         ) {
             Button(
-                onClick = {
-                    viewModel.composePost(
-                        request = ComposePostRequest(
-                            // todo
-                            postImageUrl = "https://static.toss.im/homepage-static/newtoss/newtoss-og.jpg",
-                            content = postContentText,
-                            postType = selectedPostType.name,
-                        ),
-                    )
-                },
-                enabled = postContentText.isNotBlank(),
+                onClick = { viewModel.uploadImageAndComposePost() },
+                enabled = state.composeButtonEnabled,
             ) {
                 Icon(
                     imageVector = Icons.Filled.Edit,
