@@ -38,6 +38,9 @@ import app.junsu.wwwe.model.user.SignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -66,16 +69,23 @@ fun SignInScreen(
 
     val googleSignInLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
-        onResult = {
-            if (it.resultCode == RESULT_OK) {
-                it.data?.run {
-                    val email = GoogleSignIn.getSignedInAccountFromIntent(it.data).result.email!!
-
+        onResult = { result ->
+            if (result.resultCode == RESULT_OK) {
+                result.data?.run {
+                    val account = GoogleSignIn.getSignedInAccountFromIntent(result.data).result
                     viewModel.signIn(
                         request = SignInRequest(
-                            email = email,
+                            email = account.email!!,
                         ),
                     )
+                    val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+                    Firebase.auth.signInWithCredential(credential).addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            println("SIGNINSIGNIN ${it.isSuccessful}")
+                        } else {
+                            println("SIGNINFAILURE")
+                        }
+                    }
                 }
             }
         },
