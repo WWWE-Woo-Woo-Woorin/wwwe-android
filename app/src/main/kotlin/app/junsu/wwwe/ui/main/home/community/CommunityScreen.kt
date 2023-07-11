@@ -50,7 +50,7 @@ fun CommunityScreen(
     viewModel: CommunityViewModel = getViewModel(),
     onNavigateToCreatePost: () -> Unit,
 ) {
-    val state = viewModel.flow.collectAsState()
+    val uiState by viewModel.flow.collectAsState()
     var selectedTab by remember { mutableIntStateOf(0) }
 
     Box(
@@ -78,7 +78,7 @@ fun CommunityScreen(
             LazyColumn(
                 modifier = Modifier.weight(1f),
             ) {
-                val posts = state.value.posts
+                val posts = uiState.posts
 
                 items(
                     when (selectedTab) {

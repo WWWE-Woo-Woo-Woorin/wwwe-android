@@ -14,6 +14,10 @@ class CommunityViewModel(
     val flow = MutableStateFlow(CommunityState.initial())
 
     init {
+        this.fetchPosts()
+    }
+
+    fun fetchPosts() {
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
                 postRepository.inquirePosts()
