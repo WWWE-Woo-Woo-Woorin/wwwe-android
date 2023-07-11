@@ -21,6 +21,7 @@ fun NavGraphBuilder.mainNavigation(
     onNavigateToCreatePost: () -> Unit,
     onNavigateUp: () -> Unit,
     onNavigateToMessages: (channelId: String) -> Unit,
+    onNavigateToAuthNav: () -> Unit,
 ) {
     navigation(
         route = WwweDestinations.MainNavigation.route,
@@ -31,6 +32,7 @@ fun NavGraphBuilder.mainNavigation(
                 bottomAppBarTabs = bottomAppBarTabs,
                 onNavigateToCreatePost = onNavigateToCreatePost,
                 onNavigateToMessages = onNavigateToMessages,
+                onNavigateToAuthNav = onNavigateToAuthNav,
             )
         }
         composable(WwweDestinations.MainNavigation.COMPOSE_POST) {

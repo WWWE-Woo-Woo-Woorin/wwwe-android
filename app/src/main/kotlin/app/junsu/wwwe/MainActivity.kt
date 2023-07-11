@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.NavHost
 import app.junsu.wwwe.ui.theme.WwweTheme
+import app.junsu.wwwe.util.navigateToAuthNav
 import app.junsu.wwwe.util.navigateToCreatePost
 import app.junsu.wwwe.util.navigateToHomeNav
 import app.junsu.wwwe.util.navigateToMessages
@@ -114,6 +115,7 @@ fun WwweApp(
                 onNavigateToCreatePost = navController::navigateToCreatePost,
                 onNavigateUp = navController::navigateUp,
                 onNavigateToMessages = navController::navigateToMessages,
+                onNavigateToAuthNav = navController::navigateToAuthNav,
             )
             authNavigation(
                 onNavigateToHomeNav = navController::navigateToHomeNav,
