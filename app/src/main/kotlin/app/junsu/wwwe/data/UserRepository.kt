@@ -14,23 +14,23 @@ class UserRepository(
     private val httpClient: HttpClient,
     private val tokenFacade: TokenFacade,
 ) {
-    suspend fun signIn(request: SignInRequest): Token {
-        return httpClient.post("$BASE_URL/v1/users/signin") {
+    suspend fun signIn(request: SignInRequest) {
+        val result = httpClient.post("$BASE_URL/v1/users/signin") {
             contentType(ContentType.Application.Json)
             setBody(request)
-        }.body()
-    }
-
-    /**
-     * @return [Result] whether sign in success
-     */
-    suspend fun signInWithSavingTokenAndEmail(request: SignInRequest) {
-        val token = this.signIn(request)
-        tokenFacade.saveToken(token)
-        tokenFacade.saveEmail(request.email)
+        }
+        val token = result.body<Token>()
+        tokenFacade.run {
+            saveToken(token)
+            saveEmail(request.email)
+        }
     }
 
     suspend fun regenerateToken() {
         tokenFacade.regenerateToken()
+    }
+
+    suspend fun signOut() {
+        tokenFacade.clearToken()
     }
 }

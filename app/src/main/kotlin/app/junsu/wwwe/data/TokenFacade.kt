@@ -95,4 +95,8 @@ class TokenFacade(
             regenerateAndSaveToken().accessToken
         }
     }
+
+    suspend fun clearToken() {
+        dataStore.edit { it.clear() }
+    }
 }
