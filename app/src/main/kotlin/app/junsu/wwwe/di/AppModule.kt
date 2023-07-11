@@ -13,6 +13,7 @@ val appModule = module {
         communityModule,
         userModule,
         postModule,
+        settingsModule,
     )
 
     single { httpClient }

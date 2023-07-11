@@ -18,10 +18,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import app.junsu.wwwe.R
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SettingsScreen(
     modifier: Modifier = Modifier,
+    settingsViewModel: SettingsViewModel = koinViewModel(),
     onNavigateToAuthNav: () -> Unit,
 ) {
     Column(
