@@ -7,6 +7,7 @@
     <string name="chat">Chat</string>
     <string name="settings">Settings</string>
     <string name="compose">Compose</string>
+    <string name="sign_out">Sign out</string>
 
     <string name="sign_in_google">Sign in with Google</string>
     <string name="sign_in_failure">Sign in failure.</string>

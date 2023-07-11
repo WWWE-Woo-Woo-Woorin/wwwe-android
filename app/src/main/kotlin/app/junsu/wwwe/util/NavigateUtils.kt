@@ -27,3 +27,13 @@ fun NavHostController.navigateToMessages(channelId: String) {
         restoreState = true
     }
 }
+
+fun NavHostController.navigateToAuthNav() {
+    this.navigate(WwweDestinations.AuthNavigation.route) {
+        launchSingleTop = true
+        restoreState = true
+        popUpTo(this@navigateToAuthNav.graph.findStartDestination().id) {
+            inclusive = true
+        }
+    }
+}

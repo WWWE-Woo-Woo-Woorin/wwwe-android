@@ -30,6 +30,8 @@ import androidx.navigation.compose.rememberNavController
 import app.junsu.wwwe.R
 import app.junsu.wwwe.ui.main.home.chat.ChatScreen
 import app.junsu.wwwe.ui.main.home.community.CommunityScreen
+import app.junsu.wwwe.ui.main.home.settings.SettingsScreen
+import app.junsu.wwwe.util.navigateToAuthNav
 
 @Composable
 fun Home(
@@ -69,7 +71,11 @@ fun Home(
                     onNavigateToMessages = onNavigateToMessages,
                 )
             }
-            composable(HomeSections.SETTINGS.route) {}
+            composable(HomeSections.SETTINGS.route) {
+                SettingsScreen(
+                    onNavigateToAuthNav = navController::navigateToAuthNav,
+                )
+            }
         }
     }
 }
